@@ -71,6 +71,10 @@ body {
     margin: 5px;
 }
 
+.text {
+    text-align: justify;
+}
+
 .social{
     text-align: center;
 }
