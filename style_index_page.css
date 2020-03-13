@@ -102,23 +102,15 @@ body {
     
 }
 
-.container {
+.teaching_year {
     position: relative;
 }
 
 .teaching_ubc{
-    opacity: 0.04;    
-    display: block;
-    margin-left: 15em;
+    width: 7em;
+    opacity: 0.25;    
+    display: inherit;
+    margin-left: auto;
     margin-right: auto;
     margin-top: 1em;
-}
-
-
-
-.teaching_text{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    text-align: left;
 }
