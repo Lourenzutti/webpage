@@ -3,114 +3,278 @@ body {
     margin-top: 1px;
 }
 
-.container{
-    display: grid;
-    column-gap: 5em;
-    grid-template-columns: auto  5fr 2fr;
-}
-
-#title_menu {
-    width: 18vw;
-    max-width: 200px;
-    min-width: 150px;
-    top: 0;
-    /*border: 1px solid red;*/
-    font-size-adjust: initial;
-    position: -webkit-sticky;
-}
-
-#main_column{
-    /*border: 1px solid red;*/
-    justify-self: start;    
-}
-
-
-.section_title{
-    margin-top: 3rem;
-    font-size: 3rem;
-    font-family: 'Courier New', Courier, monospace;
+.title_separator{
+    border: none;
+    height: 1px;
+    color: #333;
+    background-color: #333;
 }
 
 .main_separator{
-    max-width: 45vw;
+    max-width: 75%;
     margin:0px;
+    border: none;
+    height: 1px;
+    color: #333;
+    background-color: #333;
 }
 
-#profile_img {
-    width: 98%;
-    margin: 1% 1%;
-    border-radius: 100%;
+.container{
+    display: grid;
+    column-gap: 5%;
+    grid-template-columns: auto  1fr;
+    margin: 10px;
+    padding-right: 10px;
+    width: 100%;
 }
 
-#title {
-    font-weight: bold;
-    margin: 1%;
-    text-align: center;
-    font-size: calc(12px + .4vw)
+#title{
+    font-family: serif;
+}
+@media (min-width: 700px){
+    .navbar{
+        display: none;
+    }
+
+    #title_menu {
+        width: 18vw;
+        max-width: 200px;
+        min-width: 100px;
+        top: 0;
+        /*border: 1px solid red;*/
+        font-size-adjust: initial;
+        position: -webkit-sticky;
+    }
+
+    #main_column{
+        /*border: 1px solid red;*/
+        justify-self: start;
+        width: 100%;
+        max-width: 1200px;
+
+    }
+
+    .section_title{
+        margin-top: 3rem;
+        font-size: 3rem;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    #profile_img {
+        width: 98%;
+        margin: 1% 0%;
+        border-radius: 100%;
+        size: 1fr;
+    }
+
+    #title {
+        font-weight: bold;
+        text-align: center;
+        font-size: calc(8px + 1.15vw);
+        padding: 0%;
+        margin-top: 0%;
+        margin-bottom: 10%;
+    }
+
+    #subtitle {
+        font-size: calc(5px + 1vw);
+        color: rgba(80, 80, 80, 1);
+        text-align: center;
+        font-size-adjust: initial;
+        margin-top: 5%;
+    }
+
+    #menu {
+        font-size: calc(12px + .4vw);
+        list-style-type: none;
+        padding-left: 30%;
+        margin: 0;
+    }
+
+    .text {
+        text-align: justify;
+    }
+
+    .social{
+        text-align: center;
+    }
+
+    .social_link{
+        display: inline-block;
+        text-align: center;
+        margin: 5px 2px;
+        color: inherit;
+        font-size: calc(2px + 1.1vw);
+    }
+
+    .social_link:hover{
+        background-color: rgb(236, 235, 235);
+    }
+
+    .menu_link{
+        color: inherit;
+        text-decoration: none;
+        font-size: calc(8px + 1.15vw);
+        text-size-adjust: initial;
+    }
+
+    .menu_link:hover{
+        color: red;
+        
+    }
+
+    .teaching_year {
+        position: relative;
+    }
+
+    .university-logo{
+        width: 7em;
+        opacity: 0.25;    
+        display: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+    }
 }
 
-.title_separator {
-    width: 15vw;
-    max-width: 200px;
-    min-width: 150px;
-}
+@media(min-width: 1200px){
+    #title {
+        font-weight: bold;
+        text-align: center;
+        font-size: 21.75px;
+    }
 
-#subtitle {
-    font-size: calc(10px + .4vw);
-    color: rgba(80, 80, 80, 1);
-    text-align: center;
-    font-size-adjust: initial;
-}
-
-#menu {
-    font-size: calc(12px + .4vw);
-    list-style-type: none;
-}
-
-#menu li {
-    margin: 5px;
-}
-
-.text {
-    text-align: justify;
-}
-
-.social{
-    text-align: center;
-}
-
-.social_link{
-    display: inline-block;
-    text-align: center;
-    margin: 5px 2px;
-    color: inherit;
-}
-
-.social_link:hover{
-    background-color: rgb(236, 235, 235);
-}
-
-.menu_link{
-    color: inherit;
-    text-decoration: none;
-    font-size: 1.05em;
-    text-size-adjust: initial;
-}
-
-.menu_link:hover{
-    color: red;
+    #subtitle {
+        font-size: 17px;
+        color: rgba(80, 80, 80, 1);
+        text-align: center;
+        font-size-adjust: initial;
+    }
     
+    .menu_link{
+        color: inherit;
+        text-decoration: none;
+        font-size: 22px;
+        text-size-adjust: initial;
+    }
+
+    .social_link{
+        display: inline-block;
+        text-align: center;
+        margin: 5px 2px;
+        color: inherit;
+        font-size: 15.6px;
+    }
 }
 
-.teaching_year {
-    position: relative;
-}
 
-.university-logo{
-    width: 7em;
-    opacity: 0.25;    
-    display: inherit;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 1em;
+@media (max-width: 699px){
+    .container{
+        display: grid;
+        column-gap: 5em;
+        grid-template-columns: 2fr  5fr 2fr;
+    }
+    
+    #title_menu {
+        width: 18vw;
+        max-width: 200px;
+        min-width: 150px;
+        top: 0;
+        /*border: 1px solid red;*/
+        font-size-adjust: initial;
+        position: -webkit-sticky;
+    }
+
+
+    #main_column{
+        /*border: 1px solid red;*/
+        justify-self: start;    
+    }
+
+
+    .section_title{
+        margin-top: 3rem;
+        font-size: 3rem;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    #profile_img {
+        display: none;
+        width: 98%;
+        margin: 1% 1%;
+        border-radius: 100%;
+    }
+
+    #title {
+        display: none;
+        font-weight: bold;
+        margin: 1%;
+        text-align: center;
+        font-size: calc(50px + .6vw)
+    }
+
+    #subtitle {
+        display: none;
+        font-size: calc(10px + .4vw);
+        color: rgba(80, 80, 80, 1);
+        text-align: center;
+        font-size-adjust: initial;
+    }
+
+    #menu {
+        font-size: calc(12px + .4vw);
+        list-style-type: none;
+    }
+
+    #menu li {
+        margin: 5px;
+    }
+
+    .text {
+        text-align: justify;
+    }
+
+    .social{
+        text-align: center;
+    }
+
+    .social_link{
+        display: inline-block;
+        text-align: center;
+        margin: 5px 2px;
+        color: inherit;
+    }
+
+    .social_link:hover{
+        background-color: rgb(236, 235, 235);
+    }
+
+    .menu_link{
+        color: inherit;
+        text-decoration: none;
+        font-size: 1.05em;
+        text-size-adjust: initial;
+    }
+
+    .menu_link:hover{
+        color: red;
+        
+    }
+
+    .teaching_year {
+        position: relative;
+    }
+
+    .university-logo{
+        width: 7em;
+        opacity: 0.25;    
+        display: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+    }
+
+    #title_menu{
+        display: none;
+    }
 }
