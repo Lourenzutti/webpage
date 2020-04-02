@@ -170,9 +170,13 @@ body {
 
 @media (max-width: 699px){
     .container{
-        display: grid;
-        column-gap: 5em;
-        grid-template-columns: 2fr  5fr 2fr;
+        display: inherit;
+        column-gap: 0%;
+        grid-template-columns: 1fr;
+        margin: 10px;
+        padding: 0%;
+        padding-right: 10px;
+        width: 100%;
     }
     
     #title_menu {
@@ -188,7 +192,8 @@ body {
 
     #main_column{
         /*border: 1px solid red;*/
-        justify-self: start;    
+        justify-self: start;
+        width: 100%;
     }
 
 
@@ -196,6 +201,8 @@ body {
         margin-top: 3rem;
         font-size: 3rem;
         font-family: 'Courier New', Courier, monospace;
+        width: 100%;
+
     }
 
     #profile_img {
