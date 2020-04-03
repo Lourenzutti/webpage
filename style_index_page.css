@@ -213,6 +213,7 @@ body {
     }
     
     #title_menu {
+        display: none;
         width: 18vw;
         max-width: 200px;
         min-width: 150px;
