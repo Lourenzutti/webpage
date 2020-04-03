@@ -305,16 +305,42 @@ body {
         position: relative;
     }
 
-    .university-logo{
-        width: 7em;
-        opacity: 0.25;    
+    .teaching-session{
+        display: grid;
+        column-gap: 1px;
+        grid-template-columns: 1fr  5fr;
+        margin: 5px;
+    }
+
+    .university-logo-ubc{
+        opacity: 0.25;  
+        size=25%;
         display: inherit;
         margin-left: auto;
         margin-right: auto;
         margin-top: 1em;
-    }
+        align-content: center;
+    }    
 
-    #title_menu{
-        display: none;
+    .university-logo-ufes{
+        opacity: 0.55;
+        display: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+        align-content: center;
+    }    
+    
+    .university-logo-ufmg{
+        opacity: 0.45;
+        display: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+        align-content: center;
+    }    
+    
+    .teaching_text{
+        margin: 0px;
     }
 }
