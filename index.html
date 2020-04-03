@@ -62,20 +62,23 @@
 
             <ul id="menu">
                 <li>
-                    <a class="menu_link" href="index.html"> <i class="fas fa-home"></i> Home </a>
+                    <a class="menu_link" href="" data-page="index.html"> <i class="fas fa-home"></i> Home </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="blog/blog_index.html"> <i class="fas fa-pencil-alt"></i> Blog </a>
+                    <a class="menu_link" href="" data-page="blog/blog_index.html"> <i class="fas fa-pencil-alt"></i>
+                        Blog </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="tutorials/tutorials_index.html"> <i class="fas fa-book"></i> Tutorials
+                    <a class="menu_link" href="" data-page="tutorials/tutorials_index.html"> <i class="fas fa-book"></i>
+                        Tutorials
                     </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="teaching.html"><i class="fas fa-chalkboard-teacher"></i> Teaching</a>
+                    <a class="menu_link" href="" data-page="teaching.html"><i class="fas fa-chalkboard-teacher"></i>
+                        Teaching</a>
                 </li>
                 <li>
-                    <a class="menu_link" href="about.html"><i class="fas fa-info-circle"></i> About </a>
+                    <a class="menu_link" href="" data-page="about.html"><i class="fas fa-info-circle"></i> About </a>
                 </li>
             </ul>
 
@@ -141,6 +144,13 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.nav-link').forEach(link => {
+                link.onclick = () => {
+                    load_page(link.dataset.page);
+                    return false;
+                };
+            });
+
+            document.querySelectorAll('.menu_link').forEach(link => {
                 link.onclick = () => {
                     load_page(link.dataset.page);
                     return false;
