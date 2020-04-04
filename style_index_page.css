@@ -50,8 +50,8 @@ body {
         /*border: 1px solid red;*/
         justify-self: start;
         width: 100%;
-        max-width: 1200px;
-
+        max-width: 1400px;
+        margin: 20px;
     }
 
     .section_title{
@@ -194,6 +194,8 @@ body {
         /*border: 1px solid red;*/
         justify-self: start;
         width: 100%;
+        max-width: 1400px;
+        margin: 20px;
     }
 
 
