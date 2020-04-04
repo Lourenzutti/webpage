@@ -227,7 +227,7 @@ body {
     #main_column{
         /*border: 1px solid red;*/
         justify-self: start;
-        width: 100%;
+        width: 80%;
         max-width: 1400px;
         margin: 20px;
     }
