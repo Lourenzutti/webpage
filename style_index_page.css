@@ -59,7 +59,7 @@ body {
 
     .section_title{
         margin-top: 3rem;
-        font-size: 2rem;
+        font-size: 3rem;
         font-family: 'Courier New', Courier, monospace;
     }
 
@@ -317,7 +317,7 @@ body {
 
     .university-logo-ubc{
         opacity: 0.25;  
-        size=25%;
+        size:25%;
         display: inherit;
         margin-left: auto;
         margin-right: auto;
