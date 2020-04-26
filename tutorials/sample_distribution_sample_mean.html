@@ -113,7 +113,7 @@
 
         <section id="main_column">
             <div class="section_title">
-                Sampling distribution of the sample mean
+                Sampling distribution
                 <hr class="main_separator">
             </div>
             <div class="text">
@@ -146,7 +146,7 @@
                     Statistical inference is the area of statistics that is focused on the extrapolation
                     of results observed in a sample of the population to the whole population. It helps us to
                     answer the questions above by measuring the intrinsic uncertainty and errors caused by the
-                    use of a sample of people instead of the whole population. One of the core concepts of
+                    use of a sample of items/people instead of the whole population. One of the core concepts of
                     statistical inference is <emph>Sampling Distributions</emph>, which will discuss in this post.
                     But first, let's discuss what is a population and what is a sample more precisely.
                 </p>
@@ -160,78 +160,146 @@
                 </p>
 
                 <p>
-                    <em><strong>Example 1:</strong></em> In the election example above, the group of all American voters is our population.
+                    <em><strong>Example 1.1:</strong></em> In the election example above, the group of all American
+                    voters
+                    is our population.
                     We are interested in the proportion of voters that will vote for each candidate.
                     (Note that the population is not the group of all Americans. It is the group of American
                     voters.)
                 </p>
                 <p>
-                    <em><strong>Example 2:</strong></em> 
-                    Apple buys touchscreen from Samsung. Suppose that Apple only accepts a batch of screens, if average lifespan of the screens in the batch 
-                    is above 24 months. THere's a way an accelerated way to check this, but once the screen fails it is useless. Obviously, Apple cannot measure
-                    all the screens in the batch, otherwise there will be nothing left for their phones. In this case, the population is the batch of screens,
-                    and the variable of interest is the average lifespan of the screens in months.                     
+                    <em><strong>Example 1.2:</strong></em>
+                    Apple buys touchscreen from Samsung. Suppose that Apple only accepts a batch of screens, if average
+                    lifespan of the screens in the batch
+                    is above 24 months. THere's a way an accelerated way to check this, but once the screen fails it is
+                    useless. Obviously, Apple cannot measure
+                    all the screens in the batch, otherwise there will be nothing left for their phones. In this case,
+                    the population is the batch of screens,
+                    and the variable of interest is the average lifespan of the screens in months.
                 </p>
                 <h5>
                     Exercise 1.1
                 </h5>
                 <p>
-                    In times of Covid-19, the Canadian government started providing some aid to Canadian workers that lost their jobs. The provincial
-                    government of British Columbia (BC) is studying if it should also provide some aid to university students. To make the decision,
+                    In times of Covid-19, the Canadian government started providing some aid to Canadian workers that
+                    lost their jobs. The provincial
+                    government of British Columbia (BC) is studying if it should also provide some aid to university
+                    students. To make the decision,
                     BC's government wants to know the average income of university students in the province.
                 </p>
                 <form>
-                    What is the population? <input type="text" size="35%"/><br>
-                    What is the variable of interest? <input type="text" size="30%">
+                    What is the population?<br>
+                    <input type="text" size="35%" /><br>
+                    What is the variable of interest?<br>
+                    <input type="text" size="35%">
                 </form>
+                <br>
+                <button id="Exercise1.1">Show answers</button>
                 <br>
                 <br>
                 <p>
-                    As discussed before, in many cases we are not able to measure the variable of interest in the entire population. 
+                    As discussed before, in many cases we are not able to measure the variable of interest in the entire
+                    population.
                     We only do it for a sample of the population. Let's define sample.
                 </p>
                 <h3>
                     2. Sample
                 </h3>
-                <p>We are going to call <em>sample</em> any subset (sub-group of elements) of the population. What we hope for is that this subset
-                would represent the population well, but this is not always the case. Even if the population is poorly represented by a sub-group of
-                elements, such sub-group is still called a sample of the population.</p> 
-                
+                <p>We are going to call <em>sample</em> any subset (sub-group of elements) of the population. What we
+                    hope for is that this subset
+                    would represent the population well, but this is not always the case. Even if the population is
+                    poorly represented by a sub-group of
+                    elements, such sub-group is still called a sample of the population.</p>
+
                 <p>There are many different strategies to draw a sample.
-                A basic approch (but a very important one) is called <em>random sampling</em> (or sampling with replacement). 
-                To take a random sample of <em>n</em> elements from a population you must:
-                <ol>
-                    <li> List all the elements of the population.</li>
-                    <li> Select one element at random from the population. All elements must have the same probability of being selected.</li>
-                    <li> Save the selected element and put it back in the population.</li>
-                    <li> Repeat Steps 2. and 3. <em>n</em> times.</li>
-                </ol>
-                Random sampling is very mathematically convenient. However, in many cases it is not the best strategy you could use. But let's not
-                discuss this now.
+                    One of the most important is called <em>random sampling</em> (or sampling with
+                    replacement).
+                    To take a random sample of <em>n</em> elements from a population you must:
+                    <ol>
+                        <li> List all the elements of the population.</li>
+                        <li> Select one element at random from the population. All elements must have the same
+                            probability of being selected.</li>
+                        <li> Save the selected element and put it back in the population.</li>
+                        <li> Repeat Steps 2. and 3. <em>n</em> times.</li>
+                    </ol>
+                    Random sampling is very mathematically convenient. However, in many cases it is not the best
+                    strategy you could use. But let's not worry about this now.
                 </p>
 
-                <br><br><br>
-                If I only take one, what will be the sampling distribution of the sample mean? <br>
+                <p>
+                    Now that we have the concept of sample, we can revisit the concept of population.
+                    As it was mentioned, a sample is a subset of the population. But frequently
+                    the population that the sample is drawn from is not the same population we are interested
+                    in. Let me try to give an example.
+                </p>
 
+                <p>
+                    <em><strong>Example 2.1:</strong></em>
+                    In times of Covid-19, the Canadian government started providing some aid to Canadian workers
+                    that lost their jobs. The provincial government of British Columbia (BC) is studying if it
+                    should also provide some aid to university students. To make the decision, BC's government
+                    wants to know the average income of university students in the province. There are many
+                    universities in BC, and sampling students from all universities can be costly and time consuming.
+                    The goverment decides to sample students only of the biggest university in the province,
+                    which is the University of British Columbia (UBC). By doing this the sample that the goverment will
+                    be taking, comes from the population of all UBC students, which is a more restricted group than the
+                    group of all university students in BC.
+                </p>
 
+                Example 2.1 shows us that we need to improve our definition of population and make a distinction between
+                the two populations.
 
                 <p>
                     <ul>
                         <li>
-                            <strong>Population:</strong> bbla bla bla bla
-                            <ul>
-                                <li>
-                                    <strong>Target Population:</strong>
-                                </li>
-                                <li>
-                                    <strong>Sampled Population:</strong>
-                                </li>
-                            </ul>
-
+                            <strong>Target Population:</strong> The group of all items/people we are interested in.
                         </li>
-
+                        <li>
+                            <strong>Sampled Population:</strong> The group of all items/people that we actually taking
+                            our sample from.
+                        </li>
                     </ul>
                 </p>
+                <p>Ideally, the <em>Sampled Population</em> will coincide with the <em>Target Population</em>. If not,
+                    be aware that your results based on the sample can only be extrapolated (by means of statistical
+                    inference)
+                    to the Sampled Population. To extrapolate from the Sample Population to the Targe Population you
+                    need a
+                    justification beyond statistical inference -- which might be valid, but might also be misleading and
+                    wrong.
+                    Careful!
+                </p>
+
+                <p>
+                    It is also worht mentioning that sometimes the target population and sample population differ for
+                    reasons other than by choice. This is very common in medical research (see the exercise below).
+                </p>
+                <h5>
+                    Exercise 2.1
+                </h5>
+                <p>
+                    Say that a Canadian pharmaceutical company created a drug for a new disease, say Covid-19. But now,
+                    they need
+                    to test if the drug works on human beings. The company will administer the drug and a placebo
+                    on people infected by Covid-19 and compare the results to see if the drug works.
+                </p>
+                <form>
+                    What is the target population?<br>
+                    <input type="text" size="35%" /><br>
+                    What is the sampled population?<br>
+                    <input type="text" size="35%" /><br>
+                </form>
+                <p>What the company should do to match the sampled population to the target population? Is this
+                    reasonable?
+                </p>
+                <textarea style="width: 100%; height:150px;" />
+
+                <h3>
+                    3. Sampling distribution
+                </h3>
+
+                <br><br><br>
+                If I only take one, what will be the sampling distribution of the sample mean? <br>
 
                 <svg width="100" height="100">
                     <rect width="100" height="100" rx="10" fill="#800000" />
