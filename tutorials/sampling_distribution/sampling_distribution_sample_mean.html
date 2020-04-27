@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../style_index_page.css">
+    <link rel="stylesheet" href="../../style_index_page.css">
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <title>Rodolfo Lourenzutti</title>
 </head>
@@ -225,7 +225,7 @@
                     Random sampling is very mathematically convenient. However, in many cases it is not the best
                     strategy you could use. But let's not worry about this now.
                 </p>
-                    &lt ADD IMAGE HERE &gt
+                &lt ADD IMAGE HERE &gt
                 <p>
                     Now that we have the concept of sample, we can revisit the concept of population.
                     As it was mentioned, a sample is a subset of the population. But frequently
@@ -303,48 +303,171 @@
                     3. Sampling distribution
                 </h3>
 
+                <h4>Example 3.1</h4>
+                <h5> Population: </h5>
+                <div>
+                    <svg width=" 85" height="85" style="display: inline-block;">
+                        <rect width="80" height="80" rx="10" fill="#800000" />
+                        <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
+                    </svg>
+                    <svg width="85" height="85">
+                        <rect width="80" height="80" rx="10" fill="#800000" />
+                        <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+                        <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+                    </svg>
+                    <svg width="85" height="85">
+                        <rect width="80" height="80" rx="10" fill="#800000" />
+                        <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+                        <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+                        <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
+                    </svg>
+                    <svg width="85" height="85">
+                        <rect width="80" height="80" rx="10" fill="#800000" />
+                        <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+                        <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+                        <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
+                        <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
+                    </svg>
+                    <svg width="85" height="85">
+                        <rect width="80" height="80" rx="10" fill="#800000" />
+                        <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+                        <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+                        <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
+                        <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
+                        <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
+                    </svg>
+                    <svg width="85" height="85">
+                        <rect width="80" height="80" rx="10" fill="#800000" />
+                        <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+                        <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+                        <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
+                        <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
+                        <circle r="6" cx=15 cy=40 fill="#f2f2f2" />
+                        <circle r="6" cx=65 cy=40 fill="#f2f2f2" />
+                    </svg>
+                </div>
+                <div id='histogrm' style="height: 200px; width: 100%;">
+                    <svg id='pop_hist' style="height: 100%; width: 100%;"></svg>
+                    <script>
+                        const svg = d3.selectAll('#pop_hist')
+                        const width = +document.querySelector("#histogrm").clientWidth
+                        const height = +document.querySelector("#histogrm").clientHeight
+                        const render = data => {
+                            const xValue = d => d.element
+                            const yValue = d => d.value
+                            const margin = { top: 20, right: 20, bottom: 20, left: 30 };
+                            const innerWidth = width - margin.left - margin.right;
+                            const innerHeight = height - margin.top - margin.bottom;
+                            const max = d3.max(data, yValue)
+                            console.log(innerWidth)
+                            const yScale = d3.scaleLinear()
+                                .domain([0, max])
+                                .range([innerHeight, 0]);
 
+                            const xScale = d3.scaleBand()
+                                .domain(data.map(xValue))
+                                .range([0, innerWidth])
+                                .padding(0.1);
+
+                            const g = svg.append('g')
+                                .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+                            g.append('g').call(d3.axisBottom(xScale))
+                                .attr('transform', `translate(0,${innerHeight})`)
+                                .style('font', '15px times');
+                            g.append('g').call(d3.axisLeft(yScale).ticks(2));
+
+                            g.selectAll('rect')
+                                .data(data)
+                                .enter()
+                                .append('rect')
+                                .attr('x', d => xScale(xValue(d)))
+                                .attr('y', d => yScale(d.value))
+                                .attr('height', d => yScale(max - yValue(d)))
+                                .attr('width', xScale.bandwidth())
+                                .attr('fill', 'steelblue');
+
+                        }
+                        var values = [
+                            { 'element': 1, 'value': 1 },
+                            { 'element': 2, 'value': 1 },
+                            { 'element': 3, 'value': 1 },
+                            { 'element': 4, 'value': 1 },
+                            { 'element': 5, 'value': 1 },
+                            { 'element': 6, 'value': 1 }
+                        ];
+                        render(values)
+
+                    </script>
+                </div>
+                <br>
+                <form>
+                    Sample size: <input type="number" size="5px"></input> <br><br>
+                    Number of samples: <input type="number" size="5px"></input> <br>
+                </form>
+
+                <button></button>
+                <div class="multi-column-div">
+                    <div class="column">
+                        <svg width="100%">
+                            <rect width="100%" height="100%" rx="10" fill="#800000" />
+                        </svg>
+                    </div>
+                    <div class="column">
+                        <svg width="100%">
+                            <rect width="100%" height="100%" rx="10" fill="green" />
+                        </svg>
+                    </div>
+                    <div class="column">
+                        <svg width="100%">
+                            <rect width="100%" height="100%" rx="10" fill="blue" />
+                        </svg>
+                    </div>
+                </div>
+                <script>
+                    d3
+                </script>
                 <br><br><br>
                 If I only take one, what will be the sampling distribution of the sample mean? <br>
 
-                <svg width="100" height="100">
-                    <rect width="100" height="100" rx="10" fill="#800000" />
-                    <circle r="7" cx=50 cy=50 fill="#f2f2f2" />
+                <svg width="85" height="85">
+                    <rect width="80" height="80" rx="10" fill="#800000" />
+                    <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
                 </svg>
-                <svg width="100" height="100">
-                    <rect width="100" height="100" rx="10" fill="#800000" />
-                    <circle r="7" cx=20 cy=20 fill="#f2f2f2" />
-                    <circle r="7" cx=80 cy=80 fill="#f2f2f2" />
+                <svg width="85" height="85">
+                    <rect width="80" height="80" rx="10" fill="#800000" />
+                    <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+                    <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
                 </svg>
-                <svg width="100" height="100">
-                    <rect width="100" height="100" rx="10" fill="#800000" />
-                    <circle r="7" cx=20 cy=20 fill="#f2f2f2" />
-                    <circle r="7" cx=80 cy=80 fill="#f2f2f2" />
-                    <circle r="7" cx=50 cy=50 fill="#f2f2f2" />
+                <svg width="85" height="85">
+                    <rect width="80" height="80" rx="10" fill="#800000" />
+                    <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+                    <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+                    <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
                 </svg>
-                <svg width="100" height="100">
-                    <rect width="100" height="100" rx="10" fill="#800000" />
-                    <circle r="7" cx=20 cy=20 fill="#f2f2f2" />
-                    <circle r="7" cx=80 cy=80 fill="#f2f2f2" />
-                    <circle r="7" cx=20 cy=80 fill="#f2f2f2" />
-                    <circle r="7" cx=80 cy=20 fill="#f2f2f2" />
+                <svg width="85" height="85">
+                    <rect width="80" height="80" rx="10" fill="#800000" />
+                    <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+                    <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+                    <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
+                    <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
                 </svg>
-                <svg width="100" height="100">
-                    <rect width="100" height="100" rx="10" fill="#800000" />
-                    <circle r="7" cx=20 cy=20 fill="#f2f2f2" />
-                    <circle r="7" cx=80 cy=80 fill="#f2f2f2" />
-                    <circle r="7" cx=20 cy=80 fill="#f2f2f2" />
-                    <circle r="7" cx=80 cy=20 fill="#f2f2f2" />
-                    <circle r="7" cx=50 cy=50 fill="#f2f2f2" />
+                <svg width="85" height="85">
+                    <rect width="80" height="80" rx="10" fill="#800000" />
+                    <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+                    <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+                    <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
+                    <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
+                    <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
                 </svg>
-                <svg width="100" height="100">
-                    <rect width="100" height="100" rx="10" fill="#800000" />
-                    <circle r="7" cx=20 cy=20 fill="#f2f2f2" />
-                    <circle r="7" cx=80 cy=80 fill="#f2f2f2" />
-                    <circle r="7" cx=20 cy=80 fill="#f2f2f2" />
-                    <circle r="7" cx=80 cy=20 fill="#f2f2f2" />
-                    <circle r="7" cx=20 cy=50 fill="#f2f2f2" />
-                    <circle r="7" cx=80 cy=50 fill="#f2f2f2" />
+                <svg width="85" height="85">
+                    <rect width="80" height="80" rx="10" fill="#800000" />
+                    <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+                    <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+                    <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
+                    <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
+                    <circle r="6" cx=15 cy=40 fill="#f2f2f2" />
+                    <circle r="6" cx=65 cy=40 fill="#f2f2f2" />
                 </svg>
             </div>
         </section>

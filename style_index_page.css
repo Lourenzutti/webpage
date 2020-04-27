@@ -167,6 +167,18 @@ body {
     .teaching_text{
         margin: 0px;
     }
+    
+    .column {
+        float: left;
+        width: 33.33%;
+      }
+      
+      /* Clear floats after the columns */
+      .multi-column-div:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
 
 }
 
