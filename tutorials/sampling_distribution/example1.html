@@ -328,7 +328,7 @@
                 mean[i].value = mean[i].value / n;
                 if (i < 20) {
                     h5 = document.createElement('h4');
-                    h5.appendChild(document.createTextNode(`Sample ${i + 1} (first 50 elements) -- sample mean: ${mean[i].value}`));
+                    h5.appendChild(document.createTextNode(`Sample ${i + 1} (first 50 elements) -- sample mean: ${mean[i].value.toFixed(2)}`));
                     div.appendChild(h5);
                     div.appendChild(div_sample);
 
