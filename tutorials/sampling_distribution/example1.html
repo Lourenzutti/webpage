@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124600152-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-124600152-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../style_index_page.css">
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <title>Rodolfo Lourenzutti</title>
+</head>
+
+<body>
+    <h2>Example 1</h2>
+    <br><br>
+    <h3> Population: </h3>
+    <div>
+        <svg width=" 85" height="85" style="display: inline-block;">
+            <rect width="80" height="80" rx="10" fill="#800000" />
+            <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
+        </svg>
+        <svg width="85" height="85">
+            <rect width="80" height="80" rx="10" fill="#800000" />
+            <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+            <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+        </svg>
+        <svg width="85" height="85">
+            <rect width="80" height="80" rx="10" fill="#800000" />
+            <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+            <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+            <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
+        </svg>
+        <svg width="85" height="85">
+            <rect width="80" height="80" rx="10" fill="#800000" />
+            <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+            <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+            <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
+            <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
+        </svg>
+        <svg width="85" height="85">
+            <rect width="80" height="80" rx="10" fill="#800000" />
+            <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+            <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+            <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
+            <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
+            <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
+        </svg>
+        <svg width="85" height="85">
+            <rect width="80" height="80" rx="10" fill="#800000" />
+            <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
+            <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
+            <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
+            <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
+            <circle r="6" cx=15 cy=40 fill="#f2f2f2" />
+            <circle r="6" cx=65 cy=40 fill="#f2f2f2" />
+        </svg>
+    </div>
+    <br><br>
+    <h3> Population Frequency: </h3>
+    <div id='histogrm' style="height: 200px; width: 100%;">
+        <svg id='pop_hist' style="height: 100%; width: 100%;"></svg>
+
+    </div>
+    <br><br>
+    <h3>Getting Samples:</h3>
+    <form>
+        Sample size: <input type="number" size="5px" id='sample-size'> <br><br>
+        Number of samples: <input type="number" size="5px" id="number-samples"> <br><br>
+    </form>
+    <button id="generate-sample-button">Get sample(s)</button>
+    <br><br><br>
+    <div id="div-samples">
+
+    </div>
+
+    If I only take one, what will be the sampling distribution of the sample mean? <br>
+
+    <script>
+        const svgNS = "http://www.w3.org/2000/svg";
+        setAttributes = (elem, attrs) => {
+            for (var key in attrs) {
+                elem.setAttribute(key, attrs[key]);
+            }
+        }
+        create_SVG_rect_div = () => {
+            var svg = document.createElementNS(svgNS, "svg");
+            setAttributes(svg, { 'width': 85, 'height': 85 })
+            var rect = document.createElementNS(svgNS, 'rect');
+            setAttributes(rect, {
+                'width': 80,
+                'height': 80,
+                'rx': 10,
+                'fill': "#800000"
+            })
+            svg.appendChild(rect);
+            return svg;
+        }
+        create_circle = (posX, posY) => {
+            var circle = document.createElementNS(svgNS, 'circle');
+            setAttributes(circle, {
+                'r': 6,
+                'cx': posX,
+                'cy': posY,
+                'fill': "#f2f2f2"
+            });
+            return circle;
+        };
+
+        var dice = []
+        dice.push(
+            () => {
+                var svg = create_SVG_rect_div();
+                svg.appendChild(create_circle(40, 40))
+                return svg;
+            }
+        );
+        dice.push(
+            () => {
+                var svg = create_SVG_rect_div();
+                svg.appendChild(create_circle(15, 15))
+                svg.appendChild(create_circle(65, 65))
+                return svg;
+            }
+        );
+        dice.push(
+            () => {
+                var svg = create_SVG_rect_div();
+                svg.appendChild(create_circle(15, 15))
+                svg.appendChild(create_circle(65, 65))
+                svg.appendChild(create_circle(40, 40))
+                return svg;
+            }
+        );
+        dice.push(
+            () => {
+                var svg = create_SVG_rect_div();
+                svg.appendChild(create_circle(15, 15))
+                svg.appendChild(create_circle(65, 65))
+                svg.appendChild(create_circle(15, 65))
+                svg.appendChild(create_circle(65, 15))
+                return svg;
+            }
+        );
+        dice.push(
+            () => {
+                var svg = create_SVG_rect_div();
+                svg.appendChild(create_circle(15, 15))
+                svg.appendChild(create_circle(65, 65))
+                svg.appendChild(create_circle(15, 65))
+                svg.appendChild(create_circle(65, 15))
+                svg.appendChild(create_circle(40, 40))
+                return svg;
+            }
+        );
+        dice.push(
+            () => {
+                var svg = create_SVG_rect_div();
+                svg.appendChild(create_circle(15, 15))
+                svg.appendChild(create_circle(65, 65))
+                svg.appendChild(create_circle(15, 65))
+                svg.appendChild(create_circle(65, 15))
+                svg.appendChild(create_circle(15, 40))
+                svg.appendChild(create_circle(65, 40))
+                return svg;
+            }
+        );
+    </script>
+
+    <script>
+        var width = +document.querySelector("#histogrm").clientWidth
+        var height = +document.querySelector("#histogrm").clientHeight
+        const bar_plot = (svg, data) => {
+            const xValue = d => d.element
+            const yValue = d => d.freq
+            const margin = { top: 20, right: 20, bottom: 20, left: 40 };
+            const innerWidth = width - margin.left - margin.right;
+            const innerHeight = height - margin.top - margin.bottom;
+            const max = d3.max(data, yValue)
+
+            const yScale = d3.scaleLinear()
+                .domain([0, max])
+                .range([innerHeight, 0]);
+
+            const xScale = d3.scaleBand()
+                .domain(data.map(xValue))
+                .range([0, innerWidth])
+                .padding(0.1);
+
+            const g = svg.append('g')
+                .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
+            g.append('g').call(d3.axisBottom(xScale))
+                .attr('transform', `translate(0,${innerHeight})`)
+                .style('font', '15px times');
+            g.append('g').call(d3.axisLeft(yScale).ticks(2));
+
+            g.selectAll('rect')
+                .data(data)
+                .enter()
+                .append('rect')
+                .attr('x', d => xScale(xValue(d)))
+                .attr('y', d => yScale(d.freq))
+                .attr('height', d => yScale(max - yValue(d)))
+                .attr('width', xScale.bandwidth())
+                .attr('fill', 'steelblue');
+
+        };
+        var pop = [
+            { 'element': 1, 'freq': 1 },
+            { 'element': 2, 'freq': 1 },
+            { 'element': 3, 'freq': 1 },
+            { 'element': 4, 'freq': 1 },
+            { 'element': 5, 'freq': 1 },
+            { 'element': 6, 'freq': 1 }
+        ];
+        const svg_pop = d3.selectAll('#pop_hist');
+        bar_plot(svg_pop, pop);
+    </script>
+    <script>
+        hist = (container, data, nbins) => {
+            // set the dimensions and margins of the graph
+            var margin = { top: 10, right: 30, bottom: 20, left: 40 },
+                width = 460 - margin.left - margin.right,
+                height = 300 - margin.top - margin.bottom;
+
+            // append the svg object to the body of the page
+            var svg = d3.select('#' + container.id)
+                .append("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom)
+                .append("g")
+                .attr("transform",
+                    "translate(" + margin.left + "," + margin.top + ")");
+
+            // X axis: scale and draw:
+            var x = d3.scaleLinear()
+                .domain([d3.min(data, function (d) { return +d.value - 1 }), d3.max(data, function (d) { return +d.value + 1 })]) // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
+                .range([0, width]);
+            svg.append("g")
+                .attr("transform", "translate(0," + height + ")")
+                .call(d3.axisBottom(x));
+
+            // set the parameters for the histogram
+            var histogram = d3.histogram()
+                .value(d => { return d.value; })   // I need to give the vector of value
+                .domain(x.domain())  // then the domain of the graphic
+                .thresholds(x.ticks(nbins)); // then the numbers of bins
+
+            // And apply this function to data to get the bins
+            var bins = histogram(data);
+
+            // Y axis: scale and draw:
+            var y = d3.scaleLinear()
+                .range([height, 0]);
+            y.domain([0, d3.max(bins, function (d) { return d.length; })]);   // d3.hist has to be called before the Y axis obviously
+            svg.append("g")
+                .call(d3.axisLeft(y));
+
+            // append the bar rectangles to the svg element
+            svg.selectAll("rect")
+                .data(bins)
+                .enter()
+                .append("rect")
+                .attr("x", 1)
+                .attr("transform", function (d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
+                .attr("width", function (d) { return x(d.x1) - x(d.x0) - 1; })
+                .attr("height", function (d) { return height - y(d.length); })
+                .style("fill", "steelblue")
+
+        };
+    </script>
+
+    <script>
+        generate_sample_button = document.querySelector("#generate-sample-button");
+        width = width / 2;
+        height = 180;
+        generate_sample_button.onclick = () => {
+            const div_samples = document.querySelector('#div-samples');
+            div_samples.innerHTML = ''
+            nsamples = +document.querySelector("#number-samples").value;
+            n = +document.querySelector("#sample-size").value;
+            var div;
+            var h5;
+            var h6;
+            var svg_sample;
+            sample = [];
+            for (var i = 0; i < nsamples; i++) {
+                sample.push([
+                    { 'element': 1, 'freq': 0 },
+                    { 'element': 2, 'freq': 0 },
+                    { 'element': 3, 'freq': 0 },
+                    { 'element': 4, 'freq': 0 },
+                    { 'element': 5, 'freq': 0 },
+                    { 'element': 6, 'freq': 0 }
+                ]);
+                div = document.createElement('div');
+                div.setAttribute('id', `div-sample-${i}`);
+                div.setAttribute('class', `multi-column`);
+
+                div_sample = document.createElement('div');
+                div_sample.setAttribute('id', `sample-${i}`);
+                div_sample.setAttribute('style', 'height: 180px; width: 50%; overflow-y: scroll;');
+                div_sample.setAttribute('class', `column`);
+
+
+
+                var mean = 0;
+                for (var j = 0; j < n; j++) {
+                    idx = Math.floor(Math.random() * pop.length)
+                    sample[i][idx].freq += 1;
+                    if (j < 50) {
+                        div_sample.appendChild(dice[idx]());
+                    };
+                    mean += idx + 1;
+                }
+                h5 = document.createElement('h4');
+                h5.appendChild(document.createTextNode(`Sample ${i + 1} (first 50 elements) -- sample mean: ${mean / n}`));
+                div.appendChild(h5);
+                div.appendChild(div_sample);
+
+                div_hist = document.createElement('div');
+                div_hist.setAttribute('style', 'height: 180px; width: 50%;')
+                div_hist.setAttribute('class', `column`);
+                /* h6 = document.createElement('h4');
+                h6.appendChild(document.createTextNode(`Sample Frequency:`));
+                div_hist.appendChild(h6); */
+                svg_sample = document.createElementNS(svgNS, 'svg');
+                svg_sample.setAttribute('id', `hist-sample-${i}`);
+                svg_sample.setAttribute('style', 'height: 100%; width: 100%;');
+                div_hist.appendChild(svg_sample);
+
+
+                div.appendChild(div_hist);
+                div_samples.appendChild(div);
+                bar_plot(d3.select(`#hist-sample-${i}`), sample[i]);
+                div_samples.appendChild(document.createElement('br'));
+                div_samples.appendChild(document.createElement('br'));
+                div_samples.appendChild(document.createElement('br'));
+            }
+
+        }
+    </script>
+</body>
+
+</html>
