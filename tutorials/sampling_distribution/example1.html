@@ -80,11 +80,9 @@
     </form>
     <button id="generate-sample-button">Get sample(s)</button>
     <br><br><br>
+    <div id='div-sampling-dist' style="height: 350px; width: 100%;"></div>
     <div id="div-samples">
-
     </div>
-
-    If I only take one, what will be the sampling distribution of the sample mean? <br>
 
     <script>
         const svgNS = "http://www.w3.org/2000/svg";
@@ -231,8 +229,8 @@
         hist = (container, data, nbins) => {
             // set the dimensions and margins of the graph
             var margin = { top: 10, right: 30, bottom: 20, left: 40 },
-                width = 460 - margin.left - margin.right,
-                height = 300 - margin.top - margin.bottom;
+                width = 600 - margin.left - margin.right,
+                height = 250 - margin.top - margin.bottom;
 
             // append the svg object to the body of the page
             var svg = d3.select('#' + container.id)
@@ -285,6 +283,7 @@
         generate_sample_button = document.querySelector("#generate-sample-button");
         width = width / 2;
         height = 180;
+        var mean;
         generate_sample_button.onclick = () => {
             const div_samples = document.querySelector('#div-samples');
             div_samples.innerHTML = ''
@@ -294,7 +293,8 @@
             var h5;
             var h6;
             var svg_sample;
-            sample = [];
+            var sample = [];
+            mean = new Array(nsamples);
             for (var i = 0; i < nsamples; i++) {
                 sample.push([
                     { 'element': 1, 'freq': 0 },
@@ -308,47 +308,58 @@
                 div.setAttribute('id', `div-sample-${i}`);
                 div.setAttribute('class', `multi-column`);
 
-                div_sample = document.createElement('div');
-                div_sample.setAttribute('id', `sample-${i}`);
-                div_sample.setAttribute('style', 'height: 180px; width: 50%; overflow-y: scroll;');
-                div_sample.setAttribute('class', `column`);
+                if (i < 20) {
+                    div_sample = document.createElement('div');
+                    div_sample.setAttribute('id', `sample-${i}`);
+                    div_sample.setAttribute('style', 'height: 180px; width: 50%; overflow-y: scroll;');
+                    div_sample.setAttribute('class', `column`);
+                };
 
 
-
-                var mean = 0;
+                mean[i] = { 'value': 0 };
                 for (var j = 0; j < n; j++) {
                     idx = Math.floor(Math.random() * pop.length)
                     sample[i][idx].freq += 1;
                     if (j < 50) {
                         div_sample.appendChild(dice[idx]());
                     };
-                    mean += idx + 1;
+                    mean[i].value += idx + 1;
                 }
-                h5 = document.createElement('h4');
-                h5.appendChild(document.createTextNode(`Sample ${i + 1} (first 50 elements) -- sample mean: ${mean / n}`));
-                div.appendChild(h5);
-                div.appendChild(div_sample);
+                mean[i].value = mean[i].value / n;
+                if (i < 20) {
+                    h5 = document.createElement('h4');
+                    h5.appendChild(document.createTextNode(`Sample ${i + 1} (first 50 elements) -- sample mean: ${mean[i].value}`));
+                    div.appendChild(h5);
+                    div.appendChild(div_sample);
 
-                div_hist = document.createElement('div');
-                div_hist.setAttribute('style', 'height: 180px; width: 50%;')
-                div_hist.setAttribute('class', `column`);
-                /* h6 = document.createElement('h4');
-                h6.appendChild(document.createTextNode(`Sample Frequency:`));
-                div_hist.appendChild(h6); */
-                svg_sample = document.createElementNS(svgNS, 'svg');
-                svg_sample.setAttribute('id', `hist-sample-${i}`);
-                svg_sample.setAttribute('style', 'height: 100%; width: 100%;');
-                div_hist.appendChild(svg_sample);
+                    div_hist = document.createElement('div');
+                    div_hist.setAttribute('style', 'height: 180px; width: 50%;')
+                    div_hist.setAttribute('class', `column`);
+                    /* h6 = document.createElement('h4');
+                    h6.appendChild(document.createTextNode(`Sample Frequency:`));
+                    div_hist.appendChild(h6); */
+                    svg_sample = document.createElementNS(svgNS, 'svg');
+                    svg_sample.setAttribute('id', `hist-sample-${i}`);
+                    svg_sample.setAttribute('style', 'height: 100%; width: 100%;');
+                    div_hist.appendChild(svg_sample);
 
 
-                div.appendChild(div_hist);
-                div_samples.appendChild(div);
-                bar_plot(d3.select(`#hist-sample-${i}`), sample[i]);
-                div_samples.appendChild(document.createElement('br'));
-                div_samples.appendChild(document.createElement('br'));
-                div_samples.appendChild(document.createElement('br'));
+                    div.appendChild(div_hist);
+                    div_samples.appendChild(div);
+                    bar_plot(d3.select(`#hist-sample-${i}`), sample[i]);
+                    div_samples.appendChild(document.createElement('br'));
+                    div_samples.appendChild(document.createElement('br'));
+                    div_samples.appendChild(document.createElement('br'));
+                }
             }
+            sampling_dist = document.querySelector('#div-sampling-dist');
+            sampling_dist.innerHTML = '';
+            h7 = document.createElement('h4');
+            h7.textContent = 'Sampling distribution of the Mean';
+            sampling_dist.appendChild(h7)
+            sampling_dist.appendChild(document.createElement('br'))
 
+            hist(document.querySelector('#div-sampling-dist'), mean, nbins = 10);
         }
     </script>
 </body>
