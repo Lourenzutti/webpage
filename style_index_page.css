@@ -34,6 +34,18 @@ body {
     font-family: serif;
 }
 
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 10px 0;
+  }
+  
+  td {
+    padding: 3px 10px;
+  }
+
 @media (min-width: 700px){
     .navbar{
         display: none;
@@ -175,7 +187,6 @@ body {
       
       /* Clear floats after the columns */
       .multi-column-div:after {
-        content: "";
         display: table;
         clear: both;
       }
