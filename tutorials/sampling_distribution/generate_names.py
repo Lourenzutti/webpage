@@ -11,7 +11,11 @@ names = []
 income = []
 for _ in range(2000):
     names.append(fake.name())
-    income.append(np.random.normal(1000, 200, size=1)[0])
+    salary = np.random.uniform(0, 1000, 1)[0]
+    if np.random.uniform(0, 1, 1)[0]<0.8:
+        income.append(salary)
+    else:
+        income.append(np.random.normal(1000, 200, size=1)[0])
 
 data = pd.DataFrame({'name':names, 'income':income})
 data.to_csv("data.csv", index=False)
