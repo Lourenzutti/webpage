@@ -24,14 +24,14 @@
 <body>
     <h2>Example 1</h2>
     <br><br>
-    <h3> Population: </h3>
+    <h3> UBC Students: </h3>
     <div style="height: 180px; width: max-content; overflow-y: scroll;">
         <table id='pop-table'>
 
         </table>
     </div>
     <br><br>
-    <h3> Population Frequency: </h3>
+    <h3> Population Frequency: &#956;= 601.29 </h3>
     <div id='histogrm' style="height: 200px; width: 100%;">
         
     </div>
@@ -130,7 +130,7 @@
                             var cell_income = row.insertCell(1);
                             cell_name.innerHTML = d.name; 
                             cell_income.innerHTML = (+d.income).toFixed(2);
-                            students.push({name: d.name, value: (+d.income).toFixed(2)});
+                            students.push({name: d.name, value: +(+d.income).toFixed(2)});
                         });
                         hist(document.querySelector('#histogrm'), students, nbins = 25);    
                 }).get();
@@ -158,7 +158,7 @@
             for (var i = 0; i < nsamples; i++) {
                 sample[i] = []
                 
-                if (i < 20) {
+                if (i < 5) {
                     div = document.createElement('div');
                     div.setAttribute('id', `div-sample-${i}`);
                     div.setAttribute('class', `multi-column`);
@@ -191,7 +191,7 @@
                 }
                 
                 mean[i].value = mean[i].value / n;
-                if (i < 20) {
+                if (i < 5) {
                     h5 = document.createElement('h4');
                     h5.appendChild(document.createTextNode(`Sample ${i + 1} (first 50 elements) -- sample mean: ${mean[i].value.toFixed(2)}`));
                     div.appendChild(h5);
@@ -212,11 +212,12 @@
             sampling_dist = document.querySelector('#div-sampling-dist');
             sampling_dist.innerHTML = '';
             h7 = document.createElement('h4');
-            h7.textContent = 'Sampling distribution of the Mean';
+            h7.textContent = `Sampling distribution of the Mean: mean = ${(mean.reduce(
+                (total, num) => total + num.value, 0)/nsamples).toFixed(2)}`;
             sampling_dist.appendChild(h7)
             sampling_dist.appendChild(document.createElement('br'))
 
-            hist(document.querySelector('#div-sampling-dist'), mean, nbins = 30);
+            hist(document.querySelector('#div-sampling-dist'), mean, nbins = 25);
         }
     </script>
 </body>
