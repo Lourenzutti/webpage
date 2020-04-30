@@ -288,7 +288,15 @@
             const div_samples = document.querySelector('#div-samples');
             div_samples.innerHTML = ''
             nsamples = +document.querySelector("#number-samples").value;
+            if (nsamples > 200) {
+                nsamples = 200;
+            };
+            document.querySelector("#number-samples").value = 200;
             n = +document.querySelector("#sample-size").value;
+            if (n > 200) {
+                n = 200;
+            };
+            document.querySelector("#sample-size").value = 200;
             var div;
             var h5;
             var h6;
