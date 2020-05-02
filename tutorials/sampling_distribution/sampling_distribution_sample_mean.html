@@ -132,39 +132,48 @@
                     <img src="biden.jpg" width="13%"/>
                     <img src="us_election_map.png" width="70%"/>
                     <img src="trump.jpeg" width="13%" />
-                    <div class="centered" style="
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-25%, -1500%);">
-                        Map by Free Vector Maps: <a href="http://freevectormaps.com">http://freevectormaps.com</a>
-                    </div>
+                    
                 </div>
+                <div class="centered" style="font-size: 12px;">
+                    Map by Free Vector Maps: <a href="http://freevectormaps.com">http://freevectormaps.com</a>
+                </div>
+                <br>
+                <br>
                 <p>
                     To make things more complicated, the political scenario changes quite fast. Therefore, time is 
-                    also an issue. Even if you had the resources to ask everyone, many political events that swings voters' opinions
+                    also an issue. Even if you had the resources to ask everyone, many political events that swing voters' opinions
                     could happen during your survey, and by the time you are finished, your results are already outdated.
                 </p>
                 <p>
-                    So, how can we learn (at least approximately) how voters are going to vote without asking 
-                    every voter?
+                    <em>So, how can we learn (at least approximately) how voters are going to vote without asking 
+                    every voter?</em>
+                </p>
+                <p>
+                    We could ask just a small portion of the voters, how they are going to vote.
+
+                    Before we dive into how this works, let's formalize some intuitive concepts.  
                 </p>
 
                 <h3>
-                    1. Population
+                    1. Population and parameters
                 </h3>
-                <p>
+                <p>                   
                     By population we mean the group of all items/people that we are interested in. In general,
-                    we are interest in one or more parameters of the population. Let's see a few examples.
+                    we are interest in one or more parameters of the population.
+                </p>
+                <p>
+                    A parameter is a quantity of the population that we are interested in.​ It describes
+                    something about the population. The parameters are usually unknown. We are trying to learn about them.
+                    Let's see a few examples:
                 </p>
 
                 <p>
                     <em><strong>Example 1.1:</strong></em> In the election example above, the group of all American
-                    voters
-                    is our population.
-                    We are interested in the proportion of voters that will vote for each candidate.
-                    (Note that the population is not the group of all Americans. It is the group of American
-                    voters.)
+                    voters is our population. 
+                    Note that the population is not the group of all Americans. It is the group of American
+                    voters. We are interested in the proportion of voters that will vote for <strong>each</strong> candidate,
+                    and the proportion of voters that will abstain from voting.
+                    In this case, therefore we have more than one parameter of interest.      
                 </p>
                 <p>
                     <em><strong>Example 1.2:</strong></em>
@@ -188,18 +197,21 @@
                 </p>
                 <form>
                     What is the population?<br>
-                    <input type="text" size="35%" /><br>
+                    <input type="text" size="35%" /><br><br>
                     What is the variable of interest?<br>
-                    <input type="text" size="35%">
+                    <input type="text" size="35%"><br><br>
+                    Say that BC's government is also interested on the inequality of students' 
+                    income. What would be the populational parameter in this case?<br>
+                    <input type="text" size="35%"><br>
                 </form>
                 <br>
                 <button id="Exercise1.1">Show answers</button>
                 <br>
                 <br>
+                
                 <p>
                     As discussed before, in many cases we are not able to measure the variable of interest in the entire
-                    population.
-                    We only do it for a sample of the population. Let's define sample.
+                    population. In these cases, we draw a sample of the population. Let's define sample.
                 </p>
                 <h3>
                     2. Sample
