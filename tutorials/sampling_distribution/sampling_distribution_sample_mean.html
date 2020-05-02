@@ -118,37 +118,36 @@
             </div>
             <div class="text">
                 <p>
-                    This year (2020) there will be a presidential election year in the United States.
-                    Every election year we see a bunch of surveys trying to draw a picture on how
-                    people are going to vote. But how do they make these surveys?
-                    Some of these surveys are quite accurate, other not so much. According to this
-                    <a href="https://www2.census.gov/programs-surveys/demo/tables/voting/table01.xlsx">table </a>
+                    This year, 2020, there will be a presidential election in the United States.
+                    Every election year we see a bunch of surveys trying to draw a picture on how people are going to vote. 
+                    But how do they make these surveys? Do these polls check how all the people are going to vote?
+                    According to this <a href="https://www2.census.gov/programs-surveys/demo/tables/voting/table01.xlsx">table </a>
                     from <a href="https://www.census.gov/en.html">US Census Bureau</a> there are approximately
-                    233.5 million voting-age citizen. Do these pools check how all the people are going to vote?
-                    No! It would certainly require a lot of resources, including time. The political scenario changes
-                    quite fast. Even if you had the resources to to ask everyone, by the time you are finished, many
-                    political events happened to which would change people's opinions. So, we need a strategy that
-                    can tell us approximately how voters are going to vote without asking every voter. So, how many
-                    voters
-                    should we ask (sample size)?
-                    But how is this possible? Also, what do I mean by approximately?
-                    We see that some of these pools are accurate and other are quite wrong. We will see that,
-                    even the surveys with bad results are bounded to occur occasionaly, and this is antecipated.
-                    Which bring us another question: what do I mean by occasionaly? How frequent is that?
+                    233.5 million voting-age citizens. It would certainly require a lot of resources, to
+                    ask all 233.5 millions voting-age American citizens. 
+                </p>
+            
 
-                    Bookkeeping:
-                    <ul>
-                        <li>What should be our sample size?</li>
-                        <li>What do we mean by approximately?</li>
-                        <li>What do we mean by occasionaly?</li>
-                    </ul>
-
-                    Statistical inference is the area of statistics that is focused on the extrapolation
-                    of results observed in a sample of the population to the whole population. It helps us to
-                    answer the questions above by measuring the intrinsic uncertainty and errors caused by the
-                    use of a sample of items/people instead of the whole population. One of the core concepts of
-                    statistical inference is <emph>Sampling Distributions</emph>, which will discuss in this post.
-                    But first, let's discuss what is a population and what is a sample more precisely.
+                <div style="display: flex; flex-flow: row nowrap; align-items: center;">
+                    <img src="biden.jpg" width="13%"/>
+                    <img src="us_election_map.png" width="70%"/>
+                    <img src="trump.jpeg" width="13%" />
+                    <div class="centered" style="
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-25%, -1500%);">
+                        Map by Free Vector Maps: <a href="http://freevectormaps.com">http://freevectormaps.com</a>
+                    </div>
+                </div>
+                <p>
+                    To make things more complicated, the political scenario changes quite fast. Therefore, time is 
+                    also an issue. Even if you had the resources to ask everyone, many political events that swings voters' opinions
+                    could happen during your survey, and by the time you are finished, your results are already outdated.
+                </p>
+                <p>
+                    So, how can we learn (at least approximately) how voters are going to vote without asking 
+                    every voter?
                 </p>
 
                 <h3>
@@ -169,8 +168,8 @@
                 </p>
                 <p>
                     <em><strong>Example 1.2:</strong></em>
-                    Apple buys touchscreen from Samsung. Suppose that Apple only accepts a batch of screens, if average
-                    lifespan of the screens in the batch
+                    Apple buys touchscreen from Samsung. Suppose that Apple only accepts a batch of screens, if
+                    the average lifespan of the screens in the batch
                     is above 24 months. THere's a way an accelerated way to check this, but once the screen fails it is
                     useless. Obviously, Apple cannot measure
                     all the screens in the batch, otherwise there will be nothing left for their phones. In this case,
@@ -235,15 +234,9 @@
 
                 <p>
                     <em><strong>Example 2.1:</strong></em>
-                    In times of Covid-19, the Canadian government started providing some aid to Canadian workers
-                    that lost their jobs. The provincial government of British Columbia (BC) is studying if it
-                    should also provide some aid to university students. To make the decision, BC's government
-                    wants to know the average income of university students in the province. There are many
-                    universities in BC, and sampling students from all universities can be costly and time consuming.
-                    The goverment decides to sample students only of the biggest university in the province,
-                    which is the University of British Columbia (UBC). By doing this the sample that the goverment will
-                    be taking, comes from the population of all UBC students, which is a more restricted group than the
-                    group of all university students in BC.
+                    In times of Covid-19, the Canadian government started providing some aid to Canadian workers that lost their jobs. The provincial government of British Columbia (BC) is studying if it should also provide some aid to university students. To make the decision, BC's government wants to know the average income of university students in the province. There are many universities in BC, and sampling students from all universities can be costly and time-consuming.
+                    The government decides to sample students only of the biggest university in the province,
+                    which is the University of British Columbia (UBC). By doing this the sample that the government will be taking, comes from the population of all UBC students, which is a more restricted group than the group of all university students in BC.
                 </p>
 
                 Example 2.1 shows us that we need to improve our definition of population and make a distinction between
@@ -305,174 +298,23 @@
 
                 <h4>Example 3.1</h4>
                 <h5> Population: </h5>
-                <div>
-                    <svg width=" 85" height="85" style="display: inline-block;">
-                        <rect width="80" height="80" rx="10" fill="#800000" />
-                        <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
-                    </svg>
-                    <svg width="85" height="85">
-                        <rect width="80" height="80" rx="10" fill="#800000" />
-                        <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
-                        <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
-                    </svg>
-                    <svg width="85" height="85">
-                        <rect width="80" height="80" rx="10" fill="#800000" />
-                        <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
-                        <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
-                        <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
-                    </svg>
-                    <svg width="85" height="85">
-                        <rect width="80" height="80" rx="10" fill="#800000" />
-                        <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
-                        <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
-                        <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
-                        <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
-                    </svg>
-                    <svg width="85" height="85">
-                        <rect width="80" height="80" rx="10" fill="#800000" />
-                        <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
-                        <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
-                        <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
-                        <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
-                        <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
-                    </svg>
-                    <svg width="85" height="85">
-                        <rect width="80" height="80" rx="10" fill="#800000" />
-                        <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
-                        <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
-                        <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
-                        <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
-                        <circle r="6" cx=15 cy=40 fill="#f2f2f2" />
-                        <circle r="6" cx=65 cy=40 fill="#f2f2f2" />
-                    </svg>
-                </div>
-                <div id='histogrm' style="height: 200px; width: 100%;">
-                    <svg id='pop_hist' style="height: 100%; width: 100%;"></svg>
-                    <script>
-                        const svg = d3.selectAll('#pop_hist')
-                        const width = +document.querySelector("#histogrm").clientWidth
-                        const height = +document.querySelector("#histogrm").clientHeight
-                        const render = data => {
-                            const xValue = d => d.element
-                            const yValue = d => d.value
-                            const margin = { top: 20, right: 20, bottom: 20, left: 30 };
-                            const innerWidth = width - margin.left - margin.right;
-                            const innerHeight = height - margin.top - margin.bottom;
-                            const max = d3.max(data, yValue)
-                            console.log(innerWidth)
-                            const yScale = d3.scaleLinear()
-                                .domain([0, max])
-                                .range([innerHeight, 0]);
+                <p>                    
+                    So, how many voters should we ask (sample size)?
+                    But how is this possible? Also, what do I mean by approximately?
+                    We see that some of these pools are accurate and others are quite wrong. We will see that even the surveys with bad results are bounded to occur occasionally, and this is anticipated.
+                    Which brings us another question: what do I mean by occasionally? How frequent is that?
+                    Some of these surveys are quite accurate, others not so much.
 
-                            const xScale = d3.scaleBand()
-                                .domain(data.map(xValue))
-                                .range([0, innerWidth])
-                                .padding(0.1);
+                    Bookkeeping:
+                    <ul>
+                        <li>What should be our sample size?</li>
+                        <li>What do we mean by approximately?</li>
+                        <li>What do we mean by occasionaly?</li>
+                    </ul>
 
-                            const g = svg.append('g')
-                                .attr('transform', `translate(${margin.left}, ${margin.top})`);
-
-                            g.append('g').call(d3.axisBottom(xScale))
-                                .attr('transform', `translate(0,${innerHeight})`)
-                                .style('font', '15px times');
-                            g.append('g').call(d3.axisLeft(yScale).ticks(2));
-
-                            g.selectAll('rect')
-                                .data(data)
-                                .enter()
-                                .append('rect')
-                                .attr('x', d => xScale(xValue(d)))
-                                .attr('y', d => yScale(d.value))
-                                .attr('height', d => yScale(max - yValue(d)))
-                                .attr('width', xScale.bandwidth())
-                                .attr('fill', 'steelblue');
-
-                        }
-                        var values = [
-                            { 'element': 1, 'value': 1 },
-                            { 'element': 2, 'value': 1 },
-                            { 'element': 3, 'value': 1 },
-                            { 'element': 4, 'value': 1 },
-                            { 'element': 5, 'value': 1 },
-                            { 'element': 6, 'value': 1 }
-                        ];
-                        render(values)
-
-                    </script>
-                </div>
-                <br>
-                <form>
-                    Sample size: <input type="number" size="5px"></input> <br><br>
-                    Number of samples: <input type="number" size="5px"></input> <br>
-                </form>
-
-                <button></button>
-                <div class="multi-column-div">
-                    <div class="column">
-                        <svg width="100%">
-                            <rect width="100%" height="100%" rx="10" fill="#800000" />
-                        </svg>
-                    </div>
-                    <div class="column">
-                        <svg width="100%">
-                            <rect width="100%" height="100%" rx="10" fill="green" />
-                        </svg>
-                    </div>
-                    <div class="column">
-                        <svg width="100%">
-                            <rect width="100%" height="100%" rx="10" fill="blue" />
-                        </svg>
-                    </div>
-                </div>
-                <script>
-                    d3
-                </script>
-                <br><br><br>
-                If I only take one, what will be the sampling distribution of the sample mean? <br>
-
-                <svg width="85" height="85">
-                    <rect width="80" height="80" rx="10" fill="#800000" />
-                    <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
-                </svg>
-                <svg width="85" height="85">
-                    <rect width="80" height="80" rx="10" fill="#800000" />
-                    <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
-                    <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
-                </svg>
-                <svg width="85" height="85">
-                    <rect width="80" height="80" rx="10" fill="#800000" />
-                    <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
-                    <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
-                    <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
-                </svg>
-                <svg width="85" height="85">
-                    <rect width="80" height="80" rx="10" fill="#800000" />
-                    <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
-                    <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
-                    <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
-                    <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
-                </svg>
-                <svg width="85" height="85">
-                    <rect width="80" height="80" rx="10" fill="#800000" />
-                    <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
-                    <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
-                    <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
-                    <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
-                    <circle r="6" cx=40 cy=40 fill="#f2f2f2" />
-                </svg>
-                <svg width="85" height="85">
-                    <rect width="80" height="80" rx="10" fill="#800000" />
-                    <circle r="6" cx=15 cy=15 fill="#f2f2f2" />
-                    <circle r="6" cx=65 cy=65 fill="#f2f2f2" />
-                    <circle r="6" cx=15 cy=65 fill="#f2f2f2" />
-                    <circle r="6" cx=65 cy=15 fill="#f2f2f2" />
-                    <circle r="6" cx=15 cy=40 fill="#f2f2f2" />
-                    <circle r="6" cx=65 cy=40 fill="#f2f2f2" />
-                </svg>
-            </div>
-        </section>
-    </div>
-
+                    Statistical inference is the area of statistics that is focused on the extrapolation of results observed in a sample of the population to the whole population. It helps us to answer the questions above by measuring the intrinsic uncertainty and errors caused by the use of a sample of items/people instead of the whole population. One of the core concepts of statistical inference is <emph>Sampling Distributions</emph>, which will discuss in this post.
+                    But first, let's discuss what is a population and what is a sample more precisely.
+                </p>
     <script src="https://kit.fontawesome.com/9ffc1b7c87.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
