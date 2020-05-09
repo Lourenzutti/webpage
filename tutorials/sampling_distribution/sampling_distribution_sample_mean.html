@@ -119,20 +119,22 @@
             <div class="text">
                 <p>
                     This year, 2020, there will be a presidential election in the United States.
-                    Every election year we see a bunch of surveys trying to draw a picture on how people are going to vote. 
+                    Every election year we see a bunch of surveys trying to draw a picture on how people are going to
+                    vote.
                     But how do they make these surveys? Do these polls check how all the people are going to vote?
-                    According to this <a href="https://www2.census.gov/programs-surveys/demo/tables/voting/table01.xlsx">table </a>
+                    According to this <a
+                        href="https://www2.census.gov/programs-surveys/demo/tables/voting/table01.xlsx">table </a>
                     from <a href="https://www.census.gov/en.html">US Census Bureau</a> there are approximately
                     233.5 million voting-age citizens. It would certainly require a lot of resources, to
-                    ask all 233.5 millions voting-age American citizens. 
+                    ask all 233.5 millions voting-age American citizens.
                 </p>
-            
+
 
                 <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-                    <img src="biden.jpg" width="13%"/>
-                    <img src="us_election_map.png" width="70%"/>
+                    <img src="biden.jpg" width="13%" />
+                    <img src="us_election_map.png" width="70%" />
                     <img src="trump.jpeg" width="13%" />
-                    
+
                 </div>
                 <div class="centered" style="font-size: 12px;">
                     Map by Free Vector Maps: <a href="http://freevectormaps.com">http://freevectormaps.com</a>
@@ -140,40 +142,44 @@
                 <br>
                 <br>
                 <p>
-                    To make things more complicated, the political scenario changes quite fast. Therefore, time is 
-                    also an issue. Even if you had the resources to ask everyone, many political events that swing voters' opinions
-                    could happen during your survey, and by the time you are finished, your results are already outdated.
+                    To make things more complicated, the political scenario changes quite fast. Therefore, time is
+                    also an issue. Even if you had the resources to ask everyone, many political events that swing
+                    voters' opinions
+                    could happen during your survey, and by the time you are finished, your results are already
+                    outdated.
                 </p>
                 <p>
-                    <em>So, how can we learn (at least approximately) how voters are going to vote without asking 
-                    every voter?</em>
+                    <em>So, how can we learn (at least approximately) how voters are going to vote without asking
+                        every voter?</em>
                 </p>
                 <p>
                     We could ask just a small portion of the voters, how they are going to vote.
 
-                    Before we dive into how this works, let's formalize some intuitive concepts.  
+                    Before we dive into how this works, let's formalize some intuitive concepts.
                 </p>
 
                 <h3>
                     1. Population and parameters
                 </h3>
-                <p>                   
+                <p>
                     By population we mean the group of all items/people that we are interested in. In general,
                     we are interest in one or more parameters of the population.
                 </p>
                 <p>
                     A parameter is a quantity of the population that we are interested in.​ It describes
-                    something about the population. The parameters are usually unknown. We are trying to learn about them.
+                    something about the population. The parameters are usually unknown. We are trying to learn about
+                    them.
                     Let's see a few examples:
                 </p>
 
                 <p>
                     <em><strong>Example 1.1:</strong></em> In the election example above, the group of all American
-                    voters is our population. 
+                    voters is our population.
                     Note that the population is not the group of all Americans. It is the group of American
-                    voters. We are interested in the proportion of voters that will vote for <strong>each</strong> candidate,
+                    voters. We are interested in the proportion of voters that will vote for <strong>each</strong>
+                    candidate,
                     and the proportion of voters that will abstain from voting.
-                    In this case, therefore we have more than one parameter of interest.      
+                    In this case, therefore we have more than one parameter of interest.
                 </p>
                 <p>
                     <em><strong>Example 1.2:</strong></em>
@@ -200,7 +206,7 @@
                     <input type="text" size="35%" /><br><br>
                     What is the variable of interest?<br>
                     <input type="text" size="35%"><br><br>
-                    Say that BC's government is also interested on the inequality of students' 
+                    Say that BC's government is also interested on the inequality of students'
                     income. What would be the populational parameter in this case?<br>
                     <input type="text" size="35%"><br>
                 </form>
@@ -208,7 +214,7 @@
                 <button id="Exercise1.1">Show answers</button>
                 <br>
                 <br>
-                
+
                 <p>
                     As discussed before, in many cases we are not able to measure the variable of interest in the entire
                     population. In these cases, we draw a sample of the population. Let's define sample.
@@ -220,7 +226,24 @@
                     hope for is that this subset
                     would represent the population well, but this is not always the case. Even if the population is
                     poorly represented by a sub-group of
-                    elements, such sub-group is still called a sample of the population.</p>
+                    elements, such sub-group is still called a sample of the population.
+                </p>
+                <p>
+                    It is like when you are cooking. Imagine you're making a soup and want to know if the soup is good
+                    on
+                    salt, you just
+                    taste a spoon of the soup (a sample), and if that portion that you tasted is lacking salt, you
+                    conclude that
+                    the whole soup is lacking salt (inference - from the sample to the population). But imagine you're
+                    cooking
+                    a less waterly thing. Say, french fries. Then, you take one french fries to see if you put enough
+                    salt.
+                    But, just by chance, you ended with a piece that got too much salt on top of it, and you conclude
+                    wrongly
+                    that the whole basket of french fries is salty. In this case, you got a sample that doesn't
+                    represent the
+                    population well. But again, it's still a sample.
+                </p>
 
                 <p>There are many different strategies to draw a sample.
                     One of the most important is called <em>random sampling</em> (or sampling with
@@ -246,9 +269,15 @@
 
                 <p>
                     <em><strong>Example 2.1:</strong></em>
-                    In times of Covid-19, the Canadian government started providing some aid to Canadian workers that lost their jobs. The provincial government of British Columbia (BC) is studying if it should also provide some aid to university students. To make the decision, BC's government wants to know the average income of university students in the province. There are many universities in BC, and sampling students from all universities can be costly and time-consuming.
+                    In times of Covid-19, the Canadian government started providing some aid to Canadian workers that
+                    lost their jobs. The provincial government of British Columbia (BC) is studying if it should also
+                    provide some aid to university students. To make the decision, BC's government wants to know the
+                    average income of university students in the province. There are many universities in BC, and
+                    sampling students from all universities can be costly and time-consuming.
                     The government decides to sample students only of the biggest university in the province,
-                    which is the University of British Columbia (UBC). By doing this the sample that the government will be taking, comes from the population of all UBC students, which is a more restricted group than the group of all university students in BC.
+                    which is the University of British Columbia (UBC). By doing this the sample that the government will
+                    be taking, comes from the population of all UBC students, which is a more restricted group than the
+                    group of all university students in BC.
                 </p>
 
                 Example 2.1 shows us that we need to improve our definition of population and make a distinction between
@@ -310,10 +339,11 @@
 
                 <h4>Example 3.1</h4>
                 <h5> Population: </h5>
-                <p>                    
+                <p>
                     So, how many voters should we ask (sample size)?
                     But how is this possible? Also, what do I mean by approximately?
-                    We see that some of these pools are accurate and others are quite wrong. We will see that even the surveys with bad results are bounded to occur occasionally, and this is anticipated.
+                    We see that some of these pools are accurate and others are quite wrong. We will see that even the
+                    surveys with bad results are bounded to occur occasionally, and this is anticipated.
                     Which brings us another question: what do I mean by occasionally? How frequent is that?
                     Some of these surveys are quite accurate, others not so much.
 
@@ -324,48 +354,52 @@
                         <li>What do we mean by occasionaly?</li>
                     </ul>
 
-                    Statistical inference is the area of statistics that is focused on the extrapolation of results observed in a sample of the population to the whole population. It helps us to answer the questions above by measuring the intrinsic uncertainty and errors caused by the use of a sample of items/people instead of the whole population. One of the core concepts of statistical inference is <emph>Sampling Distributions</emph>, which will discuss in this post.
+                    Statistical inference is the area of statistics that is focused on the extrapolation of results
+                    observed in a sample of the population to the whole population. It helps us to answer the questions
+                    above by measuring the intrinsic uncertainty and errors caused by the use of a sample of
+                    items/people instead of the whole population. One of the core concepts of statistical inference is
+                    <emph>Sampling Distributions</emph>, which will discuss in this post.
                     But first, let's discuss what is a population and what is a sample more precisely.
                 </p>
-    <script src="https://kit.fontawesome.com/9ffc1b7c87.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script>
-    <script>
-        function load_page(name) {
-            const request = new XMLHttpRequest();
-            request.open('GET', 'https://lourenzutti.github.io/' + name);
-            request.responseType = 'document';
-            request.onload = () => {
-                const response = request.responseXML;
-                document.querySelector('#main_column').innerHTML = response.querySelector('#main_column').innerHTML;
-                console.log(request.response.querySelector('#main_column').innerHTML);
-            }
-            request.send();
-        };
+                <script src="https://kit.fontawesome.com/9ffc1b7c87.js" crossorigin="anonymous"></script>
+                <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+                    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+                    crossorigin="anonymous"></script>
+                <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+                    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+                    crossorigin="anonymous"></script>
+                <script>
+                    function load_page(name) {
+                        const request = new XMLHttpRequest();
+                        request.open('GET', 'https://lourenzutti.github.io/' + name);
+                        request.responseType = 'document';
+                        request.onload = () => {
+                            const response = request.responseXML;
+                            document.querySelector('#main_column').innerHTML = response.querySelector('#main_column').innerHTML;
+                            console.log(request.response.querySelector('#main_column').innerHTML);
+                        }
+                        request.send();
+                    };
 
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.onclick = () => {
-                    load_page(link.dataset.page);
-                    return false;
-                };
-            });
+                    document.addEventListener('DOMContentLoaded', () => {
+                        document.querySelectorAll('.nav-link').forEach(link => {
+                            link.onclick = () => {
+                                load_page(link.dataset.page);
+                                return false;
+                            };
+                        });
 
-            document.querySelectorAll('.menu_link').forEach(link => {
-                link.onclick = () => {
-                    load_page(link.dataset.page);
-                    return false;
-                };
-            });
-        });
-    </script>
+                        document.querySelectorAll('.menu_link').forEach(link => {
+                            link.onclick = () => {
+                                load_page(link.dataset.page);
+                                return false;
+                            };
+                        });
+                    });
+                </script>
 
 </body>
 
