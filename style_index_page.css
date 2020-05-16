@@ -10,6 +10,12 @@ body {
     background-color: #333;
 }
 
+.answer-text{
+    padding: .5em;
+    display: none; 
+    background-color:#fcefc7;
+}
+
 .main_separator{
     max-width: 75%;
     margin-left: 0px;

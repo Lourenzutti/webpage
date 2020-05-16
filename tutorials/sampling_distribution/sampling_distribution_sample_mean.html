@@ -176,10 +176,10 @@
                     <em><strong>Example 1.1:</strong></em> In the election example above, the group of all American
                     voters is our population.
                     Note that the population is not the group of all Americans. It is the group of American
-                    voters. We are interested in the proportion of voters that will vote for <strong>each</strong>
+                    <em>voters</em>. We are interested in the proportion of voters that will vote for each
                     candidate,
                     and the proportion of voters that will abstain from voting.
-                    In this case, therefore we have more than one parameter of interest.
+                    In this case, we have more than one parameter of interest.
                 </p>
                 <p>
                     <em><strong>Example 1.2:</strong></em>
@@ -214,6 +214,8 @@
                 <button id="Exercise1.1">Show answers</button>
                 <br>
                 <br>
+
+
 
                 <p>
                     As discussed before, in many cases we are not able to measure the variable of interest in the entire
@@ -315,7 +317,7 @@
                     Say that a Canadian pharmaceutical company created a drug for a new disease, say Covid-19. But now,
                     they need
                     to test if the drug works on human beings. The company will administer the drug and a placebo
-                    on people infected by Covid-19 and compare the results to see if the drug works.
+                    on some people infected by Covid-19 who are located Canada and compare the results to see if the drug works.
                 </p>
                 <form>
                     What is the target population?<br>
@@ -329,10 +331,29 @@
                 <textarea style="width: 100%; height:150px;"></textarea>
                 <br>
                 <br>
-                <button id="Exercise1.1">Show answers</button>
+                <button id="Exercise2.1">Show answers</button>
                 <br>
                 <br>
-
+                
+                <div id="answer-exercise-2.1" class="answer-text">
+                    
+                    <p><strong>What is the target population?</strong></p>
+                    <p> The target population would be all the people in the world.</p>
+                    
+                    <p><strong>What is the sampled population?</strong></p>
+                    <p> People that are already sick with COVID-19 in Canada. </p>
+                    
+                    <p><strong>What the company should do to match the sampled population to the target population? Is this
+                        reasonable?</strong>
+                    </p>
+                    <p>
+                        The company would need to infect the whole world population, which is clearly not reasonable.
+                        Besides, the company would need to be able to administer the drug/placebo on people anywhere in the World (not just Canada).
+                        These are examples logistics and ethical problems when trying to match the target population with the sampled
+                        population, which makes it impossible. 
+                    </p>
+                </div>
+                <br>
                 <h3>
                     3. Sampling distribution
                 </h3>
@@ -398,6 +419,20 @@
                                 return false;
                             };
                         });
+                    });
+
+                    document.getElementById("Exercise2.1").addEventListener("click", () => {
+                        btn = document.getElementById('Exercise2.1');
+                        div = document.getElementById("answer-exercise-2.1");
+
+                        if (div.style.display == "block") {
+                            btn.innerHTML = "Show answers";
+                            div.style.display = "none";
+                        }
+                        else {
+                            btn.innerHTML = "Hide answer";
+                            div.style.display = "block";
+                        }
                     });
                 </script>
 
