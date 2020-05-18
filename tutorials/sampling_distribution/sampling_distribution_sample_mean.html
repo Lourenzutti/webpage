@@ -181,18 +181,60 @@
                     and the proportion of voters that will abstain from voting.
                     In this case, we have more than one parameter of interest.
                 </p>
-                <p>
-                    <em><strong>Example 1.2:</strong></em>
-                    Apple buys touchscreen from Samsung. Suppose that Apple only accepts a batch of screens, if
-                    the average lifespan of the screens in the batch
-                    is above 24 months. THere's a way an accelerated way to check this, but once the screen fails it is
-                    useless. Obviously, Apple cannot measure
-                    all the screens in the batch, otherwise there will be nothing left for their phones. In this case,
-                    the population is the batch of screens,
-                    and the variable of interest is the average lifespan of the screens in months.
-                </p>
+                
                 <h5>
                     Exercise 1.1
+                </h5>
+                <p>
+                    Apple buys touchscreen from Samsung. Suppose that Apple only accepts a batch of screens, if
+                    the average lifespan of the screens in the batch
+                    is above 24 months. There's a way an accelerated way to check this, but once the screen fails it is
+                    useless. Obviously, Apple cannot measure
+                    all the screens in the batch, otherwise there will be nothing left for them to install in their phones. 
+                    In this case, the population is the batch of screens,
+                    and the variable of interest is the average lifespan of the screens in months.
+                </p>
+                <ul>
+                    <li>
+                        <p>What is the population?</p>
+                        <textarea class="Exercise-1-1" style="width: 50%; height:30px;"></textarea><br>
+                    </li>
+                    <li>
+                        <p>What is the variable of interest?</p>
+                        <textarea class="Exercise-1-1" style="width: 50%; height:30px;"></textarea><br>
+                    </li>
+                    <li>
+                        <p>Say that Apple also wants to make sure that the life time of the screens are approximately
+                            the same for all the screens. In other words, Apple doesn't want some phones having screen problems
+                            in 24 months, and others in 48 months. What would be the populational parameter in this case?</p>
+                        <textarea class="Exercise-1-1" style="width: 100%; height:150px;"></textarea>
+                    </li>
+                </ul>
+                <br>
+                <button id="btn-Exercise-1-1">Show answers</button>
+                <br>
+                <br>
+                <div id="answer-Exercise-1-1" class="answer-text">
+
+                    <p><strong>What is the population?</strong></p>
+                    <p>In this case, the population is the batch of screens. 
+                        Be careful, as the population <strong><u>is not</u></strong> all the screens produced by Samsung. </p>
+                    
+                    <p><strong>What is the variable of interest?</strong></p>
+                    <p> The lifespan of the screens. </p>
+                    
+                    <p><strong>
+                        Say that Apple also wants to make sure that the life time of the screens are approximately
+                        the same for all the screens. In other words, Apple doesn't want some phones having screen problems
+                        in 24 months, and others in 48 months. What would be the populational parameter in this case?
+                    </strong></p>
+                    <p>
+                        The variance (or standard deviation) of the lifespan of the screens could be used to capture such
+                        information.
+                    </p>
+                </div>
+                <h5>
+                    Exercise 1.2
                 </h5>
                 <p>
                     In times of Covid-19, the Canadian government started providing some aid to Canadian workers that
@@ -201,21 +243,41 @@
                     students. To make the decision,
                     BC's government wants to know the average income of university students in the province.
                 </p>
-                <form>
-                    What is the population?<br>
-                    <input type="text" size="35%" /><br><br>
-                    What is the variable of interest?<br>
-                    <input type="text" size="35%"><br><br>
-                    Say that BC's government is also interested on the inequality of students'
-                    income. What would be the populational parameter in this case?<br>
-                    <input type="text" size="35%"><br>
-                </form>
+                <ul>
+                    <li>
+                        <p>What is the population?</p>
+                        <textarea class="Exercise-1-2" style="width: 50%; height:30px;"></textarea><br>
+                    </li>
+                    <li>
+                        <p>What is the variable of interest?</p>
+                        <textarea class="Exercise-1-2" style="width: 50%; height:30px;"></textarea><br>
+                    </li>
+                    <li>
+                        <p>Say that BC's government is also interested on the inequality of students'
+                            income. What would be the populational parameter in this case?</p>
+                        <textarea class="Exercise-1-2" style="width: 100%; height:150px;"></textarea>
+                    </li>
+                </ul>
                 <br>
-                <button id="Exercise1.1">Show answers</button>
+                <button id="btn-Exercise-1-2">Show answers</button>
                 <br>
                 <br>
+                <div id="answer-Exercise-1-2" class="answer-text">
 
-
+                    <p><strong>What is the population?</strong></p>
+                    <p>All the university students in British Columbia.</p>
+                    
+                    <p><strong>What is the variable of interest?</strong></p>
+                    <p> The average income of university students in BC.  </p>
+                    
+                    <p><strong>Say that BC's government is also interested on the inequality of students'
+                        income. What would be the populational parameter in this case?</strong>
+                    </p>
+                    <p>
+                        The variance (or standard deviation) of BC's university students.
+                    </p>
+                </div>
+                <br>
 
                 <p>
                     As discussed before, in many cases we are not able to measure the variable of interest in the entire
@@ -231,15 +293,15 @@
                     elements, such sub-group is still called a sample of the population.
                 </p>
                 <p>
-                    It is like when you are cooking. Imagine you're making a soup and want to know if the soup is good
-                    on
-                    salt, you just
+                    It is like when you are cooking. Imagine you're making a soup and want to know if the soup has
+                    enough
+                    salt. Then, we usually just
                     taste a spoon of the soup (a sample), and if that portion that you tasted is lacking salt, you
                     conclude that
                     the whole soup is lacking salt (inference - from the sample to the population). But imagine you're
                     cooking
-                    a less waterly thing. Say, french fries. Then, you take one french fries to see if you put enough
-                    salt.
+                    a less waterly thing, say, french fries. Then, you take one french fries to see if you have 
+                    put enough salt.
                     But, just by chance, you ended with a piece that got too much salt on top of it, and you conclude
                     wrongly
                     that the whole basket of french fries is salty. In this case, you got a sample that doesn't
@@ -319,24 +381,28 @@
                     to test if the drug works on human beings. The company will administer the drug and a placebo
                     on some people infected by Covid-19 who are located Canada and compare the results to see if the drug works.
                 </p>
-                <form>
-                    What is the target population?<br>
-                    <input type="text" size="35%" /><br>
-                    What is the sampled population?<br>
-                    <input type="text" size="35%" /><br>
-                </form>
-                <p>What the company should do to match the sampled population to the target population? Is this
-                    reasonable?
-                </p>
-                <textarea style="width: 100%; height:150px;"></textarea>
+                <ul>
+                    <li>
+                        <p>What is the target population?</p>
+                        <textarea class="Exercise-2-1" style="width: 50%; height:30px;"></textarea><br>
+                    </li>
+                    <li>
+                        <p>What is the sampled population?</p>
+                        <textarea class="Exercise-2-1" style="width: 50%; height:30px;"></textarea><br>
+                    </li>
+                    <li>
+                        <p>What the company should do to match the sampled population to the target population? Is this
+                        reasonable?</p>
+                        <textarea class="Exercise-2-1" style="width: 100%; height:150px;"></textarea>
+                    </li>
+                </ul>
                 <br>
-                <br>
-                <button id="Exercise2.1">Show answers</button>
+                <button id="btn-Exercise-2-1">Show answers</button>
                 <br>
                 <br>
                 
-                <div id="answer-exercise-2.1" class="answer-text">
-                    
+                <div id="answer-Exercise-2-1" class="answer-text">
+
                     <p><strong>What is the target population?</strong></p>
                     <p> The target population would be all the people in the world.</p>
                     
@@ -358,7 +424,7 @@
                     3. Sampling distribution
                 </h3>
 
-                <h4>Example 3.1</h4>
+                <h4> Example 3.1 </h4>
                 <h5> Population: </h5>
                 <p>
                     So, how many voters should we ask (sample size)?
@@ -420,22 +486,12 @@
                             };
                         });
                     });
-
-                    document.getElementById("Exercise2.1").addEventListener("click", () => {
-                        btn = document.getElementById('Exercise2.1');
-                        div = document.getElementById("answer-exercise-2.1");
-
-                        if (div.style.display == "block") {
-                            btn.innerHTML = "Show answers";
-                            div.style.display = "none";
-                        }
-                        else {
-                            btn.innerHTML = "Hide answer";
-                            div.style.display = "block";
-                        }
-                    });
                 </script>
-
+                <script src="../base_functions.js"></script>
+                <script>
+                    create_exercise("Exercise-1-1");
+                    create_exercise("Exercise-1-2");
+                    create_exercise("Exercise-2-1");
+                </script>
 </body>
-
 </html>
