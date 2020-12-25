@@ -6,7 +6,7 @@ body {
     "nav main";
     gap: 100px;
     background: rgb(127,126,158);
-    background: linear-gradient(90deg, rgba(127,126,158,1) 0%, rgba(169,198,195,1) 0%, rgba(172,191,200,1) 0%, rgba(225,238,224,1) 0%, rgba(255,255,255,1) 22%); 
+    background: linear-gradient(90deg, rgba(230,243,229,1) 0%, rgba(255,255,255,1) 40%); 
 }
 
 /*********************
@@ -61,8 +61,8 @@ nav img {
 **********************/
 nav a {
     text-decoration: none;
-    font-size: 1.2em;
-    font-family: cursive;
+    font-size: 1.1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
 }
 
@@ -107,12 +107,12 @@ main {
 }
 
 h1, h2 {
-    text-align: left;
-    font-size: 3.5em;
+    font-size: 2.8em;
     font-weight: 1;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: fantasy;
     width: 100%;
-    letter-spacing: 1px;
+    height:fit-content;
+    letter-spacing: 5px;
     margin-bottom: 0px;
     margin-top: 0.5em;
 }
