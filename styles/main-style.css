@@ -1,0 +1,143 @@
+body {
+    margin-top: 0px;
+    display: grid;
+    grid-template-columns: minmax(auto, 170px) auto;
+    grid-template-areas: 
+    "nav main";
+    gap: 100px;
+    background: rgb(127,126,158);
+    background: linear-gradient(90deg, rgba(127,126,158,1) 0%, rgba(169,198,195,1) 0%, rgba(172,191,200,1) 0%, rgba(225,238,224,1) 0%, rgba(255,255,255,1) 22%); 
+}
+
+/*********************
+    NAVIGATION MENU 
+**********************/
+nav {
+    grid-column: 1;
+    grid-area: nav;
+    font-size: 18px;
+    object-fit: contain;
+    height: min-content;
+    position: sticky;
+    top: 0;
+}
+
+nav img {
+    border-radius: 100%;
+    width: 100%;
+    height: auto;
+    margin-top: 5px;
+}
+
+/*********************
+   NAVIGATION MENU 
+  name and job title
+**********************/
+#name {
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    padding: 0%;
+    margin-top: 0%;
+    margin-bottom: 2px;
+}
+
+#current_position {
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(73, 72, 72);
+}
+
+.nav-separator {
+    width: 100%;
+    color: rgb(209, 201, 201);
+    margin-bottom: 0;
+}
+
+/*********************
+   NAVIGATION MENU 
+        links
+**********************/
+nav a {
+    text-decoration: none;
+    font-size: 1.2em;
+    font-family: cursive;
+    color: black;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 20%;
+}
+
+nav ul li{
+    padding: .15em;
+}
+
+nav a:hover{
+    color: red;
+    text-decoration: underline;
+}
+/*********************
+   NAVIGATION MENU 
+        social
+**********************/
+.social {
+    margin-top: 10px;
+    font-size: 10px;
+    text-align: center;
+    word-spacing: 8px;
+    color: black;
+}
+
+.social a:hover{
+    text-decoration: none;
+}
+
+/*********************
+      MAIN COLUMN
+**********************/
+main {
+    grid-area: main;
+    height: min-content;
+    margin-top: 1em;
+    margin-right: 2em;
+    max-width: 700px;
+}
+
+h1, h2 {
+    text-align: left;
+    font-size: 3.5em;
+    font-weight: 1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 100%;
+    letter-spacing: 1px;
+    margin-bottom: 0px;
+    margin-top: 0.5em;
+}
+
+h2 {
+    color: rgb(82, 82, 82);
+    font-size: 2.5em;
+    margin-top: 0.5em;
+    padding-top: 0px;
+}
+
+main hr {
+    max-width: 55%;
+    margin-left: 0px;
+    margin-bottom: 2em;
+}
+
+h2 + hr {
+    color: rgb(204, 204, 204);
+    margin-bottom: 1em;
+}
+
+main p {
+    justify-self: start;
+    font-size: 1em;
+    text-align: justify;
+    line-height: 1.5;
+}
