@@ -125,13 +125,21 @@ h2 {
     padding-top: 0px;
 }
 
+h3 {
+    font-size: 1.5em;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
 main hr {
     max-width: 55%;
     margin-left: 0px;
     margin-bottom: 2em;
 }
-
-
+/*********************
+      MAIN COLUMN
+         text
+**********************/
 main p {
     justify-self: start;
     font-size: 1em;
@@ -141,4 +149,34 @@ main p {
     letter-spacing: 1px;
     word-spacing: 2px;
     text-indent: 2em;
+}
+
+/*********************
+      MAIN COLUMN
+    university logos
+**********************/
+.teaching-session {
+    display: flex;
+    width: fit-content;
+}
+
+.university-logo-ubc {
+    float: left;
+    margin-top: 0px;
+    opacity: 30%;
+}
+
+.university-logo-ufes {
+    float: left;
+    opacity: 30%;
+}
+
+.university-logo-ufmg {
+    float: left;
+    opacity: 30%;
+}
+
+h3 + hr {
+    border: 3px double black;
+    width: 38%;
 }
