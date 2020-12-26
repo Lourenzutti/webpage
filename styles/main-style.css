@@ -111,10 +111,11 @@ h1, h2 {
     font-weight: 1;
     font-family: fantasy;
     width: 100%;
-    height:fit-content;
+    height: 50px;
     letter-spacing: 5px;
     margin-bottom: 0px;
     margin-top: 0.5em;
+    color: rgb(82, 82, 82);
 }
 
 h2 {
@@ -130,14 +131,14 @@ main hr {
     margin-bottom: 2em;
 }
 
-h2 + hr {
-    color: rgb(204, 204, 204);
-    margin-bottom: 1em;
-}
 
 main p {
     justify-self: start;
     font-size: 1em;
     text-align: justify;
-    line-height: 1.5;
+    line-height: 1.8;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    word-spacing: 2px;
+    text-indent: 2em;
 }
