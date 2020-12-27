@@ -1,0 +1,12 @@
+/*********************
+      MAIN COLUMN
+         text
+**********************/
+main p {
+    justify-self: start;
+    text-align: justify;
+    line-height: 1.8;
+    text-indent: 2em;
+}
+
+

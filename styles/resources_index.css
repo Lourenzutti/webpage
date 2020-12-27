@@ -1,0 +1,31 @@
+.courses {
+    display: flex;
+    overflow-x: scroll;
+}
+.course-card{
+    background-color: rgba(0, 82, 7, 0.7);
+    width: 187px;
+    height: 225px;
+    border-radius: 15%;
+    font-size: 2em;
+    margin: 0px 50px 25px 25px;
+    justify-items: center;
+    text-align: center;
+}
+
+div > a > p {
+    margin: 0px;
+    padding: 10px;
+    line-height: 200px;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    max-width: fit-content;
+}
+
+h2 + hr {
+    border: 3px double black;
+    width: 190px;
+}
