@@ -2,22 +2,39 @@
     display: flex;
     overflow-x: scroll;
 }
+
 .course-card{
     background-color: rgba(0, 82, 7, 0.7);
-    width: 187px;
-    height: 225px;
+    width: 100px;
+    height: 140px;
     border-radius: 15%;
-    font-size: 2em;
+    font-size: 1em;
+    line-height: 120px;
     margin: 0px 50px 25px 25px;
     justify-items: center;
-    text-align: center;
+    text-align: center;   
 }
+
+.course-card:hover{
+    width: 150px;
+    height: 185px;
+    line-height: 160px;
+    border-radius: 15%;
+    font-size: 1.4em;
+    -webkit-animation: .1s linear 0s 1 normal move_eye;
+    animation: .1s linear 0s 1 normal move_eye;
+}
+
+@-webkit-keyframes move_eye { from { height: 155px;width: 130px; line-height: 135px;} 
+                                to { height: 185px; width: 150px; line-height: 160px;}  }
+        @keyframes move_eye { from { height: 155px; width: 130px; line-height: 135px;}
+                                to { height: 185px; width: 150px; line-height: 160px;}  }
 
 div > a > p {
     margin: 0px;
     padding: 10px;
-    line-height: 200px;
     color: white;
+    
 }
 
 a {
@@ -25,7 +42,16 @@ a {
     max-width: fit-content;
 }
 
+h2 {
+    margin-top: 50px;
+    padding-bottom: 0px;
+    font-size: 2em;
+    height: 40px;
+}
+
 h2 + hr {
     border: 3px double black;
-    width: 190px;
+    width: 155px;
+    margin-top: 0;
+    padding-top: 0;
 }
