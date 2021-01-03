@@ -1,0 +1,9 @@
+.course-title {
+    font-size: 2.5em;
+    font-style: italic;
+    color: rgb(120, 120, 120);
+}
+
+h1 + hr {
+    margin-bottom: 0;
+}
