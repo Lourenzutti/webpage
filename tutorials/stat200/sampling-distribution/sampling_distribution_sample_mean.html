@@ -24,7 +24,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons/css/academicons.min.css">
     <link rel="stylesheet" href="../../../styles/main-style.css">
-    <link rel="stylesheet" href="../../../styles/about.css">
+    <link rel="stylesheet" href="../../../styles/chapter.css">
     <!--<link rel="stylesheet" href="../../styles/stat200_index.css"> -->
 </head>
 
@@ -97,8 +97,7 @@
             Every election year we see a bunch of surveys trying to draw a picture on how people are going to
             vote.
             But how do they make these surveys? Do these polls check how all the people are going to vote?
-            According to this <a href="https://www2.census.gov/programs-surveys/demo/tables/voting/table01.xlsx">table
-            </a>
+            According to this <a href="https://www2.census.gov/programs-surveys/demo/tables/voting/table01.xlsx">table</a>
             from <a href="https://www.census.gov/en.html">US Census Bureau</a> there are approximately
             233.5 million voting-age citizens. It would certainly require a lot of resources, to
             ask all 233.5 millions voting-age American citizens.
@@ -111,11 +110,10 @@
             <img src="trump.jpeg" width="13%" />
         </div>
 
-        <div class="centered" style="font-size: 12px;">
+        <div class="source-img">
             Map by Free Vector Maps: <a href="http://freevectormaps.com">http://freevectormaps.com</a>
         </div>
-        <br>
-        <br>
+
         <p>
             To make things more complicated, the political scenario changes quite fast. Therefore, time is
             also an issue. Even if you had the resources to ask everyone, many political events that swing
@@ -128,25 +126,40 @@
                 every voter?</em>
         </p>
         <p>
-            We could ask just a small portion of the voters, how they are going to vote.
+            A natural answer for this question is: let us ask just a small portion of the voters how they are going to vote.
+            This approach does provide us with a solution, but also many problems:
 
-            Before we dive into how this works, let's formalize some intuitive concepts.
+           
         </p>
-
-        <h3>
+        <ol>
+            <li><p><em>How do we choose the voters to answer the survey?</em></p></li>
+            <li><p><em>How many voters should answer the survey?</em></p></li>
+            <li><p><em>How do we <em>infer</em> the knowledge obtained from the Sample to the entire population of voters?</em></p></li>
+            <li><p><em>Different group of voters will have different proportion of votes.</em></p></li>
+        </ol>
+        
+        <p> In this chapter, we are going to focus on points 2 and 3. 
+            We will discuss points 1 and 2 in more detail later.
+            Let's formalize some intuitive concepts.</p>
+        <h2>
             1. Population and parameters
-        </h3>
+        </h2>
+       
+        <div class="box-def">
+            <p>Definition: Population</p>
+            By population we mean the group of all items/people that we are interested in.
+        </div>
         <p>
-            By population we mean the group of all items/people that we are interested in. In general,
-            we are interest in one or more parameters of the population.
+            In general, we are interested in one or more unknown quantities that describe the population, like summary quantities.
+            These quantities describe something about the entire population (not about specific individuals in the population),
+            and they are called parameters. 
         </p>
-        <p>
-            A parameter is a quantity of the population that we are interested in.​ It describes
-            something about the population. The parameters are usually unknown. We are trying to learn about
-            them.
-            Let's see a few examples:
-        </p>
-
+        <div class="box-def">
+            <p>Definition: Parameter</p>
+            A summary quantity of the population that is unknown. 
+        </div>
+        <p>Parameters are unknown, we are trying to learn them because they tell us information about the population.
+           Let's see an example:</p>
         <p>
             <em><strong>Example 1.1:</strong></em> In the election example above, the group of all American
             voters is our population.
@@ -156,7 +169,9 @@
             and the proportion of voters that will abstain from voting.
             In this case, we have more than one parameter of interest.
         </p>
-
+        <div class="box-def caution">
+            <p>Caution</p>
+        </div>
         <h5>
             Exercise 1.1
         </h5>

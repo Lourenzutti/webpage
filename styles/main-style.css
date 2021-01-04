@@ -2,11 +2,10 @@ body {
     margin-top: 0px;
     display: grid;
     grid-template-columns: minmax(auto, 170px) auto;
-    grid-template-areas: 
-    "nav main";
+    grid-template-areas: "nav main";
     gap: 100px;
     background: rgb(127,126,158);
-    background: linear-gradient(90deg, rgba(230,243,229,1) 0%, rgba(255,255,255,1) 40%); 
+    background: linear-gradient(90deg, rgba(230,243,229,1) 0%, rgba(255,255,255,1) 30%); 
 }
 
 /*********************
