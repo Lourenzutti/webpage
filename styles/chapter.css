@@ -41,7 +41,8 @@ h2 {
     padding: 0 .6rem .8rem !important;
     overflow: hidden;
     page-break-inside: avoid;
-    border-left: .4rem solid #14aa1e;
+    border-left: .4rem solid rgb(46, 194, 66);
+    background-color: rgba(46, 194, 66, 0.08);
     border-radius: .1rem;
     box-shadow: 0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1);
     transition: color .25s,background-color .25s,border-color .25s;
@@ -55,16 +56,17 @@ h2 {
     padding: .2rem 1rem .2rem 1rem;
     text-indent: 0px;
     font-weight: 700;
-    background-color: rgba(68, 255, 93, 0.2);
+    background-color: rgba(68, 255, 93, 0.15);
     /*background-color: rgba(109, 109, 109, 0.2);*/
 }
 
 .caution {
-    border-left: .4rem solid #fb7f4d;
+    border-left: .4rem solid rgb(251, 127,	77);
+    background-color: rgba(251, 127,	77, 0.08);
 }
 
 .caution p {
-    background-color: rgba(255, 124, 72, 0.2);
+    background-color: rgba(255, 124, 72, 0.1);
 }
 
 
