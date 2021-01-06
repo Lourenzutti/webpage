@@ -97,7 +97,8 @@
             Every election year we see a bunch of surveys trying to draw a picture on how people are going to
             vote.
             But how do they make these surveys? Do these polls check how all the people are going to vote?
-            According to this <a href="https://www2.census.gov/programs-surveys/demo/tables/voting/table01.xlsx">table</a>
+            According to this <a
+                href="https://www2.census.gov/programs-surveys/demo/tables/voting/table01.xlsx">table</a>
             from <a href="https://www.census.gov/en.html">US Census Bureau</a> there are approximately
             233.5 million voting-age citizens. It would certainly require a lot of resources, to
             ask all 233.5 millions voting-age American citizens.
@@ -126,40 +127,52 @@
                 every voter?</em>
         </p>
         <p>
-            A natural answer for this question is: let us ask just a small portion of the voters how they are going to vote.
+            A natural answer for this question is: let us ask just a small portion of the voters how they are going to
+            vote.
             This approach does provide us with a solution, but also many problems:
 
-           
+
         </p>
         <ol>
-            <li><p><em>How do we choose the voters to answer the survey?</em></p></li>
-            <li><p><em>How many voters should answer the survey?</em></p></li>
-            <li><p><em>How do we <em>infer</em> the knowledge obtained from the Sample to the entire population of voters?</em></p></li>
-            <li><p><em>Different group of voters will have different proportion of votes.</em></p></li>
+            <li>
+                <p><em>How do we choose the voters to answer the survey?</em></p>
+            </li>
+            <li>
+                <p><em>How many voters should answer the survey?</em></p>
+            </li>
+            <li>
+                <p><em>How do we <em>infer</em> the knowledge obtained from the Sample to the entire population of
+                        voters?</em></p>
+            </li>
+            <li>
+                <p><em>Different group of voters will have different proportion of votes.</em></p>
+            </li>
         </ol>
-        
-        <p> In this chapter, we are going to focus on points 2 and 3. 
+
+        <p> In this chapter, we are going to focus on points 2 and 3.
             We will discuss points 1 and 2 in more detail later.
             Let's formalize some intuitive concepts.</p>
         <h2>
             1. Population and parameters
         </h2>
-       
+
         <div class="box-def">
             <p>Definition: Population</p>
-            By population we mean the group of all items/people that we are interested in.
+            <p>By population we mean the group of all items/people that we are interested in.</p>
         </div>
         <p>
-            In general, we are interested in one or more unknown quantities that describe the population, like summary quantities.
-            These quantities describe something about the entire population (not about specific individuals in the population),
-            and they are called parameters. 
+            In general, we are interested in one or more unknown quantities that describe the population, like summary
+            quantities.
+            These quantities describe something about the entire population (not about specific individuals in the
+            population),
+            and they are called parameters.
         </p>
         <div class="box-def">
             <p>Definition: Parameter</p>
-            A summary quantity of the population that is unknown. 
+            <p>A summary quantity of the population that is unknown.</p>
         </div>
         <p>Parameters are unknown, we are trying to learn them because they tell us information about the population.
-           Let's see an example:</p>
+            Let's see an example:</p>
         <p>
             <em><strong>Example 1.1:</strong></em> In the election example above, the group of all American
             voters is our population.
@@ -171,39 +184,48 @@
         </p>
         <div class="box-def caution">
             <p>Caution</p>
+            <p>A common mistake many students make is to mix up a <strong>variable</strong> of interest with a
+                <strong>parameter</strong>
+                of interest. For example, one might be interested in the <em>average dolphin weight</em>, which is a
+                parameter; the average weight is a quantity of the population, not of a single dolphin. What is being
+                measured,
+                however, is the <em>dolphin weight</em>, which would be the variable of interest.
+            </p>
         </div>
-        <h5>
-            Exercise 1.1
-        </h5>
-        <p>
-            Apple buys touchscreen from Samsung. Suppose that Apple only accepts a batch of screens, if
-            the average lifespan of the screens in the batch
-            is above 24 months. There's a way an accelerated way to check this, but once the screen fails it is
-            useless. Obviously, Apple cannot measure
-            all the screens in the batch, otherwise there will be nothing left for them to install in their phones.
-            In this case, the population is the batch of screens,
-            and the variable of interest is the average lifespan of the screens in months.
-        </p>
-        <ul>
-            <li>
-                <p>What is the population?</p>
-                <textarea class="Exercise-1-1" style="width: 50%; height:30px;"></textarea><br>
-            </li>
-            <li>
-                <p>What is the variable of interest?</p>
-                <textarea class="Exercise-1-1" style="width: 50%; height:30px;"></textarea><br>
-            </li>
-            <li>
-                <p>Say that Apple also wants to make sure that the life time of the screens are approximately
-                    the same for all the screens. In other words, Apple doesn't want some phones having screen
-                    problems
-                    in 24 months, and others in 48 months. What would be the populational parameter in this case?
-                </p>
-                <textarea class="Exercise-1-1" style="width: 100%; height:150px;"></textarea>
-            </li>
-        </ul>
-        <br>
-        <button id="btn-Exercise-1-1">Show answers</button>
+        <div class="box-def exercise">
+            <p>Exercise 1.1</p>
+            <p>
+                Apple buys touchscreen from Samsung. Suppose that Apple only accepts a batch of screens, if
+                the average lifespan of the screens in the batch
+                is above 24 months. There's a way an accelerated way to check this, but once the screen fails it is
+                useless. Obviously, Apple cannot measure
+                all the screens in the batch, otherwise there will be nothing left for them to install in their phones.
+                In this case, the population is the batch of screens,
+                and the variable of interest is the average lifespan of the screens in months.
+            </p>
+            <ul>
+                <li>
+                    <p>What is the population?</p>
+                    <textarea class="Exercise-1-1" style="width: 50%; height:30px;"></textarea><br>
+                </li>
+                <li>
+                    <p>What is the variable of interest?</p>
+                    <textarea class="Exercise-1-1" style="width: 50%; height:30px;"></textarea><br>
+                </li>
+                <li>
+                    <p>Say that Apple also wants to make sure that the life time of the screens are approximately
+                        the same for all the screens. In other words, Apple doesn't want some phones having screen
+                        problems
+                        in 24 months, and others in 48 months. What would be the populational parameter in this case?
+                    </p>
+                    <textarea class="Exercise-1-1" style="width: 100%; height:150px;"></textarea>
+                </li>
+            </ul>
+            <br>
+            <button id="btn-Exercise-1-1">Show answers</button>
+        </div>
+
+
         <br>
         <br>
         <div id="answer-Exercise-1-1" class="answer-text">

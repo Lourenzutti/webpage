@@ -3,7 +3,6 @@
          text
 **********************/
 main p {
-    justify-self: start;
     text-align: justify;
     line-height: 1.7;
     text-indent: 2em;
@@ -50,24 +49,48 @@ h2 {
         border-left-color: rgb(0, 0, 0);*/
 }
 
-.box-def > p {
+.box-def * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+}
+
+.box-def > * {
+    padding: 0px 10px;
+    margin: 0;
+}
+
+.box-def > ul {
+    padding: 0px 25px 0px 4em;
+    margin: 0;
+}
+
+.box-def > p:first-child {
     position: relative;
     margin: 0 -.6rem .75rem;
     padding: .2rem 1rem .2rem 1rem;
     text-indent: 0px;
     font-weight: 700;
     background-color: rgba(68, 255, 93, 0.15);
-    /*background-color: rgba(109, 109, 109, 0.2);*/
 }
+
+
 
 .caution {
     border-left: .4rem solid rgb(251, 127,	77);
     background-color: rgba(251, 127,	77, 0.08);
 }
 
-.caution p {
+.caution > p:first-child {
     background-color: rgba(255, 124, 72, 0.1);
 }
 
+.exercise {
+    border-left: .4rem solid rgb(59, 59, 59);
+    background-color: rgba(59, 59, 59, 0.08);
+}
 
+.exercise > p:first-child {
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
 
