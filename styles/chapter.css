@@ -2,6 +2,7 @@
       MAIN COLUMN
          text
 **********************/
+
 main p {
     text-align: justify;
     line-height: 1.7;
@@ -75,22 +76,26 @@ h2 {
 
 
 
-.caution {
+.box-caution {
     border-left: .4rem solid rgb(251, 127,	77);
     background-color: rgba(251, 127,	77, 0.08);
 }
 
-.caution > p:first-child {
+.box-caution > p:first-child {
     background-color: rgba(255, 124, 72, 0.1);
 }
 
-.exercise {
+.box-exercise {
     border-left: .4rem solid rgb(59, 59, 59);
     background-color: rgba(59, 59, 59, 0.08);
 }
 
-.exercise > p:first-child {
+.box-exercise > p:first-child {
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+
+.exercise-item {
+
+}

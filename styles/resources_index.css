@@ -1,6 +1,10 @@
 .courses {
     display: flex;
-    overflow-x: scroll;
+    /*overflow-x: scroll;*/
+    margin-top: 10px;
+    border-radius: 5%;
+    background-color: rgba(197, 245, 201, 0.4);
+
 }
 
 .course-card{
@@ -10,7 +14,7 @@
     border-radius: 15%;
     font-size: 1em;
     line-height: 120px;
-    margin: 0px 50px 25px 25px;
+    margin: 25px 50px 25px 25px;
     justify-items: center;
     text-align: center;   
 }
@@ -49,9 +53,3 @@ h2 {
     height: 40px;
 }
 
-h2 + hr {
-    border: 3px double black;
-    width: 155px;
-    margin-top: 0;
-    padding-top: 0;
-}
