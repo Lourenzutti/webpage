@@ -104,3 +104,9 @@ h2 {
     margin: 0em 1em .3em 1em;
     width: calc(100% - 2em);
 }
+
+
+.solution {
+    background-color: rgb(253, 241, 219);
+    display: none;
+}

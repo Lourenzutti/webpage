@@ -12,12 +12,12 @@ create_exercise = (exercise_name) => {
     document.getElementById("btn-" + exercise_name).addEventListener("click", () => {
         let btn = document.getElementById("btn-" + exercise_name);
         let div = document.getElementById("answer-" + exercise_name);
-        
+
         let flag = false;
 
         document.querySelectorAll("." + exercise_name).forEach(
             textbox => {
-                if (textbox.value == "" )
+                if (textbox.value == "")
                     flag = true
             });
 
@@ -26,7 +26,7 @@ create_exercise = (exercise_name) => {
             div.style.display = "none";
         }
         else {
-            if (flag){
+            if (flag) {
                 alert("You should try answering the exercises before seeing the answers.")
                 return 0;
             }
