@@ -17,4 +17,3 @@ const render = data => {
 var values = new Array(6).fill(1 / 6);
 render(values)
 svg.style('background-color', 'red')
-console.log("hello")
