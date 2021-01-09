@@ -146,6 +146,6 @@ h2 + hr, h3 + hr {
 main p {
     font-size: 1em;
     font-family: Arial, Helvetica, sans-serif;
-    letter-spacing: 1px;
+    letter-spacing: .75px;
     word-spacing: 2px;
 }

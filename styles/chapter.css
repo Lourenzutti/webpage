@@ -4,7 +4,7 @@
 **********************/
 
 /* Format the text in the main column for book chapter */
-main p {
+main p, dt, dd{
     text-align: justify;
     line-height: 1.7;
     text-indent: 2em;
@@ -122,6 +122,28 @@ h2 {
 
 /* changes the color for a solution sub-box */
 .solution {
-    background-color: rgb(253, 241, 219);
-    display: none;
+    margin-top: 2em;
+    padding: 1em;
+    border-left: .4em solid  rgb(190, 131, 21);
+    background-color: rgb(250, 242, 227);
+    display: box;
+}
+
+.solution dt::before {
+    content: "\27A2";
+    color: green;
+    font-size: 15px;
+    margin-right: 0.2em;
+}
+
+.solution dt {
+    font-style: italic;
+    font-size: 14px;
+
+}
+
+.solution dd {
+    margin-bottom: 2em;
+    text-indent: 0;
+    padding-left: 2em;
 }
