@@ -3,6 +3,7 @@
          text
 **********************/
 
+/* Format the text in the main column for book chapter */
 main p {
     text-align: justify;
     line-height: 1.7;
@@ -10,21 +11,25 @@ main p {
     font-size: 15px;
 }
 
-/* Format ordered list in text */
+/* Format ordered list in the text */
 main > ol {
     padding-left: 6em;
 }
 
+/* Change the format paragraph for lists in text */
 main > ol > li > p {
     text-indent: 0em;
     line-height: 1.2;
     padding-left: 1em;
 }
 
+/* To provide the source of the image */
 .source-img {
     font-size: 12px;
     margin-bottom: 3em;
 }
+
+/* Section header */
 
 h2 {
     font-size: 2.5em;
@@ -37,6 +42,8 @@ h2 {
     text-decoration-style: solid;
 }
 
+
+/* Define the box to be used by definitions, theorem, cautions, etc... */
 .box-def {
     margin: 1.5625em auto;
     padding: 0 .6rem .8rem !important;
@@ -49,21 +56,25 @@ h2 {
     transition: color .25s,background-color .25s,border-color .25s;
 }
 
+/* Change the font for the elements inside the box. */
 .box-def * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 13px;
 }
 
+/* Change padding and margin of immediate childs of the box. */
 .box-def > * {
     padding: 0px 10px;
     margin: 0;
 }
 
+/* configuring list inside box-definition */
 .box-def > ol, .box-def > ul {
     width: inherit;
     margin: 20px 0px 0px 4em;
 }
 
+/* defines the first paragraph of a box as the title */
 .box-def > p:first-child {  
     position: relative;
     margin: 0 -.6rem .75rem;
@@ -73,6 +84,7 @@ h2 {
     background-color: rgba(68, 255, 93, 0.15);
 }
 
+/* changes the color for a cautious box */
 .box-caution {
     border-left: .4rem solid rgb(251, 127,	77);
     background-color: rgba(251, 127,	77, 0.08);
@@ -82,6 +94,7 @@ h2 {
     background-color: rgba(255, 124, 72, 0.1);
 }
 
+/* changes the color for an exercise box */
 .box-exercise {
     border-left: .4rem solid rgb(59, 59, 59);
     background-color: rgba(59, 59, 59, 0.08);
@@ -92,6 +105,7 @@ h2 {
     background-color: rgba(0, 0, 0, 0.1);
 }
 
+/* defines the question item */
 .question-item {
     background-color: rgba(59, 59, 59, 0.08);
     font-style: italic;
@@ -106,6 +120,7 @@ h2 {
 }
 
 
+/* changes the color for a solution sub-box */
 .solution {
     background-color: rgb(253, 241, 219);
     display: none;
