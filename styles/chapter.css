@@ -126,7 +126,7 @@ h2 {
     padding: 1em;
     border-left: .4em solid  rgb(190, 131, 21);
     background-color: rgb(250, 242, 227);
-    display: box;
+    display: none;
 }
 
 .solution dt::before {
