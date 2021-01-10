@@ -153,12 +153,12 @@
             We will discuss points 1 and 2 in more detail later.
             Let's formalize some intuitive concepts.</p>
         <h2>
-            1. Population and parameters
+            Population and parameters
         </h2>
 
         <div class="box-def">
-            <p>Definition: Population</p>
-            <p>By population we mean the group of all items/people that we are interested in.</p>
+            <p>Definition: Target Population</p>
+            <p>The group of all items/people that we are interested in.</p>
         </div>
         <p>
             In general, we are interested in one or more unknown quantities that describe the population, like summary
@@ -221,9 +221,7 @@
                     <textarea class="answer" style="height:100px;"></textarea>
                 </li>
             </ol>
-            <br>
-            <button class="btn-show-answers"></button>
-
+            <button class="btn-show-answers">Show answers</button>
             <div class="solution">
                 <dl>
 
@@ -249,65 +247,68 @@
             </div>
         </div>
 
-        <h5>
-            Exercise 1.2
-        </h5>
-        <p>
-            In times of Covid-19, the Canadian government started providing some aid to Canadian workers that
-            lost their jobs. The provincial
-            government of British Columbia (BC) is studying if it should also provide some aid to university
-            students. To make the decision,
-            BC's government wants to know the average income of university students in the province.
-        </p>
-        <ul>
-            <li>
-                <p>What is the population?</p>
-                <textarea class="Exercise-1-2" style="width: 50%; height:30px;"></textarea><br>
-            </li>
-            <li>
-                <p>What is the variable of interest?</p>
-                <textarea class="Exercise-1-2" style="width: 50%; height:30px;"></textarea><br>
-            </li>
-            <li>
-                <p>Say that BC's government is also interested on the inequality of students'
-                    income. What would be the populational parameter in this case?</p>
-                <textarea class="Exercise-1-2" style="width: 100%; height:150px;"></textarea>
-            </li>
-        </ul>
-        <br>
-        <button class="btn-show-answers"></button>
-        <br>
-        <br>
-        <div id="answer-Exercise-1-2" class="answer-text">
-
-            <p><strong>What is the population?</strong></p>
-            <p>All the university students in British Columbia.</p>
-
-            <p><strong>What is the variable of interest?</strong></p>
-            <p> The average income of university students in BC. </p>
-
-            <p><strong>Say that BC's government is also interested on the inequality of students'
-                    income. What would be the populational parameter in this case?</strong>
-            </p>
+        <div class="box-def box-exercise">
+            <p>Exercise 1.2</p>
             <p>
-                The variance (or standard deviation) of BC's university students.
+                In times of Covid-19, the Canadian government started providing some aid to Canadian workers that
+                lost their jobs. The provincial
+                government of British Columbia (BC) is studying if it should also provide some aid to university
+                students. To make the decision,
+                BC's government wants to know the average income of university students in the province.
             </p>
-        </div>
-        <br>
+            <ol>
+                <li class="question-item">
+                    <p>What is the population?</p>
+                    <textarea class="answer"></textarea><br>
+                </li>
+                <li class="question-item">
+                    <p>What is the variable of interest?</p>
+                    <textarea class="answer"></textarea><br>
+                </li>
+                <li class="question-item">
+                    <p>Say that BC's government is also interested on the inequality of students'
+                        income. What would be the populational parameter in this case?</p>
+                    <textarea class="answer"></textarea>
+                </li>
+            </ol>
+            <button class="btn-show-answers">Show answers</button>
+            <div class="solution">
+                <dl>
+                    <dt>What is the population?</dt>
+                    <dd>All the university students in British Columbia.</dd>
 
+                    <dt>What is the variable of interest?</dt>
+                    <dd> The average income of university students in BC. </dd>
+
+                    <dt>Say that BC's government is also interested on the inequality of students'
+                        income. What would be the populational parameter in this case?
+                    </dt>
+                    <dd>
+                        The variance (or standard deviation) of BC's university students.
+                    </dd>
+                </dl>
+            </div>
+        </div>
         <p>
             As discussed before, in many cases we are not able to measure the variable of interest in the entire
             population. In these cases, we draw a sample of the population. Let's define sample.
         </p>
-        <h3>
-            2. Sample
-        </h3>
+
+
+        <h2>
+            Sample
+        </h2>
         <p>We are going to call <em>sample</em> any subset (sub-group of elements) of the population. What we
             hope for is that this subset
             would represent the population well, but this is not always the case. Even if the population is
             poorly represented by a sub-group of
             elements, such sub-group is still called a sample of the population.
         </p>
+        <div class="box-def">
+            <p>Sample</p>
+            <p>A subset of the population.</p>
+        </div>
+
         <p>
             It is like when you are cooking. Imagine you're making a soup and want to know if the soup has
             enough
@@ -330,35 +331,42 @@
             <img width="46%"
                 src="https://d3i6fh83elv35t.cloudfront.net/static/2019/02/salt_GettyImages-557995293-1024x729.jpg">
         </div>
-        <div class="centered" style="font-size: 12px;">
+        <div class="source-img" style="font-size: 12px;">
             Soup Image from: <a
                 href="https://melhorcomsaude.com.br/receita-de-sopa-light-de-repolho/">https://melhorcomsaude.com.br/receita-de-sopa-light-de-repolho/</a><br>
             Fries image from: <a
                 href="https://www.pbs.org/newshour/science/can-too-much-salt-lead-to-bad-skin">https://www.pbs.org/newshour/science/can-too-much-salt-lead-to-bad-skin</a>
 
         </div>
-        <br>
-
 
         <p>There are many different strategies to draw a sample.
             One of the most common strategy is called <em>random sampling without replacement</em>.
             To take a random sampling without replacement of size <em>n</em> elements from a population you must:
         <ol>
-            <li> List all the elements of the population.</li>
-            <li> Select one element at random from the population (all elements must have the same
-                probability of being selected).</li>
-            <li> Save the selected element and remove it from the population.</li>
-            <li> Repeat Steps 2. and 3. <em>n</em> times.</li>
+            <li>
+                <p>List all the elements of the population.</p>
+            </li>
+            <li>
+                <p> Select one element at random from the population (all elements must have the same
+                    probability of being selected).</p>
+            </li>
+            <li>
+                <p> Save the selected element and remove it from the population.</p>
+            </li>
+            <li>
+                <p> Repeat Steps 2. and 3. <em>n</em> times.</p>
+            </li>
         </ol>
-        Although random sampling without replacement is one of the simplest way to draw a sample,
-        it is still quite effective. However, in some cases it is not the best
-        strategy you could use. But let's not worry about this now.
+        <p>
+            Although random sampling without replacement is one of the simplest way to draw a sample,
+            it is still quite effective. However, in some cases it is not the best
+            strategy you could use. But let's not worry about this now.
         </p>
         <p>
             Now that we have the concept of sample, we can revisit the concept of population.
             As it was mentioned, a sample is a subset of the population. But frequently
             the population that the sample is drawn from is not the same population we are interested
-            in. Let me try to give an example.
+            in. Let us see an example.
         </p>
 
         <p>
@@ -379,113 +387,104 @@
                 style="margin-left: auto; margin-right: auto; max-width:450px;">
         </div>
 
-        Example 2.1 shows us that we need to improve our definition of population and make a distinction between
-        the two populations.
+        <p>Example 2.1 shows us that we need to improve our definition of population and make a distinction between
+            the two populations.</p>
 
-        <p>
-        <ul>
-            <li>
-                <strong>Target Population:</strong> The group of all items/people we are interested in.
-            </li>
-            <li>
-                <strong>Sampled Population:</strong> The group of all items/people that we actually taking
-                our sample from.
-            </li>
-        </ul>
-        </p>
+        <div class="box-def">
+            <p>Sampled Population</p>
+            <p>The group of all items/people which we are taking a sample from.</p>
+        </div>
+
         <p>Ideally, the <em>Sampled Population</em> will coincide with the <em>Target Population</em>. If not,
             be aware that the results based on the sample can only be extrapolated (by means of statistical
-            inference)
-            to the Sampled Population. To extrapolate from the Sampled Population to the Target Population you
-            need a
-            justification beyond statistical inference -- which could be valid, but could be misleading and
-            wrong.
-            Careful!
+            inference) to the Sampled Population. To extrapolate from the Sampled Population to the Target Population
+            you
+            need a justification beyond statistical inference -- which could be valid, but could be misleading and
+            wrong. Careful!
         </p>
-
         <p>
             It is also worth mentioning that in some cases the target population and sample population differ for
             reasons other than by convenience. This is very common in medical research (see the exercise below).
         </p>
-        <h5>
-            Exercise 2.1
-        </h5>
-        <p>
-            Say that a Canadian pharmaceutical company created a drug for a new disease. But now,
-            they need
-            to test if the drug works on human beings. The company will administer the drug and a placebo
-            on some people infected by the disease who are located Canada and compare the results to see if the drug
-            works.
-        </p>
-        <ul>
-            <li>
-                <p>What is the target population?</p>
-                <textarea class="Exercise-2-1" style="width: 50%; height:30px;"></textarea><br>
-            </li>
-            <li>
-                <p>What is the sampled population?</p>
-                <textarea class="Exercise-2-1" style="width: 50%; height:30px;"></textarea><br>
-            </li>
-            <li>
-                <p>What the company should do to match the sampled population to the target population? Is this
-                    reasonable?</p>
-                <textarea class="Exercise-2-1" style="width: 100%; height:150px;"></textarea>
-            </li>
-        </ul>
-        <br>
-        <button id="btn-Exercise-2-1">Show answers</button>
-        <br>
-        <br>
-
-        <div id="answer-Exercise-2-1" class="answer-text">
-
-            <p><strong>What is the target population?</strong></p>
-            <p> The target population would be all the people in the world.</p>
-
-            <p><strong>What is the sampled population?</strong></p>
-            <p> People that are already sick with the disease in Canada. </p>
-
-            <p><strong>What the company should do to match the sampled population to the target population? Is this
-                    reasonable?</strong>
-            </p>
+        <div class="box-def box-exercise">
+            <p>Exercise 2.1</p>
             <p>
-                The company would need to be able to infect any person in the world (not only Canada), so then, it
-                could
-                administer the drug. This is clearly not reasonable. We cannot allow a company to
-                go out there infecting people with a disease to see if a treatment works.
-                This is an example where ethical issues do not allow us to match the sample population with the
-                target
-                population.
+                Say that a Canadian pharmaceutical company created a drug for a new disease. But now,
+                they need
+                to test if the drug works on human beings. The company will administer the drug and a placebo
+                on some people infected by the disease who are located Canada and compare the results to see if the drug
+                works.
             </p>
+            <ol>
+                <li class="question-item">
+                    <p>What is the target population?</p>
+                    <textarea class="answer"></textarea><br>
+                </li>
+                <li class="question-item">
+                    <p>What is the sampled population?</p>
+                    <textarea class="answer"></textarea><br>
+                </li>
+                <li class="question-item">
+                    <p>What the company should do to match the sampled population to the target population? Is this
+                        reasonable?</p>
+                    <textarea class="answer" style="height:100px;"></textarea>
+                </li>
+            </ol>
+            <button class="btn-show-answers">Show answers</button>
+            <div class="solution">
+                <dl>
+                    <dt>What is the target population?</dt>
+                    <dd> The target population would be all the people in the world.</dd>
+
+                    <dt>What is the sampled population?</dt>
+                    <dd> People that are already sick with the disease in Canada. </dd>
+
+                    <dt>What the company should do to match the sampled population to the target population? Is this
+                        reasonable?</dt>
+                    <dd>The company would need to be able to infect any person in the world (not only Canada), so then,
+                        it
+                        could
+                        administer the drug. This is clearly not reasonable. We cannot allow a company to
+                        go out there infecting people with a disease to see if a treatment works.
+                        This is an example where ethical issues do not allow us to match the sample population with the
+                        target
+                        population.
+                    </dd>
+                </dl>
+            </div>
         </div>
-        <br>
 
         <p>Great! We now know some of the basic concepts we need.
-            Let's review the big picture.
-        </p>
-        <h3>3. Revisiting the Big Picture</h3>
+            Let's review the big picture.</p>
+
+        <h2>Revisiting the Big Picture</h2>
 
         <ol>
-            <li>We are interested in a specific quantity (parameter) of a given population of objects/people. For
-                example,
-                the average income of all UBC students.
+            <li>
+                <p>We are interested in a specific quantity (parameter) of a given population of objects/people. For
+                    example,
+                    the average income of all UBC students.</p>
                 <div style="display: flex; flex-flow: row nowrap; align-items: center;">
                     <img width="75%" src="../../../images/STAT200/population_students.png"
                         style="margin-left: auto; margin-right: auto; max-width:450px;">
                 </div>
             </li>
-            <li>Due to limited resources we cannot survey the whole population to obtain the exact value of the
-                parameter;</li>
-            <li>We then take a sample at random from the population.
+            <li>
+                <p>Due to limited resources we cannot survey the whole population to obtain the exact value of the
+                    parameter;</p>
+            </li>
+            <li>
+                <p>We then take a sample at random from the population.</p>
                 <div style="display: flex; flex-flow: row nowrap; align-items: center;">
                     <img width="100%" src="../../../images/STAT200/population_sample.png"
                         style="margin-left: auto; margin-right: auto; max-width:600px;">
                 </div>
             </li>
-            <li> Next, we use the sample to learn about the parameter of the population. For example, if we are
-                interested
-                in the average income of a given population, we calculate the average income in the sample.
-                The value you obtain is called <strong>estimate</strong> of the parameter.
+            <li>
+                <p>Next, we use the sample to learn about the parameter of the population. For example, if we are
+                    interested
+                    in the average income of a given population, we calculate the average income in the sample.
+                    The value you obtain is called <strong>estimate</strong> of the parameter.</p>
                 <div style="display: flex; flex-flow: row nowrap; align-items: center;">
                     <img width="100%" src="../../../images/STAT200/population_estimate.png"
                         style="margin-left: auto; margin-right: auto; max-width:600px;">
@@ -493,13 +492,11 @@
             </li>
         </ol>
 
-        <p> Great, we are done! But let me just ask you one last question:</p>
-        <p><em>How confident are you about the estimate you obtained</em>?
-        </p>
+        <p> Great, we are done! But, wait, one last question:</p>
+        <p><em>How confident are you about the estimate you obtained</em>?</p>
         <p>For example, how much would you trust that the $1100 obtained as the average of Chen, Mary, and Amy's
-            income is close to the average income of all UBC students?</p>
-        <p>
-            Remember that:
+            income is close to the average income of all UBC students? To answer this, remember that:</p>
+
         <ul>
             <li>
                 <p>The sample is random. The fact that we are using Chen, Mary, and Amy's average income it is
@@ -514,7 +511,6 @@
                                         max-width:600px;">
                 </div>
             </li>
-
             <li>
                 <p>You might end up with a sample that is not representative of the population. For example,
                     imagine you select three unemployed students. The average income in your sample would be
@@ -523,22 +519,22 @@
                 </p>
             </li>
         </ul>
+
         </p>
+        <p>How are we supposed to trust our results then? This is where the sampling distribution comes into play.</p>
 
-        <p>How are we supposed to trust our results then?</p>
-        <p>This is where the sampling distribution comes into play.</p>
-        <h3>
-            4. Sampling distribution
-        </h3>
+        <h2>
+            Sampling distribution
+        </h2>
 
-        For now, let's focus on the problem of estimating the average income of all UBC's students. As we discussed
-        in the previous
-        section, the sample mean depends on the sample drawn. The idea here is to study how the sample mean changes
-        across
-        different samples. More especifically, we want to find the probability distribution of the sample
-        mean over all possible samples of fixed size that we can draw. For example, how the sample mean behaves
-        across
-        all possible samples of three UBC students that we could possibly draw?
+        <p>For now, let's focus on the problem of estimating the average income of all UBC's students. As we discussed
+            in the previous
+            section, the sample mean depends on the sample drawn. The idea here is to study how the sample mean changes
+            across
+            different samples. More especifically, we want to find the probability distribution of the sample
+            mean over all possible samples of fixed size that we can draw. For example, how the sample mean behaves
+            across
+            all possible samples of 50 UBC students that we could possibly draw?</p>
 
         <h4> Example 3.1 </h4>
 
@@ -566,12 +562,6 @@
         <emph>Sampling Distributions</emph>, which will discuss in this post.
         But first, let's discuss what is a population and what is a sample more precisely.
         </p>
-        <script src="../../base_functions.js"></script>
-        <script>
-            create_exercise("Exercise-1-1");
-            create_exercise("Exercise-1-2");
-            create_exercise("Exercise-2-1");
-        </script>
     </main>
 </body>
 <script src="https://kit.fontawesome.com/9ffc1b7c87.js" crossorigin="anonymous"></script>

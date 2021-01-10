@@ -2,7 +2,6 @@ const exercises = document.querySelectorAll(".box-exercise");
 
 exercises.forEach(exercise => {
     const btn = exercise.querySelector(".btn-show-answers");
-    btn.textContent = "Show answers"
     const answers = exercise.querySelectorAll(".answer");
     const solution = exercise.querySelector(".solution");
 
@@ -14,12 +13,12 @@ exercises.forEach(exercise => {
             }
         }
 
-        if (btn.textContent === "Show answers") {
+        if (solution.style.display === "") {
             solution.style.display = "block";
             btn.textContent = "Hide answers";
         }
         else {
-            solution.style.display = "none";
+            solution.style.display = "";
             btn.textContent = "Show answers";
         }
     });

@@ -35,11 +35,14 @@ h2 {
     font-size: 2.5em;
     font-family: inherit;
     margin-top: 1em;
+    padding: 5px 0px 15px 0px;
     letter-spacing: normal;
     color: white;
     background-color: rgba(20, 20, 20, .8);
     text-decoration: underline;
     text-decoration-style: solid;
+    text-indent: 1em;
+    border-radius: .5em;
 }
 
 
@@ -119,7 +122,6 @@ h2 {
     width: calc(100% - 2em);
 }
 
-
 /* changes the color for a solution sub-box */
 .solution {
     margin-top: 2em;
@@ -146,4 +148,9 @@ h2 {
     margin-bottom: 2em;
     text-indent: 0;
     padding-left: 2em;
+}
+
+/*Button to show the answers*/
+.btn-show-answers {
+    margin-top: 2em;
 }
