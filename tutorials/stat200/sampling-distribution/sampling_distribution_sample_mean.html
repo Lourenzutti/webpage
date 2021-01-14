@@ -133,6 +133,7 @@
 
 
         </p>
+        <p>
         <ol>
             <li>
                 <p><em>How do we choose the voters to answer the survey?</em></p>
@@ -148,7 +149,7 @@
                 <p><em>Different group of voters will have different proportion of votes.</em></p>
             </li>
         </ol>
-
+        </p>
         <p> In this chapter, we are going to focus on points 2 and 3.
             We will discuss points 1 and 2 in more detail later.
             Let's formalize some intuitive concepts.</p>
@@ -492,36 +493,32 @@
             </li>
         </ol>
 
-        <p> Great, we are done! But, wait, one last question:</p>
-        <p><em>How confident are you about the estimate you obtained</em>?</p>
-        <p>For example, how much would you trust that the $1100 obtained as the average of Chen, Mary, and Amy's
-            income is close to the average income of all UBC students? To answer this, remember that:</p>
+        <p> Great, we are done! But wait a second, the sample is random. The fact that we are using Chen, Mary, and
+            Amy's average income it is
+            just by chance. It could have been Ronald, Mary, and Lien, or Jean, Wang, and Adebola, or
+            any three other UBC students. Different samples would give different results. </p>
 
-        <ul>
-            <li>
-                <p>The sample is random. The fact that we are using Chen, Mary, and Amy's average income it is
-                    just by chance. It could have been Ronald, Mary, and Lien, or Jean, Wang, and Adebola, or
-                    any three other UBC students. Different samples would give different results.</p>
-
-                <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-                    <img width="100%" src="../../../images/STAT200/population_multi_sample.png" style="margin-left: auto; 
-                                        margin-right: auto; 
-                                        margin-top:10px; 
-                                        margin-bottom:10px; 
-                                        max-width:600px;">
-                </div>
-            </li>
-            <li>
-                <p>You might end up with a sample that is not representative of the population. For example,
-                    imagine you select three unemployed students. The average income in your sample would be
-                    smaller than the average income of all UBC's students, since not all UBC's students are
-                    unemployed.
-                </p>
-            </li>
-        </ul>
-
+        <div style="display: flex; flex-flow: row nowrap; align-items: center;">
+            <img width="100%" src="../../../images/STAT200/population_multi_sample.png" style="margin-left: auto; 
+                                    margin-right: auto; 
+                                    margin-top:10px; 
+                                    margin-bottom:10px; 
+                                    max-width:600px;">
+        </div>
+        <p>You might even end up with a sample that is not representative of the population. For example,
+            imagine you select three unemployed students. The average income in your sample would be
+            smaller than the average income of all UBC's students, since not all UBC's students are
+            unemployed.
         </p>
-        <p>How are we supposed to trust our results then? This is where the sampling distribution comes into play.</p>
+        <p><em>How can we rely on this approach if every time we take a sample we get a different estimate</em>?</p>
+
+        <p>Admittedly, since the estimate is a random value, we will not hit the mark and get an estimate that exactly
+            matches the value of the parameter of interest. However, we don't need to. We just need to obtain an
+            estimate that is
+            <em>"close enough most of the time"</em>. Due to reasons that will be explored next section, you will see
+            that, the bigger the sample size is, the harder it is for the sample mean to be far away from population
+            mean.
+        </p>
 
         <h2>
             Sampling distribution
