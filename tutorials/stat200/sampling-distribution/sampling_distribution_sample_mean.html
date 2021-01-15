@@ -175,7 +175,7 @@
         <p>Parameters are unknown, we are trying to learn them because they tell us information about the population.
             Let's see an example:</p>
         <p>
-            <em><strong>Example 1.1:</strong></em> In the election example above, the group of all American
+            <span class="example">Example 1.1:</span> In the election example above, the group of all American
             voters is our population.
             Note that the population is not the group of all Americans. It is the group of American
             <em>voters</em>. We are interested in the proportion of voters that will vote for each
@@ -371,7 +371,7 @@
         </p>
 
         <p>
-            <em><strong>Example 2.1:</strong></em>
+            <span class="example">Example 2.1:</span>
             In times of Covid-19, the Canadian government started providing some aid to Canadian workers that
             lost their jobs. The provincial government of British Columbia (BC) is studying if it should also
             provide some aid to university students. To make the decision, BC's government wants to know the
@@ -514,26 +514,123 @@
 
         <p>Admittedly, since the estimate is a random value, we will not hit the mark and get an estimate that exactly
             matches the value of the parameter of interest. However, we don't need to. We just need to obtain an
-            estimate that is
-            <em>"close enough most of the time"</em>. Due to reasons that will be explored next section, you will see
-            that, the bigger the sample size is, the harder it is for the sample mean to be far away from population
-            mean.
+            estimate that is <em>"close enough most of the time"</em>.
         </p>
 
         <h2>
             Sampling distribution
         </h2>
 
-        <p>For now, let's focus on the problem of estimating the average income of all UBC's students. As we discussed
-            in the previous
-            section, the sample mean depends on the sample drawn. The idea here is to study how the sample mean changes
-            across
-            different samples. More especifically, we want to find the probability distribution of the sample
-            mean over all possible samples of fixed size that we can draw. For example, how the sample mean behaves
-            across
-            all possible samples of 50 UBC students that we could possibly draw?</p>
+        <p>When try to learn about an unknown parameter, taking a sample and getting an estimate is a very reasonable
+            approach. However, different samples will provide different estimates bringing uncertainty to the results.
+            Think about, without knowing the population, how can you know that the sample you got represents well the
+            population and will yield a good estimate for the parameter?
+        </p>
 
-        <h4> Example 3.1 </h4>
+        <p>
+            In an attempt of understanding better the variation of the estimates caused by random sampling, we could
+            the value we would obtain in each and all possible samples of a given size. For example, considering all
+            possible samples of 3 UBC students, how many samples provides a sample average income between C$ 0.00 and C$
+            50.00, between C$ 50.00 and C$ 100.00, and so on? In other words, we could consider the sample mean of all
+            possible samples, and study its distribution.
+        </p>
+        <p>
+            <span class="example">Example 3.1:</span> Suppose we want to know how many hours per week the employees of a
+            restaurant work.
+            The restaurant has 20 employees:
+        </p>
+
+        <table>
+            <thead>
+                <th>Employee</th>
+                <th>Hours worked</th>
+                <th>Employee</th>
+                <th>Hours worked</th>
+                <th>Employee</th>
+                <th>Hours worked</th>
+                <th>Employee</th>
+                <th>Hours worked</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Employee #1</td>
+                    <td>43</td>
+                    <td>Employee #6</td>
+                    <td>44</td>
+                    <td>Employee #11</td>
+                    <td>26</td>
+                    <td>Employee #16</td>
+                    <td>42</td>
+                </tr>
+                <tr>
+                    <td>Employee #2</td>
+                    <td>46</td>
+                    <td>Employee #7</td>
+                    <td>41</td>
+                    <td>Employee #12</td>
+                    <td>47</td>
+                    <td>Employee #17</td>
+                    <td>36</td>
+                </tr>
+                <tr>
+                    <td>Employee #3</td>
+                    <td>47</td>
+                    <td>Employee #8</td>
+                    <td>40</td>
+                    <td>Employee #13</td>
+                    <td>37</td>
+                    <td>Employee #18</td>
+                    <td>36</td>
+                </tr>
+                <tr>
+                    <td>Employee #4</td>
+                    <td>59</td>
+                    <td>Employee #9</td>
+                    <td>43</td>
+                    <td>Employee #14</td>
+                    <td>42</td>
+                    <td>Employee #19</td>
+                    <td>61</td>
+                </tr>
+                <tr>
+                    <td>Employee #5</td>
+                    <td>24</td>
+                    <td>Employee #10</td>
+                    <td>58</td>
+                    <td>Employee #15</td>
+                    <td>60</td>
+                    <td>Employee #20</td>
+                    <td>37</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>
+            The table above contains all of our population. Now, suppose we want to estimate the average weekly hours of
+            work of
+            the restaurant's employees using a sample of size 3. How would the sample mean would vary in this population
+            across different
+            samples of size 3? There are 1140 different possible samples of size 3 that we could take, as shown in the
+            table below.
+        </p>
+
+        <table>
+            <thead>
+                <th>Sample</th>
+                <th>Sample Mean</th>
+                <th>Sample</th>
+                <th>Sample Mean</th>
+                <th>Sample</th>
+                <th>Sample Mean</th>
+                <th>Sample</th>
+                <th>Sample Mean</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+
 
         <h5> Population: </h5>
 

@@ -40,6 +40,56 @@ h2 {
     width: calc(100% - 2em);
 }
 
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border-top: 3px double black;
+    border-bottom: 3px double black;
+}
+
+
+/* Configure table */
+tbody td {
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+th {
+    border-bottom: 1px solid black;
+}
+thead tr {
+    background-color: rgb(58, 58, 58);
+    color: white;
+}
+
+tbody tr:nth-child(even){
+    background-color: rgba(190, 189, 189, 0.5);
+}
+
+tr th:nth-child(odd){
+    width: 108px;
+}
+
+thead th:nth-child(even){
+    border-right: 2px solid white;
+}
+
+tbody td:nth-child(even){
+    border-right: 2px solid black;
+}
+tbody td:last-child{
+    border-right: none;
+}
+    
+
+/* Example */
+.example{
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+}
 
 /* Define the box to be used by definitions, theorem, cautions, etc... */
 .box-def {
