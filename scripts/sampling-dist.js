@@ -61,39 +61,49 @@ var svg = d3.select("main")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
 
-// X axis: scale and draw:
-var x = d3.scaleLinear()
-    .domain([0, 90])     // can use this instead of 1000 to have the max of data: d3.max(data, function(d) { return +d.price })
-    .range([0, 400]);
+bins = d3.bin().thresholds(30)(sample_means);
+
+x = d3.scaleLinear()
+    .domain([bins[0].x0, bins[bins.length - 1].x1])
+    .range([margin.left, width - margin.right]);
+
+y = d3.scaleLinear()
+    .domain([0, d3.max(bins, d => d.length)]).nice()
+    .range([height - margin.bottom, margin.top]);
+
+xAxis = g => g
+    .attr("transform", `translate(0,${height - margin.bottom})`)
+    .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0))
+    .call(g => g.append("text")
+        .attr("x", width - margin.right)
+        .attr("y", -4)
+        .attr("fill", "currentColor")
+        .attr("font-weight", "bold")
+        .attr("text-anchor", "end")
+        .text(data.x));
+
+yAxis = g => g
+    .attr("transform", `translate(${margin.left},0)`)
+    .call(d3.axisLeft(y).ticks(height / 40))
+    .call(g => g.select(".domain").remove())
+    .call(g => g.select(".tick:last-of-type text").clone()
+        .attr("x", 4)
+        .attr("text-anchor", "start")
+        .attr("font-weight", "bold")
+        .text(data.y));
 
 svg.append("g")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x));
-
-// set the parameters for the histogram
-var histogram = d3.bin(sample_means)
-    .value(d => d)
-    .domain(x.domain())  // then the domain of the graphic
-    .thresholds(x.ticks(20)); // then the numbers of bins
-
-// And apply this function to data to get the bins
-const bins = histogram(sample_means);
-
-// Y axis: scale and draw:
-var y = d3.scaleLinear()
-    .range([height, 0]);
-y.domain([0, d3.max(bins, d => d.length)]);   // d3.hist has to be called before the Y axis obviously
-svg.append("g")
-    .call(d3.axisLeft(y));
-
-// append the bar rectangles to the svg element
-svg.selectAll("rect")
+    .attr("fill", "steelblue")
+    .selectAll("rect")
     .data(bins)
-    .enter()
-    .append("rect")
-    .attr("x", 1)
-    .attr("transform", function (d) { return "translate(" + x(d.x0) + "," + y(d.length) + ")"; })
-    .attr("width", function (d) { return x(d.x1) - x(d.x0) - 1; })
-    .attr("height", function (d) { return height - y(d.length); })
-    .style("fill", "#69b3a2")
+    .join("rect")
+    .attr("x", d => x(d.x0) + 1)
+    .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
+    .attr("y", d => y(d.length))
+    .attr("height", d => y(0) - y(d.length));
 
+svg.append("g")
+    .call(xAxis);
+
+svg.append("g")
+    .call(yAxis);

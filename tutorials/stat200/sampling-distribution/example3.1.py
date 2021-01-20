@@ -41,3 +41,8 @@ with open("sample-means", "w+") as f:
             f.write("<tr>")
             cont = 0
     f.write("</tr>")
+
+with open("sample-means-r", "w+") as f:
+    f.write("<tr>")
+    for key, value in sample_mean.items():
+        f.write(f"{value:.2f}\n")
