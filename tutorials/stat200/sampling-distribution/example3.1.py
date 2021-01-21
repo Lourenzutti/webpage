@@ -27,7 +27,8 @@ possible_samples = list(combinations(employees.keys(), 3))
 
 
 sample_mean = {possible_samples[j]: np.mean(
-    [employees[possible_samples[j][i]] for i in range(0, 3)]) for j in range(0, len(possible_samples))}
+    [employees[possible_samples[j][i]] for i in range(0, 3)])
+    for j in range(0, len(possible_samples))}
 
 cont = 0
 with open("sample-means", "w+") as f:
@@ -41,8 +42,3 @@ with open("sample-means", "w+") as f:
             f.write("<tr>")
             cont = 0
     f.write("</tr>")
-
-with open("sample-means-r", "w+") as f:
-    f.write("<tr>")
-    for key, value in sample_mean.items():
-        f.write(f"{value:.2f}\n")

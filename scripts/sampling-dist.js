@@ -50,7 +50,7 @@ entries.forEach(
 // set the dimensions and margins of the graph
 var margin = { top: 10, right: 30, bottom: 30, left: 40 },
     width = 460 - margin.left - margin.right,
-    height = 280 - margin.top - margin.bottom;
+    height = 250 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("main")
@@ -61,14 +61,14 @@ var svg = d3.select("main")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
 
-bins = d3.bin().thresholds(30)(sample_means);
+bins = d3.bin().thresholds(20)(sample_means);
 
 x = d3.scaleLinear()
-    .domain([bins[0].x0, bins[bins.length - 1].x1])
+    .domain([bins[0].x0 - 1, bins[bins.length - 1].x1 + 5])
     .range([margin.left, width - margin.right]);
 
 y = d3.scaleLinear()
-    .domain([0, d3.max(bins, d => d.length)]).nice()
+    .domain([0, d3.max(bins, d => d.length) + 10]).nice()
     .range([height - margin.bottom, margin.top]);
 
 xAxis = g => g
@@ -79,19 +79,21 @@ xAxis = g => g
         .attr("y", -4)
         .attr("fill", "currentColor")
         .attr("font-weight", "bold")
-        .attr("text-anchor", "end")
-        .text(data.x));
+        .attr("text-anchor", "bottom")
+        .attr("dy", "2em")
+        .text("Weekly hours"));
 
 yAxis = g => g
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y).ticks(height / 40))
-    .call(g => g.select(".domain").remove())
     .call(g => g.select(".tick:last-of-type text").clone()
         .attr("x", 4)
-        .attr("text-anchor", "start")
+        .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
-        .text(data.y));
-
+        .attr('dy', '-1.3em')
+        .attr('dx', '-1.5em')
+        .text("Frequency"));
+/*yAxis = d3.axisLeft(y);*/
 svg.append("g")
     .attr("fill", "steelblue")
     .selectAll("rect")
