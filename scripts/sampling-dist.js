@@ -47,14 +47,15 @@ entries.forEach(
     }
 );
 
-// set the dimensions and margins of the graph
-var margin = { top: 10, right: 30, bottom: 30, left: 40 },
-    width = 460 - margin.left - margin.right,
-    height = 250 - margin.top - margin.bottom;
+const ex_svg = document.getElementById("example-3-1-sampl-dist")
+    .previousElementSibling
 
+// set the dimensions and margins of the graph
+let margin = { top: 18, right: 30, bottom: 25, left: 40 },
+    height = 250,
+    width = ex_svg.clientWidth - parseInt(window.getComputedStyle(ex_svg).paddingRight);
 // append the svg object to the body of the page
-var svg = d3.select("main")
-    .append("svg")
+svg = d3.select("#example-3-1-sampl-dist")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
     .append("g")
@@ -75,13 +76,16 @@ xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0))
     .call(g => g.append("text")
-        .attr("x", width - margin.right)
+        .attr("x", width / 2)
         .attr("y", -4)
         .attr("fill", "currentColor")
         .attr("font-weight", "bold")
         .attr("text-anchor", "bottom")
-        .attr("dy", "2em")
+        .attr("font-size", "15px")
+        .attr("class", "axis")
+        .attr("dy", "3.5em")
         .text("Weekly hours"));
+
 
 yAxis = g => g
     .attr("transform", `translate(${margin.left},0)`)
@@ -90,10 +94,11 @@ yAxis = g => g
         .attr("x", 4)
         .attr("text-anchor", "middle")
         .attr("font-weight", "bold")
+        .attr("font-size", "15px")
         .attr('dy', '-1.3em')
         .attr('dx', '-1.5em')
         .text("Frequency"));
-/*yAxis = d3.axisLeft(y);*/
+
 svg.append("g")
     .attr("fill", "steelblue")
     .selectAll("rect")
@@ -104,8 +109,13 @@ svg.append("g")
     .attr("y", d => y(d.length))
     .attr("height", d => y(0) - y(d.length));
 
+
+
 svg.append("g")
     .call(xAxis);
 
 svg.append("g")
     .call(yAxis);
+
+d3.selectAll("text").attr('font-size', '13px');
+
