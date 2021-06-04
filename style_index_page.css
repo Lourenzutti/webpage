@@ -120,6 +120,7 @@ table {
         margin: 5px 2px;
         color: inherit;
         font-size: calc(2px + 1.1vw);
+        text-decoration: none;
     }
 
     .social_link:hover{
