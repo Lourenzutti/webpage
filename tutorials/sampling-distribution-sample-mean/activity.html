@@ -16,33 +16,32 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../style_index_page.css">
     <script src="https://d3js.org/d3.v4.js"></script>
     <title>Rodolfo Lourenzutti</title>
 </head>
 
-<body>
+<body style="margin-left: 30px;">
     <h2>Example 1</h2>
     <br><br>
     <h3> UBC Students: </h3>
-    <div style="height: 180px; width: max-content; overflow-y: scroll;">
+    <div style="height: 260px; width: max-content; overflow-y: scroll;">
         <table id='pop-table'>
 
         </table>
     </div>
-    <br><br>
+    <div style="height: 100px;"></div>
     <h3> Population Frequency: &#956;= 601.29 </h3>
     <div id='histogrm' style="height: 200px; width: 100%;">
 
     </div>
-    <br><br>
+    <div style="height: 150px;"></div>
     <h3>Getting Samples:</h3>
     <form>
         Sample size: <input type="number" size="5px" id='sample-size'> <br><br>
         Number of samples: <input type="number" size="5px" id="number-samples"> <br><br>
     </form>
     <button id="generate-sample-button">Get sample(s)</button>
-    <br><br><br>
+    <div style="height: 100px;"></div>
     <div id='div-sampling-dist' style="height: 350px; width: 100%;"></div>
     <div id="div-samples">
     </div>
@@ -208,7 +207,7 @@
                     div.appendChild(div_sample);
 
                     div_hist = document.createElement('div');
-                    div_hist.setAttribute('style', 'height: 250px; width: 50%;')
+                    div_hist.setAttribute('style', 'height: 250px; width: 50%; margin-top: 50px; margin-bottom: 150px;')
                     div_hist.setAttribute('class', `column`);
                     div_hist.setAttribute('id', `hist-sample-${i}`)
                     div.appendChild(div_hist);

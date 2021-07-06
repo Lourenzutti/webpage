@@ -64,13 +64,14 @@ th {
 }
 
 tr {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 thead tr {
     background-color: rgb(58, 58, 58);
     color: white;
     font-size: 15px;
+    text-align: center;
 }
 
 tbody tr:nth-child(even){
@@ -237,4 +238,11 @@ tbody td:last-child{
 
 caption {
     margin-bottom: 0.5em;
+}
+
+.activity {
+    font-size: 50px;
+    border-style: double;
+    border-width: 0 0 3px 0;
+    margin-bottom: 1em;
 }

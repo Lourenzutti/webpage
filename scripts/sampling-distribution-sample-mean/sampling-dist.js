@@ -1,4 +1,5 @@
 /* Javascript with code specific for the sampling distribution chapter.
+/* Date: 20201-04-20
 /* Author: Rodolfo Lourenzutti
 
 /**********************************/
@@ -61,7 +62,7 @@ const ex_svg = document.getElementById("example-3-1-sampl-dist")
 
 // set the dimensions and margins of the graph
 let margin = { top: 35, right: 30, bottom: 25, left: 40 },
-    height = 300,
+    height = 400,
     width = ex_svg.clientWidth - parseInt(window.getComputedStyle(ex_svg).paddingRight);
 
 // append the svg object to the body of the page
@@ -120,6 +121,7 @@ svg.append("g")
     .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
     .attr("y", d => y(d.length))
     .attr("height", d => y(0) - y(d.length))
+    .attr("class", 'bin')
     .on("mouseenter", (d, i, nodes) => { // Mouse-over event: turns the bin red and add the number of data points in the bin to the top of the bin
         d3.select(d.target).attr("fill", "red");
         d3.select(d.target.parentNode)
@@ -159,7 +161,6 @@ svg.append("g")
     .on("click", (d, i, nodes) => { // click event: lock/unlock the mouse over changes.
         d.target.flag = !d.target.flag;
         if (d.target.flag) {
-            d3.select(d.target).attr("fill", "red");
             svg.dispatch("mouseenter");
         }
         else {
@@ -180,7 +181,7 @@ svg.append("text")
 svg.append("text")
     .text("Population Mean: 43.45")
     .attr("x", 60)
-    .attr("y", 0)
+    .attr("y", 10)
     .attr("text-anchor", "start")
     .attr("dy", "6px")
     .attr("class", "plot-subtitle");
@@ -225,7 +226,7 @@ let g = svg.append("g")
 g.append("rect")
     .attr("x", 60)
     .attr("y", 30)
-    .attr("width", 108)
+    .attr("width", 120)
     .attr("height", 30)
     .attr("fill", "gray");
 
@@ -248,11 +249,152 @@ d3.selectAll("text")
     .attr('font-size', '13px');
 
 
+// Button to Reset
+let reset = svg.append("g")
+    .on("mouseover", function (d) {
+        d3.select(this).style("cursor", "pointer"); // change the cursor
+    })
+    .on("click", (d, i, e) => {
+        var bins = d3.selectAll(".bin");
+        for (var i = 0; i < bins._groups[0].length; i++){
+            bin = bins._groups[0][i];
+            bin.flag = false;
+        }
+        bins.dispatch("mouseout");
+    });
+
+// Creates the rectangle of the button
+reset.append("rect")
+.attr("x", x(58))
+.attr("y", 30)
+.attr("width", 108)
+.attr("height", 30)
+.attr("fill", "#e3732d");
+
+// Add text to the button
+reset.append("text")
+.text("Reset plot")
+.attr("x", x(60.15))
+.attr("y", 50)
+.attr("text-anchor", "middle")
+.style("font-size", '15px')
+.attr("fill", "white");
+
+svg.append("g")
+.call(xAxis);
+
+svg.append("g")
+.call(yAxis);
+
+d3.selectAll("text")
+.attr('font-size', '13px');  
+
 /**
  * Check the reader selected the right bars in the histogram:
  */
+// Exercise 3.1
 var check_button = document.getElementById("check-item-1");
 check_button.onclick = 
     d => {
-        
+        item1_back = d.target.previousElementSibling;
+        bins = document.querySelectorAll(".bin");
+        for (var i = 0; i < bins.length; i++){
+            bin = bins[i];
+            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) < 40 || x.invert(bin.x.baseVal.value) > 46.001){
+                if (bin.getAttribute("fill")==="red"){
+                    alert("You did not select the right bins.");
+                    item1_back.style.backgroundColor = '#fac6c3';
+                    return;
+                }
+            }
+            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) <= 46.00001 && x.invert(bin.x.baseVal.value) >= 40){
+                if (bin.getAttribute("fill")!=="red"){
+                    alert("You did not select the right bins.");
+                    item1_back.style.backgroundColor = '#fac6c3';
+                    return;
+                }
+            }
+            item1_back.style.backgroundColor = '#c3fac4';
+        }
     }
+
+
+// Exercise 3.2
+check_button = document.getElementById("check-item-2");
+check_button.onclick = 
+    d => {
+        item2_back = d.target.previousElementSibling;
+        bins = document.querySelectorAll(".bin");
+        for (var i = 0; i < bins.length; i++){
+            bin = bins[i];
+            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) < 40 || x.invert(bin.x.baseVal.value) > 46.001){
+                if (bin.getAttribute("fill")!=="red"){
+                    alert("You did not select the right bins.");
+                    item2_back.style.backgroundColor = '#fac6c3';
+                    return;
+                }
+            }
+            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) <= 46.00001 && x.invert(bin.x.baseVal.value) >= 40){
+                if (bin.getAttribute("fill")==="red"){
+                    alert("You did not select the right bins.");
+                    item2_back.style.backgroundColor = '#fac6c3';
+                    return;
+                }
+            }
+            item2_back.style.backgroundColor = '#c3fac4';
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

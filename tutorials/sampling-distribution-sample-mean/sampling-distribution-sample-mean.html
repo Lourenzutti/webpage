@@ -1,74 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124600152-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'UA-124600152-1');
-    </script>
-
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!--Load external scripts-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <script src="https://kit.fontawesome.com/9ffc1b7c87.js" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script defer src="../../scripts/controller.js"></script>
-    <script defer src="../../scripts/sampling-dist.js"></script>
-    <link rel="stylesheet" href="../../style_index_page.css">
-    <link rel="stylesheet" href="../../styles/sub-pages-main.css">
-    <link rel="stylesheet" href="../../styles/main-style.css">
-    <link rel="stylesheet" href="../../styles/chapter.css">
     
+    <!--Load internal scripts-->
+    <script defer src="../../scripts/controller.js"></script>
+    <script defer src="../../scripts/random.js"></script>
+    <script defer src="../../scripts/sampling-distribution-sample-mean/sampling-dist.js"></script>
+    <script defer src="../../scripts/sampling-distribution-sample-mean/activity.js"></script>
+
+    <!--Load styles-->
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/chapter.css">
     <title>Rodolfo Lourenzutti</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="" data-page="index.html"><i class="fas fa-home"></i>
-                        Home
-                        <span class="sr-only" id="nav-link-current">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="" data-page="blog/blog_index.html"><i class="fas fa-pencil-alt"></i> Blog
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="" data-page="tutorials/tutorials_index.html"><i class="fas fa-book"></i>
-                        Tutorials </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="" data-page='teaching.html'><i class="fas fa-chalkboard-teacher"></i>
-                        Teaching</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="" data-page='about.html'><i class="fas fa-info-circle"></i> About </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div class="container">
-        <section id="title_menu">
+  
+    <header>
+        <!--Navbar to replace left-side menu on small screens-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="" data-page="index.html"><i class="fas fa-home"></i>
+                            Home
+                            <span class="sr-only" id="nav-link-current">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-page="blog/blog_index.html"><i class="fas fa-pencil-alt"></i> Blog
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-page="tutorials/tutorials_index.html"><i class="fas fa-book"></i>
+                            Tutorials </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-page='teaching.html'><i class="fas fa-chalkboard-teacher"></i>
+                            Teaching</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" data-page='about.html'><i class="fas fa-info-circle"></i> About </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <nav class='left-menu'>
             <img id="profile_img" src="https://github.com/Lourenzutti.png" alt="">
-            <p id="title">Rodolfo Lourenzutti</p>
-            <p id="subtitle">Teaching Fellow @ UBC Master of Data Science</p>
+            <p id="name">Rodolfo Lourenzutti</p>
+            <p id="title">Assistant Professor of Teaching @ UBC Department of Statistics </p>
 
-            <hr class="title_separator">
+            <hr class="menu_separator">
 
-            <ul id="menu">
+            <ul id="left-menu-items">
                 <li>
                     <a class="menu_link" href="" data-page="index.html"> <i class="fas fa-home"></i> Home </a>
                 </li>
@@ -90,7 +89,7 @@
                 </li>
             </ul>
 
-            <hr class="title_separator">
+            <hr class="menu_separator">
 
             <div class="social">
 
@@ -113,14 +112,21 @@
                 </div>
 
                 <div class="social_link">
-                    <i class="far fa-envelope fa-2x"></i>
+                    <a href="mailto:rodolfo.lourenzutti@gmail.com">
+                        <i class="far fa-envelope fa-2x"></i>
+                    </a>
+                </div>
+                <div class="social_link">
+                    <a href="https://scholar.google.ca/citations?user=vT5b7lMAAAAJ&hl=en">
+                        <i class="ai ai-google-scholar ai-2x"></i>
+                    </a>
                 </div>
             </div>
-        </section>
-
-        <section id="main_column">
-            <h1> Sampling Distribution </h1>
-        <hr>
+        </nav>
+    </header>
+    
+    <main>
+        <h1>Sampling Distribution</h1>
 
         <p>
             This year, 2020, there will be a presidential election in the United States.
@@ -135,9 +141,9 @@
         </p>
 
         <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-            <img src="biden.jpg" width="13%" />
-            <img src="us_election_map.png" width="70%" />
-            <img src="trump.jpeg" width="13%" />
+            <img src="../../imgs/sampling-distribution-sample-mean/biden.jpg" width="13%" />
+            <img src="../../imgs/sampling-distribution-sample-mean/us_election_map.png" width="70%" />
+            <img src="../../imgs/sampling-distribution-sample-mean/trump.jpeg" width="13%" />
         </div>
 
         <div class="source-img">
@@ -386,7 +392,7 @@
         </p>
 
         <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-            <img width="100%" src="sampled_population.png"
+            <img width="100%" src="../../imgs/sampling-distribution-sample-mean/sampled_population.png"
                 style="margin-left: auto; margin-right: auto; max-width:450px;">
         </div>
 
@@ -459,7 +465,7 @@
                     example, the average income of all UBC students.</p>
 
                 <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-                    <img width="75%" src="population_students.png"
+                    <img width="75%" src="../../imgs/sampling-distribution-sample-mean/population_students.png"
                         style="margin-left: auto; margin-right: auto; max-width:450px;">
                 </div>
             </li>
@@ -471,7 +477,7 @@
                 <p>We then take a sample at random from the population.</p>
 
                 <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-                    <img width="100%" src="population_sample.png"
+                    <img width="100%" src="../../imgs/sampling-distribution-sample-mean/population_sample.png"
                         style="margin-left: auto; margin-right: auto; max-width:600px;">
                 </div>
             </li>
@@ -484,7 +490,7 @@
                 </p>
 
                 <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-                    <img width="100%" src="population_estimate.png"
+                    <img width="100%" src="../../imgs/sampling-distribution-sample-mean/population_estimate.png"
                         style="margin-left: auto; margin-right: auto; max-width:600px;">
                 </div>
             </li>
@@ -497,7 +503,7 @@
         </p>
 
         <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-            <img width="100%" src="population_multi_sample.png"
+            <img width="100%" src="../../imgs/sampling-distribution-sample-mean/population_multi_sample.png"
                 style="margin-left: auto; 
                                     margin-right: auto; 
                                     margin-top:10px; 
@@ -3562,13 +3568,15 @@
             In our very small example above, we have 20 elements in the population, but 1140 possible samples of size 3. As it turns out, 
             in practice, we frequently do not need to have access to all possible samples to know the sampling distribution. 
             In fact, we don't even need to know much about the population itself. This is so awesome,
-            that I am going to say this again: we do not need all possible samples to know the distribution of a statistic over all possible samples, not even
+            that I am going to say this again: we do not need all possible samples to know the distribution of a statistic over all possible samples, 
             nor we need much information about the population!
         </p>
-        <p>
-            WHAT? HOW?
-        </p>
+
+        <div style="height: 400px; margin-top: 100px;">
+            
+        </div>
+    </main>
+
 
 </body>
-
 </html>
