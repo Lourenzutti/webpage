@@ -1,0 +1,105 @@
+main h1 {
+    letter-spacing: 5px;
+}
+
+main h2 {
+    font-weight: lighter;
+    border-style: solid;
+    border-width: 0px;
+    border-bottom-width: 1px;
+    max-width: 500px;
+    margin-top: 1em;
+}
+main h3 {
+    font-weight: lighter;
+}
+
+@media (min-width: 700px){
+    .teaching_year {
+        position: relative;
+    }
+
+    .teaching-session{
+        display: grid;
+        column-gap: 1px;
+        grid-template-columns: 1fr  5fr;
+        margin: 5px;
+    }
+
+    .university-logo-ubc{
+        opacity: 0.25;  
+        display: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+        align-content: center;
+    }    
+
+    .university-logo-ufes{
+        opacity: 0.55;
+        display: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+        align-content: center;
+    }    
+
+    .university-logo-ufmg{
+        opacity: 0.45;
+        display: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+        align-content: center;
+    }    
+
+    .teaching_text{
+        margin: 100px;
+    }
+}
+
+@media(min-width: 1200px){
+    .teaching_year {
+        position: relative;
+    }
+
+    .teaching-session{
+        display: grid;
+        column-gap: 1px;
+        grid-template-columns: 1fr  5fr;
+        margin: 5px;
+    }
+
+    .university-logo-ubc{
+        opacity: 0.25;  
+        size:25%;
+        display: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+        align-content: center;
+    }    
+
+    .university-logo-ufes{
+        opacity: 0.55;
+        display: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+        align-content: center;
+    }    
+    
+    .university-logo-ufmg{
+        opacity: 0.45;
+        display: inherit;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1em;
+        align-content: center;
+    }    
+    
+    .teaching_text{
+        margin: 0;
+        margin-left: 2em;
+    }
+}

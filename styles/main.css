@@ -33,6 +33,7 @@ body {
 main{
     font-size: 1em;
 }
+
 #name{
     font-family: serif;
 }
@@ -84,7 +85,13 @@ table {
         margin-bottom: 0.5em;
         margin-top: 0.5em;
         color:black;
-        text-decoration: underline;
+        border-style: double;
+        border-top: 0;
+        border-right: 0;
+        text-decoration: none;
+        padding-left: 20px;
+        border-radius: 20px;
+        
     }
     
     #profile_img {
@@ -151,48 +158,6 @@ table {
         
     }
 
-    .teaching_year {
-        position: relative;
-    }
-
-    .teaching-session{
-        display: grid;
-        column-gap: 1px;
-        grid-template-columns: 1fr  5fr;
-        margin: 5px;
-    }
-
-    .university-logo-ubc{
-        opacity: 0.25;  
-        display: inherit;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1em;
-        align-content: center;
-    }    
-
-    .university-logo-ufes{
-        opacity: 0.55;
-        display: inherit;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1em;
-        align-content: center;
-    }    
-    
-    .university-logo-ufmg{
-        opacity: 0.45;
-        display: inherit;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1em;
-        align-content: center;
-    }    
-    
-    .teaching_text{
-        margin: 0px;
-    }
-    
     .column {
         width: 50%;
       }
@@ -336,48 +301,5 @@ table {
     .menu_link:hover{
         color: red;
         
-    }
-
-    .teaching_year {
-        position: relative;
-    }
-
-    .teaching-session{
-        display: grid;
-        column-gap: 1px;
-        grid-template-columns: 1fr  5fr;
-        margin: 5px;
-    }
-
-    .university-logo-ubc{
-        opacity: 0.25;  
-        size:25%;
-        display: inherit;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1em;
-        align-content: center;
-    }    
-
-    .university-logo-ufes{
-        opacity: 0.55;
-        display: inherit;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1em;
-        align-content: center;
-    }    
-    
-    .university-logo-ufmg{
-        opacity: 0.45;
-        display: inherit;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1em;
-        align-content: center;
-    }    
-    
-    .teaching_text{
-        margin: 0px;
     }
 }

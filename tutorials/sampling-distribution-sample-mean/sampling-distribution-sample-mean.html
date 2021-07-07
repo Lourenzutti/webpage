@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,8 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <script src="https://kit.fontawesome.com/9ffc1b7c87.js" crossorigin="anonymous"></script>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    
-    <!--Load internal scripts-->
+
+    <!--Load local scripts-->
     <script defer src="../../scripts/controller.js"></script>
     <script defer src="../../scripts/random.js"></script>
     <script defer src="../../scripts/sampling-distribution-sample-mean/sampling-dist.js"></script>
@@ -25,7 +26,7 @@
 </head>
 
 <body>
-  
+
     <header>
         <!--Navbar to replace left-side menu on small screens-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,11 +43,13 @@
                             <span class="sr-only" id="nav-link-current">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page="blog/blog_index.html"><i class="fas fa-pencil-alt"></i> Blog
+                        <a class="nav-link" href="" data-page="blog/blog_index.html"><i class="fas fa-pencil-alt"></i>
+                            Blog
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page="tutorials/tutorials_index.html"><i class="fas fa-book"></i>
+                        <a class="nav-link" href="" data-page="tutorials/tutorials_index.html"><i
+                                class="fas fa-book"></i>
                             Tutorials </a>
                     </li>
                     <li class="nav-item">
@@ -124,7 +127,7 @@
             </div>
         </nav>
     </header>
-    
+
     <main>
         <h1>Sampling Distribution</h1>
 
@@ -503,8 +506,7 @@
         </p>
 
         <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-            <img width="100%" src="../../imgs/sampling-distribution-sample-mean/population_multi_sample.png"
-                style="margin-left: auto; 
+            <img width="100%" src="../../imgs/sampling-distribution-sample-mean/population_multi_sample.png" style="margin-left: auto; 
                                     margin-right: auto; 
                                     margin-top:10px; 
                                     margin-bottom:10px; 
@@ -3523,14 +3525,16 @@
             </p>
             <ol>
                 <li class="question-item">
-                    <p>Select all bins in the histogram in Figure 1 that are close to the true mean, say between 40 and 46. Note that Table 2
+                    <p>Select all bins in the histogram in Figure 1 that are close to the true mean, say between 40 and
+                        46. Note that Table 2
                         highlights the samples that have a sample average in the selected bins.
                     </p>
-                    
+
                 </li>
                 <button id='check-item-1'>Check Item 1</button>
                 <li class="question-item">
-                    <p>Unselect the bins you selected in item 1, and this time select all bins in the histogram in Figure 1 
+                    <p>Unselect the bins you selected in item 1, and this time select all bins in the histogram in
+                        Figure 1
                         that are far away from the true mean, say higher than 46, or lower than 40.</p>
                 </li>
                 <button>Check Item 2</button>
@@ -3562,21 +3566,28 @@
             </div>
         </div>
 
-        <p>As you can see the sampling distribution tells us a lot about our statistic. We could, for example, calculate the probability
-            that our statistic would be to a certain range around the parameter. But, how is this useful if we need to have access to all 
-            possible samples? In fact, if we had access to all possible samples, we would be better off just checking out the entire population.
-            In our very small example above, we have 20 elements in the population, but 1140 possible samples of size 3. As it turns out, 
-            in practice, we frequently do not need to have access to all possible samples to know the sampling distribution. 
+        <p>As you can see the sampling distribution tells us a lot about our statistic. We could, for example, calculate
+            the probability
+            that our statistic would be to a certain range around the parameter. But, how is this useful if we need to
+            have access to all
+            possible samples? In fact, if we had access to all possible samples, we would be better off just checking
+            out the entire population.
+            In our very small example above, we have 20 elements in the population, but 1140 possible samples of size 3.
+            As it turns out,
+            in practice, we frequently do not need to have access to all possible samples to know the sampling
+            distribution.
             In fact, we don't even need to know much about the population itself. This is so awesome,
-            that I am going to say this again: we do not need all possible samples to know the distribution of a statistic over all possible samples, 
+            that I am going to say this again: we do not need all possible samples to know the distribution of a
+            statistic over all possible samples,
             nor we need much information about the population!
         </p>
 
         <div style="height: 400px; margin-top: 100px;">
-            
+
         </div>
     </main>
 
 
 </body>
+
 </html>
