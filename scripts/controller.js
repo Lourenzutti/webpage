@@ -35,6 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
         link.onclick = (event) => {
             load_page(link.dataset.page);
             history.pushState({ page: link.dataset.page }, "", link.dataset.page)
+            if (link.dataset.stylesheet){
+                var fileref = document.createElement("link");
+                fileref.rel = "stylesheet";
+                fileref.type = "text/css";
+                fileref.href = link.dataset.stylesheet;
+                document.getElementsByTagName("head")[0].appendChild(fileref) 
+            }
             return false;
         };
     });
