@@ -38,26 +38,25 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="" data-page="index.html"><i class="fas fa-home"></i>
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i>
                             Home
                             <span class="sr-only" id="nav-link-current">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page="/blog/blog_index.html"><i class="fas fa-pencil-alt"></i>
+                        <a class="nav-link" href="/blog/blog_index.html"><i class="fas fa-pencil-alt"></i>
                             Blog
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page="/tutorials/tutorial-index.html" data-stylesheet="/styles/tutorial-index.css"><i
-                                class="fas fa-book"></i>
+                        <a class="nav-link" href="tutorials/tutorial-index.html"><i class="fas fa-book"></i>
                             Tutorials </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page='/teaching.html' data-stylesheet="/styles/teaching.css"><i class="fas fa-chalkboard-teacher"></i>
+                        <a class="nav-link" href='/teaching.html'><i class="fas fa-chalkboard-teacher"></i>
                             Teaching</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page='/about.html'><i class="fas fa-info-circle"></i> About </a>
+                        <a class="nav-link" href="/about.html"><i class="fas fa-info-circle"></i> About </a>
                     </li>
                 </ul>
             </div>
@@ -72,23 +71,23 @@
 
             <ul id="left-menu-items">
                 <li>
-                    <a class="menu_link" href="" data-page="/index.html"> <i class="fas fa-home"></i> Home </a>
+                    <a class="menu_link" href="/index.html"> <i class="fas fa-home"></i> Home </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="" data-page="/blog/blog_index.html"> <i class="fas fa-pencil-alt"></i>
+                    <a class="menu_link" href="/blog/blog_index.html"> <i class="fas fa-pencil-alt"></i>
                         Blog </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="" data-page="/tutorials/tutorial-index.html" data-stylesheet="/styles/tutorial-index.css"> <i class="fas fa-book"></i>
+                    <a class="menu_link" href="/tutorials/tutorial-index.html"> <i class="fas fa-book"></i>
                         Tutorials
                     </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="" data-page="/teaching.html" data-stylesheet="/styles/teaching.css"><i class="fas fa-chalkboard-teacher"></i>
+                    <a class="menu_link" href="/teaching.html"><i class="fas fa-chalkboard-teacher"></i>
                         Teaching</a>
                 </li>
                 <li>
-                    <a class="menu_link" href="" data-page="/about.html"><i class="fas fa-info-circle"></i> About </a>
+                    <a class="menu_link" href="/about.html"><i class="fas fa-info-circle"></i> About </a>
                 </li>
             </ul>
 
@@ -191,7 +190,7 @@
         </h2>
 
         <div class="box-def">
-            <p>Definition: Target Population</p>
+            <p>Target Population</p>
             <p>The group of all items/people that we are interested in.</p>
         </div>
         <p>
@@ -199,13 +198,13 @@
             (as opposed to specific individuals in the population), and they are called parameters.
         </p>
         <div class="box-def">
-            <p>Definition: Parameter</p>
+            <p>Parameter</p>
             <p>A summary quantity of the population that is unknown.</p>
         </div>
         <p>Parameters are unknown, we are trying to learn them because they tell us information about the population.
             Let's see an example:</p>
         <p>
-            <span class="example">Example 1.1:</span> In the election example above, the group of all American voters is
+            <span class="example"></span> In the election example above, the group of all American voters is
             our population.
             Note that the population is not the group of all Americans. It is the group of all American <em>voters</em>.
             We are interested in the proportion of voters that will vote for each candidate, and the proportion of
@@ -221,7 +220,7 @@
             </p>
         </div>
         <div class="box-def box-exercise">
-            <p>Exercise 1.1</p>
+            <p></p>
             <p>
                 Apple buys touchscreens from Samsung. Suppose that Apple only accepts a batch of screens if the screens'
                 average lifespan in the batch is above 24 months. Naturally, Apple cannot test all the screens in the
@@ -257,7 +256,10 @@
                     <dt> What is the variable of interest?</dt>
                     <dd>The lifespan of the screens.</dd>
 
-                    <dt> Say that Apple also wants to make sure that the lifetime of the screens is approximately the same for all the screens. In other words, Apple doesn't want some phones having screen problems in 24 months and others in 48 months. What would be a populational parameter of interest in this case?
+                    <dt> Say that Apple also wants to make sure that the lifetime of the screens is approximately the
+                        same for all the screens. In other words, Apple doesn't want some phones having screen problems
+                        in 24 months and others in 48 months. What would be a populational parameter of interest in this
+                        case?
                     </dt>
                     <dd>
                         The variance (or standard deviation) of the lifespan of the screens could be used to capture
@@ -268,7 +270,7 @@
         </div>
 
         <div class="box-def box-exercise">
-            <p>Exercise 1.2</p>
+            <p></p>
             <p>
                 In times of Covid-19, the Canadian government started providing some aid to Canadian workers that lost
                 their jobs. The provincial government of British Columbia (BC) is studying if it should also provide
@@ -308,10 +310,154 @@
                 </dl>
             </div>
         </div>
-        <p>
-            As discussed before, in many cases, we cannot measure the variable of interest in the entire population. In these cases, we draw a sample of the population.
+        <p>If we could measure the variable of interest over the entire population (i.e., each individual of the
+            population), we would obtain the <em>Population Distribution</em>. 
         </p>
 
+        <div class="box-def">
+            <p>Population Distribution</p>
+            <p>The population distribution is the distribution of the variable of interest over the entire population.</p>
+        </div>
+
+        <p>
+            <span class="example"></span> Suppose we are interested in the final grades of all 40 students who took STAT 100 
+            last year. After looking at the records, the professor provided us with all the 40 grades.
+        </p>
+        <table id="pop-grades">
+            <caption><strong>Table 1: </strong><em>The grades of all students who took STAT 100 last year.</em>
+            </caption>
+            <thead>
+                <th>Student</th>
+                <th>Final Grade</th>
+                <th>Student</th>
+                <th>Final Grade</th>
+                <th>Student</th>
+                <th>Final Grade</th>
+                <th>Student</th>
+                <th>Final Grade</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Student #1</td>
+                    <td>74</td>
+                    <td>Student #11</td>
+                    <td>76</td>
+                    <td>Student #21</td>
+                    <td>71</td>
+                    <td>Student #31</td>
+                    <td>72</td>
+                </tr>
+                <tr>
+                    <td>Student #2</td>
+                    <td>75</td>
+                    <td>Student #12</td>
+                    <td>70</td>
+                    <td>Student #22</td>
+                    <td>70</td>
+                    <td>Student #32</td>
+                    <td>72</td>
+                </tr>
+                <tr>
+                    <td>Student #3</td>
+                    <td>69</td>
+                    <td>Student #13</td>
+                    <td>73</td>
+                    <td>Student #23</td>
+                    <td>70</td>
+                    <td>Student #33</td>
+                    <td>70</td>
+                </tr>
+                <tr>
+                    <td>Student #4</td>
+                    <td>64</td>
+                    <td>Student #14</td>
+                    <td>74</td>
+                    <td>Student #24</td>
+                    <td>56</td>
+                    <td>Student #34</td>
+                    <td>69</td>
+                </tr>
+                <tr>
+                    <td>Student #5</td>
+                    <td>73</td>
+                    <td>Student #15</td>
+                    <td>72</td>
+                    <td>Student #25</td>
+                    <td>68</td>
+                    <td>Student #35</td>
+                    <td>68</td>
+                </tr>
+                <tr>
+                    <td>Student #6</td>
+                    <td>68</td>
+                    <td>Student #16</td>
+                    <td>63</td>
+                    <td>Student #26</td>
+                    <td>71</td>
+                    <td>Student #36</td>
+                    <td>78</td>
+                </tr>
+                <tr>
+                    <td>Student #7</td>
+                    <td>68</td>
+                    <td>Student #17</td>
+                    <td>69</td>
+                    <td>Student #27</td>
+                    <td>62</td>
+                    <td>Student #37</td>
+                    <td>75</td>
+                </tr>
+                <tr>
+                    <td>Student #8</td>
+                    <td>75</td>
+                    <td>Student #18</td>
+                    <td>73</td>
+                    <td>Student #28</td>
+                    <td>75</td>
+                    <td>Student #38</td>
+                    <td>69</td>
+                </tr>
+                <tr>
+                    <td>Student #9</td>
+                    <td>71</td>
+                    <td>Student #19</td>
+                    <td>74</td>
+                    <td>Student #29</td>
+                    <td>80</td>
+                    <td>Student #39</td>
+                    <td>75</td>
+                </tr>
+                <tr>
+                    <td>Student #10</td>
+                    <td>70</td>
+                    <td>Student #20</td>
+                    <td>66</td>
+                    <td>Student #30</td>
+                    <td>65</td>
+                    <td>Student #40</td>
+                    <td>68</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <figure class="plot">
+            <svg id="population-histogram-example">
+
+            </svg>
+            <figcaption>Figure 1: Population distribution of students' grades in STAT 100 last year.
+            </figcaption>
+        </figure>
+
+
+        <p>
+            In general, the population distribution is unknown because we cannot measure the variable of interest over
+            the entire population. In these cases, we draw a sample from the population to learn about the population
+            distribution.
+        </p>
+        
+        <!-------------------------
+            SECTION SAMPLE
+        --------------------------->
         <h2>
             Sample
         </h2>
@@ -379,7 +525,7 @@
         </p>
 
         <p>
-            <span class="example">Example 2.1:</span>
+            <span class="example"></span>
             In times of Covid-19, the Canadian government started providing some aid to Canadian workers that lost their
             jobs. The provincial government of British Columbia (BC) is studying if it should also provide some aid to
             university students. To make the decision, BC's government wants to know the average income of university
@@ -413,7 +559,7 @@
             reasons other than convenience. This is very common in medical research (see the exercise below).
         </p>
         <div class="box-def box-exercise">
-            <p>Exercise 2.1</p>
+            <p></p>
             <p>
                 Say that a Canadian pharmaceutical company created a drug for a new disease. But now, they need to test
                 if the drug works on human beings. The company will administer the drug and a placebo on some people
@@ -452,6 +598,11 @@
                     </dd>
                 </dl>
             </div>
+        </div>
+
+        <div class="box-def">
+            <p>Sample Distribution</p>
+            <p>The sample distribution is the distribution of the variable of interest over a given sample.</p>
         </div>
 
         <p>Great! We now know some of the fundamental concepts we need. Let's review the big picture.</p>
@@ -494,6 +645,7 @@
                 </div>
             </li>
         </ol>
+        
 
         <p>
             Great, we are done! But wait for a second; the sample is random. The fact that we are using Chen, Mary, and
@@ -519,7 +671,9 @@
         </p>
 
         <p>
-            Admittedly, since the estimate is a random value, the chances are that we will not hit the mark and get an estimate that exactly matches the value of the parameter of interest. However, we don't need to. We just need to obtain an estimate that is <em>"close enough most of the time"</em>.
+            Admittedly, since the estimate is a random value, the chances are that we will not hit the mark and get an
+            estimate that exactly matches the value of the parameter of interest. However, we don't need to. We just
+            need to obtain an estimate that is <em>"close enough most of the time"</em>.
         </p>
 
 
@@ -527,14 +681,21 @@
             Sampling distribution
         </h2>
 
-        <p>When trying to learn about an unknown parameter, taking a sample and getting an estimate is a very reasonable approach. However, different samples will provide different estimates bringing uncertainty to the results. Think about, without knowing the population, how can you know that the sample you got represents the population well and will yield a good estimate for the parameter?
+        <p>When trying to learn about an unknown parameter, taking a sample and getting an estimate is a very reasonable
+            approach. However, different samples will provide different estimates bringing uncertainty to the results.
+            Think about, without knowing the population, how can you know that the sample you got represents the
+            population well and will yield a good estimate for the parameter?
         </p>
 
         <p>
-            To better understand the variation of the estimates caused by sampling variation, we could obtain the sample mean for each one of the possible samples of a given size. For example, considering all possible samples of 3 UBC students, how many samples provide a sample average income between C$00.00 and C$50.00, between C$50.00 and C$100.00, and so on? In other words, we could consider the sample mean of all possible samples and study its distribution.
+            To better understand the variation of the estimates caused by sampling variation, we could obtain the sample
+            mean for each one of the possible samples of a given size. For example, considering all possible samples of
+            3 UBC students, how many samples provide a sample average income between C$00.00 and C$50.00, between
+            C$50.00 and C$100.00, and so on? In other words, we could consider the sample mean of all possible samples
+            and study its distribution.
         </p>
         <p>
-            <span class="example">Example 3.1:</span> Suppose we want to know how many hours per week the employees of a
+            <span class="example"></span> Suppose we want to know how many hours per week the employees of a
             restaurant work.
             The restaurant has 20 employees:
         </p>
@@ -3506,7 +3667,7 @@
         </figure>
 
         <div class="box-def box-exercise">
-            <p>Exercise 3.1</p>
+            <p></p>
             <p>
 
             </p>
@@ -3524,7 +3685,7 @@
                         Figure 1
                         that are far away from the true mean, say higher than 46, or lower than 40.</p>
                 </li>
-                <button>Check Item 2</button>
+                <button id='check-item-2'>Check Item 2</button>
                 <li class="question-item">
                     <p>How many of the 1140 possible samples would you give a bad result (say a sample average above 46,
                         or below 40)?</p>
@@ -3553,8 +3714,21 @@
             </div>
         </div>
 
-        <p>As you can see, the sampling distribution tells us a lot about our statistic. We could, for example, calculate the probability that our statistic would be to a certain range around the parameter. But, how is this useful if we need to have access to all possible samples? In fact, if we had access to all possible samples, we would be better off just checking out the entire population. In our very small example above, we have 20 elements in the population, but 1140 possible samples of size 3. As it turns out, we do not need to have access to all possible samples to know the sampling distribution. In fact, we don't even need to know much about the population itself. This is so awesome that I will say it again: we do not need all possible samples to learn about the distribution of a statistic over all possible samples, nor we need much information about the population! 
+        <p>As you can see, the sampling distribution tells us a lot about our statistic.
+            We could, for example, calculate the probability that our statistic would be
+            to a certain range around the parameter. But, how is this useful if we need
+            to have access to all possible samples? In fact, if we had access to all possible
+            samples, we would be better off just checking out the entire population.
+            In our very small example above, we have 20 elements in the population,
+            but 1140 possible samples of size 3. Luckily for us, we do not need to have access
+            to all possible samples to know the sampling distribution. Wwe don't even
+            need to know much about the population itself. This is so awesome that I will say it
+            again: we are able to approximate the sampling distribution of a statistic even without
+            having access to the population! All we need is a sample! The same sample that you
+            use to calculate the statistic will also give you information on the uncertainty of your estimative.
         </p>
+
+        <p>Next we will discuss two ways to approximate the sampling distribution from a single sample: (1) Bootstrapping; and (2) the Central Limit Theorem </p>
 
         <div style="height: 400px; margin-top: 100px;">
 

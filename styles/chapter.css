@@ -2,6 +2,9 @@
       MAIN COLUMN
          text
 **********************/
+main{
+    counter-reset: example, definition, section, exercise;
+}
 
 /* Format the text in the main column for book chapter */
 main p, dt, dd{
@@ -25,11 +28,11 @@ main > ol > li > p {
 }
 
 /* Section header */
-
 main h2 {
     font-size: 2.5em;
     font-family: inherit;
     margin-top: 1em;
+    margin-bottom: 1em;
     padding: 5px 20px 15px 60px;
     letter-spacing: normal;
     color: white;
@@ -38,8 +41,16 @@ main h2 {
     text-decoration-style: solid;
     text-decoration: underline;
     border-radius: .5em;
-    width: calc(100% - 2em);
+    width: 100%;
+
+    counter-increment: section;
+    counter-reset: example definition exercise;
 }
+
+main h2::before {
+    content: counter(section)". ";
+}
+
 
 table {
     table-layout: fixed;
@@ -105,6 +116,11 @@ tbody td:last-child{
     font-style: italic;
     font-weight: bold;
     border-bottom: 1px solid black;
+    counter-increment: example;
+}
+
+.example::before{
+    content: "Example " counter(section) "." counter(example) ":";
 }
 
 /* Define the box to be used by definitions, theorem, cautions, etc... */
@@ -118,6 +134,7 @@ tbody td:last-child{
     border-radius: .1rem;
     box-shadow: 0 .2rem .5rem rgba(0,0,0,.05),0 0 .05rem rgba(0,0,0,.1);
     transition: color .25s,background-color .25s,border-color .25s;
+    counter-increment: definition;
 }
 
 /* Change the font for the elements inside the box. */
@@ -148,6 +165,10 @@ tbody td:last-child{
     background-color: rgba(68, 255, 93, 0.15);
 }
 
+.box-def > p:first-child::before {
+    content:  "Definition " counter(section) "." counter(definition)": ";
+}
+
 /* changes the color for a cautious box */
 .box-caution {
     border-left: .4rem solid rgb(251, 127,	77);
@@ -158,16 +179,26 @@ tbody td:last-child{
     background-color: rgba(255, 124, 72, 0.1);
 }
 
+.box-caution > p:first-child::before{
+    content: "";
+}
+
 /* changes the color for an exercise box */
 .box-exercise {
     border-left: .4rem solid rgb(59, 59, 59);
     background-color: rgba(59, 59, 59, 0.08);
+    counter-increment: exercise;    
 }
 
 .box-exercise > p:first-child {
     font-size: 16px;
     background-color: rgba(0, 0, 0, 0.1);
 }
+
+.box-exercise > p:first-child::before {
+    content: "Exercise " counter(section) "." counter(exercise);
+}
+
 
 /* defines the question item */
 .question-item {
@@ -220,6 +251,7 @@ tbody td:last-child{
     width: 100%;
     margin: 0;
     padding: 0;
+    margin-bottom: 3em;
 }
 
 .plot > figcaption{

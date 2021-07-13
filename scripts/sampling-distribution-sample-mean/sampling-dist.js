@@ -2,6 +2,109 @@
 /* Date: 20201-04-20
 /* Author: Rodolfo Lourenzutti
 
+
+/**********************************/
+/* Creates the Population Distr.  */
+/**********************************/
+const pop_dist = document.getElementById('population-histogram-example').parentElement;
+
+let margin = { top: 25, right: 30, bottom: 25, left: 40 },
+    height = 400,
+    width = pop_dist.clientWidth - parseInt(window.getComputedStyle(pop_dist).paddingRight);
+
+// append the svg object to the body of the page
+let svg = d3.select('#population-histogram-example')
+    .attr('width', width)
+    .attr('height', height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform",
+    "translate(" + margin.left + "," + margin.top + ")");
+
+
+/* Collecting the data from the table */
+let table = document.getElementById("pop-grades");
+let grades = Array(40);
+let entries_pop = table.querySelectorAll("td")
+let cont = 0
+entries_pop.forEach(
+    (entry) => {
+        value = parseFloat(entry.textContent);
+        if (!isNaN(value)) {
+            grades[cont++] = parseFloat(entry.textContent);
+            entry.value = value;
+        }
+    }
+);
+
+// creates the bin with thresholds
+let bins = d3.bin()
+    .thresholds(6)(grades);
+
+// creates the scale of x-axis
+x = d3.scaleLinear()
+    .domain([bins[0].x0 - 1, bins[bins.length - 1].x1 + 5])
+    .range([margin.left, width - margin.right]);
+
+    // creates the scale of x-axis
+y = d3.scaleLinear()
+    .domain([0, d3.max(bins, d => d.length) + 10]).nice()
+    .range([height - margin.bottom, margin.top]);
+
+xAxis = g => g
+    .attr("transform", `translate(0,${height - margin.bottom})`)
+    .call(d3.axisBottom(x).ticks(width / 100).tickSizeOuter(0))
+    .call(g => g.append("text")
+        .attr("x", width / 2)
+        .attr("y", -4)
+        .attr("fill", "currentColor")
+        .attr("font-weight", "bold")
+        .attr("text-anchor", "bottom")
+        .attr('font-size', '100px')
+        .attr("class", "axis")
+        .attr("dy", "3.5em")
+        .text("Final Grades"));
+
+yAxis = g => g
+    .attr("transform", `translate(${margin.left},0)`)
+    .call(d3.axisLeft(y).ticks(height / 70))
+    .call(g => g.select(".tick:last-of-type text").clone()
+        .attr("x", -125)
+        .attr("y", -45)
+        .attr("font-weight", "bold")
+        .attr('transform', 'rotate(270)')
+        .attr("text-anchor", "middle")
+        .text("Frequency"));
+
+svg.append("g")
+    .attr("fill", "steelblue")
+    .selectAll("rect")
+    .data(bins)
+    .join("rect")
+    .attr("x", d => x(d.x0) + 1)
+    .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
+    .attr("y", d => y(d.length))
+    .attr("height", d => y(0) - y(d.length))
+    .attr("class", 'bin')
+
+// Title
+svg.append("text")
+    .attr("x", width / 2)
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .text("Histogram STAT 100 grades")
+    .attr("dy", "-15px")
+    .attr("class", "plot-title");
+
+
+svg.append("g")
+    .call(xAxis);
+
+svg.append("g")
+    .call(yAxis);
+
+//svg.selectAll("text")
+//    .attr('font-size', '13px');   
+
 /**********************************/
 /* Controls the collapsible table */
 /**********************************/
@@ -39,7 +142,8 @@ btn.onclick = (e) => {
 
 
 /**********************************/
-/****  Creates the histogram   ****/
+/****  Creates the histogram 
+ **** of Sampling Distribution 
 /**********************************/
 
 /* Collecting the data from the table */
@@ -61,9 +165,10 @@ const ex_svg = document.getElementById("example-3-1-sampl-dist")
     .parentElement;
 
 // set the dimensions and margins of the graph
-let margin = { top: 35, right: 30, bottom: 25, left: 40 },
-    height = 400,
-    width = ex_svg.clientWidth - parseInt(window.getComputedStyle(ex_svg).paddingRight);
+
+margin = { top: 35, right: 30, bottom: 25, left: 40 };
+height = 400;
+width = ex_svg.clientWidth - parseInt(window.getComputedStyle(ex_svg).paddingRight);
 
 // append the svg object to the body of the page
 svg = d3.select("#example-3-1-sampl-dist")
@@ -92,7 +197,7 @@ xAxis = g => g
     .attr("transform", `translate(0,${height - margin.bottom})`)
     .call(d3.axisBottom(x).ticks(width / 80).tickSizeOuter(0))
     .call(g => g.append("text")
-        .attr("x", width / 2)
+        .attr("x", width / 2.2)
         .attr("y", -4)
         .attr("fill", "currentColor")
         .attr("font-weight", "bold")
@@ -105,7 +210,7 @@ yAxis = g => g
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y).ticks(height / 40))
     .call(g => g.select(".tick:last-of-type text").clone()
-        .attr("x", -100)
+        .attr("x", -160)
         .attr("y", -50)
         .attr("font-weight", "bold")
         .attr('transform', 'rotate(270)')
@@ -286,7 +391,7 @@ svg.append("g")
 svg.append("g")
 .call(yAxis);
 
-d3.selectAll("text")
+svg.selectAll("text")
 .attr('font-size', '13px');  
 
 /**
@@ -314,8 +419,8 @@ check_button.onclick =
                     return;
                 }
             }
-            item1_back.style.backgroundColor = '#c3fac4';
         }
+        item1_back.style.backgroundColor = '#c3fac4';
     }
 
 
@@ -341,9 +446,8 @@ check_button.onclick =
                     return;
                 }
             }
-            item2_back.style.backgroundColor = '#c3fac4';
-
         }
+        item2_back.style.backgroundColor = '#c3fac4';
     }
 
 
