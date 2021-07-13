@@ -204,7 +204,7 @@ xAxis = g => g
         .attr("text-anchor", "bottom")
         .attr("class", "axis")
         .attr("dy", "3.5em")
-        .text("Average Weekly Hours"));
+        .text("Average Fish Weight (dkg)"));
 
 yAxis = g => g
     .attr("transform", `translate(${margin.left},0)`)
@@ -278,7 +278,7 @@ svg.append("text")
     .attr("x", width / 2)
     .attr("y", 0)
     .attr("text-anchor", "middle")
-    .text("Histogram of average weekly hours for all samples of size 3")
+    .text("Histogram of the sample mean of fish weights over all possible samples")
     .attr("dy", "-15px")
     .attr("class", "plot-title");
 
