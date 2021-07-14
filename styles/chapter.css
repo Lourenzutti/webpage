@@ -51,6 +51,13 @@ main h2::before {
     content: counter(section)". ";
 }
 
+main > button{
+    border-radius: 10px;
+    box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.493);
+    background-color: rgb(86, 85, 87);
+    color: white;
+    padding: 10px;
+}
 
 table {
     table-layout: fixed;

@@ -311,17 +311,18 @@
             </div>
         </div>
         <p>If we could measure the variable of interest over the entire population (i.e., each individual of the
-            population), we would obtain the <em>Population Distribution</em>. 
+            population), we would obtain the <em>Population Distribution</em>.
         </p>
 
         <div class="box-def">
             <p>Population Distribution</p>
-            <p>The population distribution is the distribution of the variable of interest over the entire population.</p>
+            <p>The population distribution is the distribution of the variable of interest over the entire population.
+            </p>
         </div>
 
         <p>
-            <span class="example"></span> Suppose we are interested in the final grades of all 40 students who took STAT 100 
-            last year. After looking at the records, the professor provided us with all the 40 grades.
+            <span class="example"></span> Suppose we are interested in the final grades of all 40 students who took STAT
+            100 last year. After looking at the records, the professor provided us with all the 40 grades.
         </p>
         <table id="pop-grades">
             <caption><strong>Table 1: </strong><em>The grades of all students who took STAT 100 last year.</em>
@@ -454,7 +455,7 @@
             the entire population. In these cases, we draw a sample from the population to learn about the population
             distribution.
         </p>
-        
+
         <!-------------------------
             SECTION SAMPLE
         --------------------------->
@@ -605,8 +606,25 @@
             <p>The sample distribution is the distribution of the variable of interest over a given sample.</p>
         </div>
 
+        <p><span class="example"></span>
+            Let's return to the STAT 100 grades example. But this time, we are going to take a random sample of 15
+            students to estimate the median grade.
+        </p>
+
+        <button id="draw-sample">Draw random sample</button>
+
+        <figure class="plot">
+            <svg id="sample-dist">
+
+            </svg>
+            <figcaption>Figure X: </figcaption>
+        </figure>
+
         <p>Great! We now know some of the fundamental concepts we need. Let's review the big picture.</p>
 
+        <!--------------------------------------
+            SECTION: REVISITING THE BIG PICTURE
+        --------------------------------------->
         <h2>Revisiting the Big Picture</h2>
 
         <ol>
@@ -645,7 +663,7 @@
                 </div>
             </li>
         </ol>
-        
+
 
         <p>
             Great, we are done! But wait for a second; the sample is random. The fact that we are using Chen, Mary, and
@@ -676,6 +694,9 @@
             need to obtain an estimate that is <em>"close enough most of the time"</em>.
         </p>
 
+        <!--------------------------------
+            SECTION SAMPLING DISTRIBUTION
+        ---------------------------------->
 
         <h2>
             Sampling distribution
@@ -696,7 +717,7 @@
         </p>
         <p>
             <span class="example"></span> An aquarium has 20 fish. Suppose you are in charge of feeding the fish,
-            and for that, you need to know their weight to give them the proper amount of food. 
+            and for that, you need to know their weight to give them the proper amount of food.
         </p>
 
         <table>
@@ -767,12 +788,15 @@
         </table>
 
         <p>
-            The table above contains the entire population (i.e., all the 20 fish in the aquarium). Now, suppose we want to 
-            estimate the average Weight (dkg) of the fish using a random sample of size 3. How would the sample mean vary across different samples of size 3? There are 1140 different possible samples of size 3 that we could take,
+            The table above contains the entire population (i.e., all the 20 fish in the aquarium). Now, suppose we want
+            to
+            estimate the average Weight (dkg) of the fish using a random sample of size 3. How would the sample mean
+            vary across different samples of size 3? There are 1140 different possible samples of size 3 that we could
+            take,
             as shown in the table below.
         </p>
 
-        <table id="all-samples-restaurant">
+        <table id="all-samples-fish">
             <caption><strong>Table 2:</strong> <em>All possible samples of three Fishs from the restaurant and the
                     respective sample mean.</em></caption>
             <thead>
@@ -3658,7 +3682,8 @@
             <svg id="example-3-1-sampl-dist">
 
             </svg>
-            <figcaption>Figure 1: Sampling distribution of the sample average of weight (dkg) for samples of size 3 fish from the aquarium.
+            <figcaption>Figure 1: Sampling distribution of the sample average of weight (dkg) for samples of size 3 fish
+                from the aquarium.
             </figcaption>
         </figure>
 
@@ -3724,7 +3749,8 @@
             use to calculate the statistic will also give you information on the uncertainty of your estimative.
         </p>
 
-        <p>Next we will discuss two ways to approximate the sampling distribution from a single sample: (1) Bootstrapping; and (2) the Central Limit Theorem </p>
+        <p>Next we will discuss two ways to approximate the sampling distribution from a single sample: (1)
+            Bootstrapping; and (2) the Central Limit Theorem </p>
 
         <div style="height: 400px; margin-top: 100px;">
 

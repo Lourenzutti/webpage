@@ -18,7 +18,7 @@ let svg = d3.select('#population-histogram-example')
     .attr('height', height + margin.top + margin.bottom)
     .append("g")
     .attr("transform",
-    "translate(" + margin.left + "," + margin.top + ")");
+        "translate(" + margin.left + "," + margin.top + ")");
 
 
 /* Collecting the data from the table */
@@ -45,7 +45,7 @@ x = d3.scaleLinear()
     .domain([bins[0].x0 - 1, bins[bins.length - 1].x1 + 5])
     .range([margin.left, width - margin.right]);
 
-    // creates the scale of x-axis
+// creates the scale of x-axis
 y = d3.scaleLinear()
     .domain([0, d3.max(bins, d => d.length) + 10]).nice()
     .range([height - margin.bottom, margin.top]);
@@ -102,9 +102,90 @@ svg.append("g")
 svg.append("g")
     .call(yAxis);
 
-//svg.selectAll("text")
-//    .attr('font-size', '13px');   
+/**********************************/
+/* Creates the Sample Distr.  */
+/**********************************/
+create_sample_dist = sample_grades => {
+    // append the svg object to the body of the page
+    svg = d3.select('#sample-dist')
+        .attr('width', width)
+        .attr('height', height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
 
+
+    // creates the bin with thresholds
+    bins = d3.bin()
+        .thresholds(6)(sample_grades);
+
+    // creates the scale of x-axis
+    x = d3.scaleLinear()
+        .domain([bins[0].x0 - 1, bins[bins.length - 1].x1 + 5])
+        .range([margin.left, width - margin.right]);
+
+    // creates the scale of x-axis
+    y = d3.scaleLinear()
+        .domain([0, d3.max(bins, d => d.length) + 10]).nice()
+        .range([height - margin.bottom, margin.top]);
+
+    xAxis = g => g
+        .attr("transform", `translate(0,${height - margin.bottom})`)
+        .call(d3.axisBottom(x).ticks(width / 100).tickSizeOuter(0))
+        .call(g => g.append("text")
+            .attr("x", width / 2)
+            .attr("y", -4)
+            .attr("fill", "currentColor")
+            .attr("font-weight", "bold")
+            .attr("text-anchor", "bottom")
+            .attr('font-size', '100px')
+            .attr("class", "axis")
+            .attr("dy", "3.5em")
+            .text("Final Grades"));
+
+    yAxis = g => g
+        .attr("transform", `translate(${margin.left},0)`)
+        .call(d3.axisLeft(y).ticks(height / 70))
+        .call(g => g.select(".tick:last-of-type text").clone()
+            .attr("x", -125)
+            .attr("y", -45)
+            .attr("font-weight", "bold")
+            .attr('transform', 'rotate(270)')
+            .attr("text-anchor", "middle")
+            .text("Frequency"));
+
+    svg.append("g")
+        .attr("fill", "steelblue")
+        .selectAll("rect")
+        .data(bins)
+        .join("rect")
+        .attr("x", d => x(d.x0) + 1)
+        .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
+        .attr("y", d => y(d.length))
+        .attr("height", d => y(0) - y(d.length))
+        .attr("class", 'bin')
+
+    // Title
+    svg.append("text")
+        .attr("x", width / 2)
+        .attr("y", 50)
+        .attr("text-anchor", "middle")
+        .text("Histogram STAT 100 grades")
+        .attr("dy", "-15px")
+        .attr("class", "plot-title");
+
+
+    svg.append("g")
+        .call(xAxis);
+
+    svg.append("g")
+        .call(yAxis);
+
+    //svg.selectAll("text")
+    //    .attr('font-size', '13px');   
+}
+
+document.getElementById("sample-dist")
 /**********************************/
 /* Controls the collapsible table */
 /**********************************/
@@ -116,24 +197,24 @@ btn.onclick = (e) => {
     tbodies[0].style.display = "table-row-group"; // set the visibility of the first hidden part of the table.
     e.target.parentElement.parentElement.parentElement.remove(); // removes the tbody that contains the first button
 
-    tbody_level2 = e.target.parentElement.parentElement.parentElement.cloneNode(true); 
+    tbody_level2 = e.target.parentElement.parentElement.parentElement.cloneNode(true);
     table.appendChild(tbody_level2); //attach the tbody with the level 2 button
     btn_level2 = tbody_level2.querySelector("button");
     btn_level2.textContent = "Show all"; // update the text of the level 2 button
-    
+
     // assign a new event handler for the level 2 button
-    btn_level2.onclick = (e2) => {  
+    btn_level2.onclick = (e2) => {
         tbodies[1].style.display = "table-row-group";
         e2.target.parentElement.parentElement.parentElement.remove();
         tbody_level3 = e2.target.parentElement.parentElement.parentElement.cloneNode(true);
         table.appendChild(tbody_level3);
         btn_level3 = tbody_level3.querySelector("button");
         btn_level3.textContent = "Collapse";
-        
+
         // assign a new event handler for the level 3 button
         btn_level3.onclick = (e3) => {
             tbodies[0].style.display = ""; // resets the display of the first part of the table.
-            tbodies[1].style.display = ""; 
+            tbodies[1].style.display = "";
             table.appendChild(e.target.parentElement.parentElement.parentElement);
             e3.target.parentElement.parentElement.parentElement.remove(); // removes button level 3
         }
@@ -147,7 +228,7 @@ btn.onclick = (e) => {
 /**********************************/
 
 /* Collecting the data from the table */
-table = document.getElementById("all-samples-restaurant");
+table = document.getElementById("all-samples-fish");
 sample_means = Array(1140);
 entries = table.querySelectorAll("td")
 cont = 0
@@ -187,7 +268,7 @@ x = d3.scaleLinear()
     .domain([bins[0].x0 - 1, bins[bins.length - 1].x1 + 5])
     .range([margin.left, width - margin.right]);
 
-    // creates the scale of x-axis
+// creates the scale of x-axis
 y = d3.scaleLinear()
     .domain([0, d3.max(bins, d => d.length) + 10]).nice()
     .range([height - margin.bottom, margin.top]);
@@ -237,11 +318,11 @@ svg.append("g")
             .attr("class", "freq")
             .text(i.length)
             .property("bar", d.target);
-        
+
         d3.select(d.target).style("cursor", "pointer"); // change the cursor
         entries.forEach(entry => {
             if (entry.value >= x.invert(d.target.x.baseVal.value) &&
-                entry.value <= x.invert(d.target.x.baseVal.value + d.target.width.baseVal.value)){
+                entry.value <= x.invert(d.target.x.baseVal.value + d.target.width.baseVal.value)) {
                 entry.style.color = 'red';
             }
         });
@@ -257,7 +338,7 @@ svg.append("g")
 
             entries.forEach(entry => {
                 if (entry.value >= x.invert(d.target.x.baseVal.value) &&
-                    entry.value <= x.invert(d.target.x.baseVal.value + d.target.width.baseVal.value)){
+                    entry.value <= x.invert(d.target.x.baseVal.value + d.target.width.baseVal.value)) {
                     entry.style.color = '';
                 }
             });
@@ -361,7 +442,7 @@ let reset = svg.append("g")
     })
     .on("click", (d, i, e) => {
         var bins = d3.selectAll(".bin");
-        for (var i = 0; i < bins._groups[0].length; i++){
+        for (var i = 0; i < bins._groups[0].length; i++) {
             bin = bins._groups[0][i];
             bin.flag = false;
         }
@@ -370,50 +451,50 @@ let reset = svg.append("g")
 
 // Creates the rectangle of the button
 reset.append("rect")
-.attr("x", x(58))
-.attr("y", 30)
-.attr("width", 108)
-.attr("height", 30)
-.attr("fill", "#e3732d");
+    .attr("x", x(58))
+    .attr("y", 30)
+    .attr("width", 108)
+    .attr("height", 30)
+    .attr("fill", "#e3732d");
 
 // Add text to the button
 reset.append("text")
-.text("Reset plot")
-.attr("x", x(60.15))
-.attr("y", 50)
-.attr("text-anchor", "middle")
-.style("font-size", '15px')
-.attr("fill", "white");
+    .text("Reset plot")
+    .attr("x", x(60.15))
+    .attr("y", 50)
+    .attr("text-anchor", "middle")
+    .style("font-size", '15px')
+    .attr("fill", "white");
 
 svg.append("g")
-.call(xAxis);
+    .call(xAxis);
 
 svg.append("g")
-.call(yAxis);
+    .call(yAxis);
 
 svg.selectAll("text")
-.attr('font-size', '13px');  
+    .attr('font-size', '13px');
 
 /**
  * Check the reader selected the right bars in the histogram:
  */
 // Exercise 3.1
 var check_button = document.getElementById("check-item-1");
-check_button.onclick = 
+check_button.onclick =
     d => {
         item1_back = d.target.previousElementSibling;
         bins = document.querySelectorAll(".bin");
-        for (var i = 0; i < bins.length; i++){
+        for (var i = 0; i < bins.length; i++) {
             bin = bins[i];
-            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) < 40 || x.invert(bin.x.baseVal.value) > 46.001){
-                if (bin.getAttribute("fill")==="red"){
+            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) < 40 || x.invert(bin.x.baseVal.value) > 46.001) {
+                if (bin.getAttribute("fill") === "red") {
                     alert("You did not select the right bins.");
                     item1_back.style.backgroundColor = '#fac6c3';
                     return;
                 }
             }
-            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) <= 46.00001 && x.invert(bin.x.baseVal.value) >= 40){
-                if (bin.getAttribute("fill")!=="red"){
+            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) <= 46.00001 && x.invert(bin.x.baseVal.value) >= 40) {
+                if (bin.getAttribute("fill") !== "red") {
                     alert("You did not select the right bins.");
                     item1_back.style.backgroundColor = '#fac6c3';
                     return;
@@ -426,21 +507,21 @@ check_button.onclick =
 
 // Exercise 3.2
 check_button = document.getElementById("check-item-2");
-check_button.onclick = 
+check_button.onclick =
     d => {
         item2_back = d.target.previousElementSibling;
         bins = document.querySelectorAll(".bin");
-        for (var i = 0; i < bins.length; i++){
+        for (var i = 0; i < bins.length; i++) {
             bin = bins[i];
-            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) < 40 || x.invert(bin.x.baseVal.value) > 46.001){
-                if (bin.getAttribute("fill")!=="red"){
+            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) < 40 || x.invert(bin.x.baseVal.value) > 46.001) {
+                if (bin.getAttribute("fill") !== "red") {
                     alert("You did not select the right bins.");
                     item2_back.style.backgroundColor = '#fac6c3';
                     return;
                 }
             }
-            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) <= 46.00001 && x.invert(bin.x.baseVal.value) >= 40){
-                if (bin.getAttribute("fill")==="red"){
+            if (x.invert(bin.x.baseVal.value + bin.width.baseVal.value) <= 46.00001 && x.invert(bin.x.baseVal.value) >= 40) {
+                if (bin.getAttribute("fill") === "red") {
                     alert("You did not select the right bins.");
                     item2_back.style.backgroundColor = '#fac6c3';
                     return;
