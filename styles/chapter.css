@@ -57,6 +57,11 @@ main > button{
     background-color: rgb(86, 85, 87);
     color: white;
     padding: 10px;
+    margin-bottom: 4em;
+}
+
+main button:hover {
+    cursor: pointer;
 }
 
 table {

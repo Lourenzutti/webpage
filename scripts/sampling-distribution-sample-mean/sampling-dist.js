@@ -105,10 +105,17 @@ svg.append("g")
 /**********************************/
 /* Creates the Sample Distr.  */
 /**********************************/
+const sample_plot = document.getElementById("sample-dist").parentElement;
+sample_plot.style.display = "none";
+
 create_sample_dist = sample_grades => {
-    // append the svg object to the body of the page
-    svg = d3.select('#sample-dist')
-        .attr('width', width)
+    sample_plot.style.display = "block";
+    draw_sample_btn.style.marginBottom = "1em";
+    
+    
+    const svg = d3.select('#sample-dist')
+    svg.selectAll("*").remove()
+    svg.attr('width', width)
         .attr('height', height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
@@ -116,17 +123,17 @@ create_sample_dist = sample_grades => {
 
 
     // creates the bin with thresholds
-    bins = d3.bin()
-        .thresholds(6)(sample_grades);
+    const bins = d3.bin()
+        .thresholds(8)(sample_grades);
 
     // creates the scale of x-axis
-    x = d3.scaleLinear()
-        .domain([bins[0].x0 - 1, bins[bins.length - 1].x1 + 5])
+    const x = d3.scaleLinear()
+        .domain([55, 85])
         .range([margin.left, width - margin.right]);
 
     // creates the scale of x-axis
-    y = d3.scaleLinear()
-        .domain([0, d3.max(bins, d => d.length) + 10]).nice()
+    const y = d3.scaleLinear()
+        .domain([0, 10]).nice()
         .range([height - margin.bottom, margin.top]);
 
     xAxis = g => g
@@ -147,9 +154,10 @@ create_sample_dist = sample_grades => {
         .attr("transform", `translate(${margin.left},0)`)
         .call(d3.axisLeft(y).ticks(height / 70))
         .call(g => g.select(".tick:last-of-type text").clone()
-            .attr("x", -125)
-            .attr("y", -45)
+            .attr("x", -145)
+            .attr("y", -35)
             .attr("font-weight", "bold")
+            .attr("font-size", "1.7em")
             .attr('transform', 'rotate(270)')
             .attr("text-anchor", "middle")
             .text("Frequency"));
@@ -170,7 +178,7 @@ create_sample_dist = sample_grades => {
         .attr("x", width / 2)
         .attr("y", 50)
         .attr("text-anchor", "middle")
-        .text("Histogram STAT 100 grades")
+        .text("Histogram of STAT 100 grades of 15 randomly selected students")
         .attr("dy", "-15px")
         .attr("class", "plot-title");
 
@@ -181,11 +189,15 @@ create_sample_dist = sample_grades => {
     svg.append("g")
         .call(yAxis);
 
-    //svg.selectAll("text")
-    //    .attr('font-size', '13px');   
+    svg.selectAll("text")
+        .attr('font-size', '14px');   
 }
 
-document.getElementById("sample-dist")
+const draw_sample_btn = document.getElementById("draw-sample");
+draw_sample_btn.addEventListener("click", (d) => {
+    let grades_sample =  sample(grades, size = 15);
+    create_sample_dist(grades_sample);
+});
 /**********************************/
 /* Controls the collapsible table */
 /**********************************/

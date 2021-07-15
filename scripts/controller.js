@@ -64,6 +64,7 @@ exercises.forEach(exercise => {
 
     btn.addEventListener("click", () => {
         for (answer of answers) {
+            console.log(answer);
             if (answer.value === "") {
                 alert("You should try answering the exercises before seeing the answers.");
                 return 0;

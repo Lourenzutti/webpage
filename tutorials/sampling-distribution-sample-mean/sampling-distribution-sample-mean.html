@@ -611,20 +611,53 @@
             students to estimate the median grade.
         </p>
 
-        <button id="draw-sample">Draw random sample</button>
+        <button id="draw-sample">Draw a random sample</button>
 
         <figure class="plot">
             <svg id="sample-dist">
 
             </svg>
-            <figcaption>Figure X: </figcaption>
+            <figcaption>Figure X: Sample distribution of STAT 100 grades of 15 students. </figcaption>
         </figure>
 
+
+
+        <div class="box-def box-exercise">
+            <p></p>
+            <p>
+                Based on the Example 2.2, answer true or false: 
+            </p>
+            <ol>
+                <li class="question-item">
+                    <p>Each time we take a random sample we will have a different sample distribution.</p>
+                    <textarea class="answer" style="height:25px; width: 150px"></textarea>
+                </li>
+                <li class="question-item">
+                    <p>Each time we take a random sample we will have a different population distribution.</p>
+                    <textarea class="answer" style="height:25px; width: 150px"></textarea>
+                </li>
+            </ol>
+            <button class="btn-show-answers">Show answers</button>
+            <div class="solution">
+                <dl>
+                    <dt> Each time we take a random sample we will have a different sample distribution.</dt>
+                    <dd> True!! Note that the sample distribution is the distribution of the sample you obtained! Since we
+                        sample at random, the sample distribution will change every time. 
+                    </dd>
+                    <dt> Each time we take a random sample we will have a different population distribution.</dt>
+                    <dd> False!! Note that the sample is random, but the population is not. The population is fixed,
+                        with all the same individuals. Therefore, the population distribution is fixed. 
+                    </dd>
+                </dl>
+            </div>
+        </div>
         <p>Great! We now know some of the fundamental concepts we need. Let's review the big picture.</p>
 
-        <!--------------------------------------
-            SECTION: REVISITING THE BIG PICTURE
-        --------------------------------------->
+        <!------------------------------------------------------------------------------------------------------------------
+        --------------------------------------------------------------------------------------------------------------------
+            --------------------------------------SECTION: REVISITING THE BIG PICTURE-------------------------------------
+        --------------------------------------------------------------------------------------------------------------------
+        ------------------------------------------------------------------------------------------------------------------->
         <h2>Revisiting the Big Picture</h2>
 
         <ol>
@@ -654,7 +687,8 @@
                     Next, we use the sample to learn about the parameter of the population. For example, if we are
                     interested in the average income of a given population, we calculate the average income in the
                     sample.
-                    The value you obtain is called <strong>estimate</strong> of the parameter.
+                    The function/formula you are using is called <strong>estimator</strong> (e.g., sample mean, sample variance,
+                    sample quantile) and the value you obtain in a given sample is called <strong>estimate</strong> of the parameter.
                 </p>
 
                 <div style="display: flex; flex-flow: row nowrap; align-items: center;">
@@ -720,7 +754,7 @@
             and for that, you need to know their weight to give them the proper amount of food.
         </p>
 
-        <table>
+        <table id='table-fish-weight'>
             <caption><strong>Table 1:</strong><em> The weight of the 20 fish in the aquarium. (Note 1dkg = 10g).</em>
             </caption>
             <thead>
@@ -3708,7 +3742,7 @@
                 </li>
                 <button id='check-item-2'>Check Item 2</button>
                 <li class="question-item">
-                    <p>How many of the 1140 possible samples would you give a bad result (say a sample average above 46,
+                    <p>How many of the 1140 possible samples would give a bad result (say a sample average above 46,
                         or below 40)?</p>
                     <input type="number" class="answer"></input><br>
                 </li>
@@ -3717,6 +3751,11 @@
                         between 40 and 46?
                     </p>
                     <textarea class="answer"></textarea>
+                </li>
+                <li class="question-item">
+                    <p>True or False: Each time we take a random sample we will have a different sampling distribution.
+                    </p>
+                    <textarea class="answer" style="height:25px; width: 150px"></textarea>
                 </li>
             </ol>
             <button class="btn-show-answers">Show answers</button>
@@ -3731,26 +3770,82 @@
                     <dd>
                         The variance (or standard deviation) of BC's university students.
                     </dd>
+                    <dt>True or False: Each time we take a random sample we will have a different sampling distribution.
+                    </dt>
+                    <dd>
+                        False!!! This can be confusing. But note that the sampling distribution is using the table of all possible samples. 
+                        We are not concerned about the result in one sample only, but in all of them.
+                    </dd>
                 </dl>
             </div>
         </div>
 
-        <p>As you can see, the sampling distribution tells us a lot about our statistic.
-            We could, for example, calculate the probability that our statistic would be
-            to a certain range around the parameter. But, how is this useful if we need
-            to have access to all possible samples? In fact, if we had access to all possible
-            samples, we would be better off just checking out the entire population.
-            In our very small example above, we have 20 elements in the population,
-            but 1140 possible samples of size 3. Luckily for us, we do not need to have access
-            to all possible samples to know the sampling distribution. Wwe don't even
-            need to know much about the population itself. This is so awesome that I will say it
-            again: we are able to approximate the sampling distribution of a statistic even without
-            having access to the population! All we need is a sample! The same sample that you
-            use to calculate the statistic will also give you information on the uncertainty of your estimative.
+
+
+        <p>As you can see, the sampling distribution tells us a lot about our statistic. We could, for example, calculate the probability that our statistic would be to a certain range around the parameter. But, how is this useful if we need to have access to all possible samples? In fact, if we had access to all possible samples, we would be better off just checking out the entire population. In our very small example above, we have 20 elements in the population but 1140 possible samples of size 3. Luckily for us, we do not need to have access to all possible samples to know the sampling distribution. We don't even need to know much about the population itself. This is so awesome that I will say it again: we are able to approximate the sampling distribution of a statistic even without having access to the population! All we need is a sample! The same sample that you use to calculate the statistic will also give you information on the uncertainty of your estimate.
         </p>
 
-        <p>Next we will discuss two ways to approximate the sampling distribution from a single sample: (1)
-            Bootstrapping; and (2) the Central Limit Theorem </p>
+        <h2>Activity</h2>
+        
+        <p> A small city in northern Canada has 2,000 residents. Statistics Canada is interested in the residents' income. They don't know this, but we have access to the entire list of residents and their income. </p>
+
+        <table id="table-resident-income">
+        <thead>
+        <tr>
+        <th>Name</th>
+        <th>Income</th>
+        </tr>
+        </thead>
+            
+
+        <table>
+
+            
+        <div class="box-def box-exercise">
+            <p></p>
+            <p> Which of the following elements will affect the sampling distribution (keeping everything else constant)? Select all that apply:
+            </p>
+            <form style="padding-left: 3em;">
+                <br>
+                <input type="checkbox" id="element1" name="population-distribution" value="population-distribution">
+                <label for="element1"> Population distribution</label><br>
+                <input type="checkbox" id="element2" name="sample-distribution" value="sample-distribution">
+                <label for="element2"> Sample distribution</label><br>
+                <input type="checkbox" id="element3" name="sample-size" value="sample-size">
+                <label for="element3"> Sample size</label><br>
+                <input type="checkbox" id="element4" name="estimator" value="estimator">
+                <label for="element4"> Estimator </label>
+            </form>
+            <button class="btn-show-answers">Show answers</button>
+            <div class="solution">
+                <dl>
+                    <dt> Population distribution</dt>
+                    <dd>True! The population distribution will certainly affect the sampling distribution. For example, if you 
+                        have more variability in the population, you will most probably have more variability in the estimates as well. </dd>
+
+                    <dt> Sample distribution</dt>
+                    <dd>
+                        False! The sample distribution changes according to the sample obtained, and consequently the estimate. 
+                        But the sampling distribution is not about one sample, it is about all possible samples.
+                    </dd>
+                    <dt> Sample size </dt>
+                    <dd>
+                        As we increase the sample size, the estimator tend to vary less from sample to sample, which would make
+                        its sampling distribution narrower. 
+                    </dd>
+                    <dt> Estimator </dt>
+                    <dd>
+                        The sampling distribution is the distribution of a given estimator. If you change the estimator, you are
+                        also changing the sampling distribution. For example, imagine you that you want to estimate the weight of the lightest 
+                        fish in the aquarium. So, instead of the sample mean, you would calculate the sample minimum. The values in the table shown in Example 
+                        4.1 would be completely different, and consequently, so would be the sampling distribution.
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <p>Next, we will discuss two ways to approximate the sampling distribution from a single sample: (1)
+            Bootstrapping; and (2) the Central Limit Theorem. </p>
 
         <div style="height: 400px; margin-top: 100px;">
 

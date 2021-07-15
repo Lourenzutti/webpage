@@ -14,10 +14,12 @@
 
     <!--Load local scripts-->
     <script defer src="/scripts/controller.js"></script>
+    <script defer src="/scripts/random.js"></script>
+    <script defer src="/scripts/bootstrapping/bootstrap.js"></script>
 
     <!--Load styles-->
     <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/tutorial-index.css">
+    <link rel="stylesheet" href="/styles/chapter.css">
 
     <title>Rodolfo Lourenzutti</title>
 </head>
@@ -45,7 +47,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page="/tutorials/tutorial-index.html"><i
+                        <a class="nav-link" href="" data-page="/tutorials/tutorial-index.html" data-stylesheet="/styles/tutorial-index.css"><i
                                 class="fas fa-book"></i>
                             Tutorials </a>
                     </li>
@@ -77,7 +79,7 @@
                         Blog </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="" data-page="/tutorials/tutorial-index.html"> <i
+                    <a class="menu_link" href="" data-page="/tutorials/tutorial-index.html" data-stylesheet="/styles/tutorial-index.css"> <i
                             class="fas fa-book"></i>
                         Tutorials
                     </a>
@@ -128,26 +130,88 @@
     </header>
 
     <main>
-        <h1>Tutorials</h1>
+        <h1>Bootstrapping</h1>
 
-        <div class="area-title">Statistical Inference</div>
-        <div class="area-tutorial">
-            <a href="/tutorials/sampling-distribution-sample-mean/sampling-distribution-sample-mean.html">
-                <div class="card">
-                    <img src="/imgs/Blank_Sticky_Note_clip_art.svg">
-                    <span class="tutorial-title">Sampling Distribution</span>
-                </div>
-            </a>
-            <a href="/tutorials/bootstrapping/bootstrapping.html" style="display: none;">
-                <div class="card">
-                    <img src="/imgs/Blank_Sticky_Note_clip_art.svg">
-                    <span class="tutorial-title">Bootstrapping</span>
-                </div>
-            </a>
-        </div>
+        <p> In our previous tutorial, <a href="http://127.0.0.1:5501/tutorials/sampling-distribution-sample-mean/sampling-distribution-sample-mean.html">Sampling Distribution</a>, we discussed the idea of taking a random sample to learn about a population parameter and quantifying how uncertain we are about the estimates we get using this process. We learn that we could use the sampling distribution of our estimator (i.e., the distribution of values taken by the estimator across all possible samples [with a fixed size] we could get) to analyze the uncertainty associated with our estimates. </p>
+
+        <p>Before we dive into <em>how to use</em> the sampling distribution, we need to come up with a way to <em>obtain</em> the sampling distribution. Wait, didn't we learn that to obtain the sampling distribution, we just needed to look at the distribution of the estimator over all possible samples of a given size? Yes! The problem is, in reality, you don't have access to the population (that's why you're taking a sample, right?), so how would you get all possible samples of a given size? Let's revisit the example we discussed in the <a href="http://127.0.0.1:5501/tutorials/sampling-distribution-sample-mean/sampling-distribution-sample-mean.html">Sampling Distribution</a>. </p>
+
+        <p>
+                    <span class="example"></span> An aquarium has 20 fish. Suppose you are in charge of feeding the fish, and for that, you need to know their weight to give them the proper amount of food. Previously, we were provided with a table with the weights of all 20 fish in the aquarium. But in practice, we don't have this information. 
+        </p>
+
+        <table id='table-fish-weight'>
+            <caption><strong>Table 1:</strong><em> The weight of all 20 fish in the aquarium. (Note 1dkg = 10g).</em>
+            </caption>
+            <thead>
+                <th>Fish</th>
+                <th>Weight (dkg)</th>
+                <th>Fish</th>
+                <th>Weight (dkg)</th>
+                <th>Fish</th>
+                <th>Weight (dkg)</th>
+                <th>Fish</th>
+                <th>Weight (dkg)</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fish #1</td>
+                    <td>?</td>
+                    <td>Fish #6</td>
+                    <td>?</td>
+                    <td>Fish #11</td>
+                    <td>?</td>
+                    <td>Fish #16</td>
+                    <td>?</td>
+                </tr>
+                <tr>
+                    <td>Fish #2</td>
+                    <td>?</td>
+                    <td>Fish #7</td>
+                    <td>?</td>
+                    <td>Fish #12</td>
+                    <td>?</td>
+                    <td>Fish #17</td>
+                    <td>?</td>
+                </tr>
+                <tr>
+                    <td>Fish #3</td>
+                    <td>?</td>
+                    <td>Fish #8</td>
+                    <td>?</td>
+                    <td>Fish #13</td>
+                    <td>?</td>
+                    <td>Fish #18</td>
+                    <td>?</td>
+                </tr>
+                <tr>
+                    <td>Fish #4</td>
+                    <td>?</td>
+                    <td>Fish #9</td>
+                    <td>?</td>
+                    <td>Fish #14</td>
+                    <td>?</td>
+                    <td>Fish #19</td>
+                    <td>?</td>
+                </tr>
+                <tr>
+                    <td>Fish #5</td>
+                    <td>?</td>
+                    <td>Fish #10</td>
+                    <td>?</td>
+                    <td>Fish #15</td>
+                    <td>?</td>
+                    <td>Fish #20</td>
+                    <td>?</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>All we can do is to take a sample, and check the weight of the fish in the sample.</p>
+        <button id='take-fish-sample'>Take a sample</button>
+
 
     </main>
 
 </body>
-
 </html>
