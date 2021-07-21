@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124600152-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-124600152-1');
+    </script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,12 +58,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page="/tutorials/tutorial-index.html" data-stylesheet="/styles/tutorial-index.css"><i
-                                class="fas fa-book"></i>
+                        <a class="nav-link" href="" data-page="/tutorials/tutorial-index.html"
+                            data-stylesheet="/styles/tutorial-index.css"><i class="fas fa-book"></i>
                             Tutorials </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page='/teaching.html' data-stylesheet="/styles/teaching.css"><i class="fas fa-chalkboard-teacher"></i>
+                        <a class="nav-link" href="" data-page='/teaching.html' data-stylesheet="/styles/teaching.css"><i
+                                class="fas fa-chalkboard-teacher"></i>
                             Teaching</a>
                     </li>
                     <li class="nav-item">
@@ -80,13 +91,14 @@
                         Blog </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="" data-page="/tutorials/tutorial-index.html" data-stylesheet="/styles/tutorial-index.css"> <i
-                            class="fas fa-book"></i>
+                    <a class="menu_link" href="" data-page="/tutorials/tutorial-index.html"
+                        data-stylesheet="/styles/tutorial-index.css"> <i class="fas fa-book"></i>
                         Tutorials
                     </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="" data-page="/teaching.html" data-stylesheet="/styles/teaching.css"><i class="fas fa-chalkboard-teacher"></i>
+                    <a class="menu_link" href="" data-page="/teaching.html" data-stylesheet="/styles/teaching.css"><i
+                            class="fas fa-chalkboard-teacher"></i>
                         Teaching</a>
                 </li>
                 <li>
@@ -133,74 +145,121 @@
     <main>
         <h1>Hypothesis Testing</h1>
 
-        <p>So far, we have focused on the problem of estimation. We have a population of interest, and we are interested in the specific value of an unknown parameter of this population (e.g., the population mean, median, quantiles, standard deviation). However, oftentimes we are not interested in the value of the parameter per se, but we are just interested in whether a certain statement about the population is true.</p>
+        <p>So far, we have focused on the problem of estimation. We have a population of interest, and we are interested
+            in the specific value of an unknown parameter of this population (e.g., the population mean, median,
+            quantiles, standard deviation). However, oftentimes we are not interested in the value of the parameter per
+            se, but we are just interested in whether a certain statement about the population is true.</p>
 
-        <p><span class="example"></span> During the summer, Vancouver's beaches get pretty busy. To ensure everybody's safety, the city of Vancouver monitors if the beaches' waters are safe for swimming. To test the water quality of a beach, the city of Vancouver takes multiple samples of the water and calculates the average number of E. coli (a bacteria) per \(100\)mL. If the average number of E. coli per \(100\)mL is less than \(400\), the city considers the beach proper for swimming. Otherwise, the city of Vancouver releases a warning to let people know that they should not swim on the beach. In this case, the actual precise number of E. coli per \(100\)mL is of less interest. Instead, the focus is to determine whether the water is safe, i.e., if the number of E. coli per \(100\)mL is less than \(400\).</p>
+        <p><span class="example"></span> During the summer, Vancouver's beaches get pretty busy. To ensure everybody's
+            safety, the city of Vancouver monitors if the beaches' waters are safe for swimming. To test the water
+            quality of a beach, the city of Vancouver takes multiple samples of the water and calculates the average
+            number of E. coli (a bacteria) per \(100\)mL. If the average number of E. coli per \(100\)mL is less than
+            \(400\), the city considers the beach proper for swimming. Otherwise, the city of Vancouver releases a
+            warning to let people know that they should not swim on the beach. In this case, the actual precise number
+            of E. coli per \(100\)mL is of less interest. Instead, the focus is to determine whether the water is safe,
+            i.e., if the number of E. coli per \(100\)mL is less than \(400\).</p>
 
-        <p>We have two possible scenarios in this case: (1) the water is <strong>unsafe</strong> for swimming; or (2) the water is <strong>safe</strong> for swimming. </p>
+        <p>We have two possible scenarios in this case: (1) the water is <strong>unsafe</strong> for swimming; or (2)
+            the water is <strong>safe</strong> for swimming. </p>
         <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-            <img style="margin: auto" width="49%" alt="A walk on a dirty beach" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/A_walk_on_a_dirty_beach.JPG/512px-A_walk_on_a_dirty_beach.JPG">
-            <img style="margin: auto" width="44%" alt="A beautiful beach in Cancun, Mexico" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/A_beautiful_beach_in_Cancun%2C_Mexico.jpg/512px-A_beautiful_beach_in_Cancun%2C_Mexico.jpg">
+            <img style="margin: auto" width="49%" alt="A walk on a dirty beach"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/A_walk_on_a_dirty_beach.JPG/512px-A_walk_on_a_dirty_beach.JPG">
+            <img style="margin: auto" width="44%" alt="A beautiful beach in Cancun, Mexico"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/A_beautiful_beach_in_Cancun%2C_Mexico.jpg/512px-A_beautiful_beach_in_Cancun%2C_Mexico.jpg">
         </div>
         <div class="source-img" style="font-size: 12px;">
-            Dirty Beach: <a
-                href="https://commons.wikimedia.org/wiki/File:A_walk_on_a_dirty_beach.JPG">Zozimus Fernandes via Wikimedia Commons</a><br>
-            Clean Beach: <a
-                href="https://www.pbs.org/newshour/science/can-too-much-salt-lead-to-bad-skin">Matthew T Rader via Wikimedia Commons</a>
+            Dirty Beach: <a href="https://commons.wikimedia.org/wiki/File:A_walk_on_a_dirty_beach.JPG">Zozimus Fernandes
+                via Wikimedia Commons</a><br>
+            Clean Beach: <a href="https://www.pbs.org/newshour/science/can-too-much-salt-lead-to-bad-skin">Matthew T
+                Rader via Wikimedia Commons</a>
         </div>
 
-        <p><span class="example"></span> Some people infected by a disease receive a medical treatment and die. Other, receive a
-            medical treatment and live. Does the treatment increase the chance of survival? Again, our focus here is not to determine precisely the 
-            increase in the chances of survival caused by the treatment. Instead, we just want to check if there's an increase at all. In other words, 
-            we are trying to determine <strong>whether</strong> the treatment helps, not <strong>how much</strong> it helps. We have two possible scenarios, either the treatment helps or doesn't.</p>
-        
+        <p><span class="example"></span> Some people infected by a disease receive a medical treatment and die. Other,
+            receive a
+            medical treatment and live. Does the treatment increase the chance of survival? Again, our focus here is not
+            to determine precisely the
+            increase in the chances of survival caused by the treatment. Instead, we just want to check if there's an
+            increase at all. In other words,
+            we are trying to determine <strong>whether</strong> the treatment helps, not <strong>how much</strong> it
+            helps. We have two possible scenarios, either the treatment helps or doesn't.</p>
+
         <figure style="text-align: center;">
-            <img width="300" alt="Clinicians in Intensive Care Unit" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Clinicians_in_Intensive_Care_Unit.jpg/512px-Clinicians_in_Intensive_Care_Unit.jpg">
+            <img width="300" alt="Clinicians in Intensive Care Unit"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Clinicians_in_Intensive_Care_Unit.jpg/512px-Clinicians_in_Intensive_Care_Unit.jpg">
             <div class="source-img" style="font-size: 12px;">
-                Source: <a href="https://commons.wikimedia.org/wiki/File:Clinicians_in_Intensive_Care_Unit.jpg">Calleamanecer via Wikimedia Commons</a><br>
+                Source: <a
+                    href="https://commons.wikimedia.org/wiki/File:Clinicians_in_Intensive_Care_Unit.jpg">Calleamanecer
+                    via Wikimedia Commons</a><br>
             </div>
             <!--<figcaption>Figure 1</figcaption>-->
         </figure>
 
-        <p><span class="example"></span> Different people run at different speeds. Do men run faster than women, on average? In this case, we are comparing two populations: males and females.  But our main interest is not obtaining an accurate estimate of the difference in average speed between the populations. Instead, it is to check if there is a difference at all (large or small).  We have two possible scenarios, either the men and women run at the same average speed, or they don't.</p>
+        <p><span class="example"></span> Different people run at different speeds. Do men run faster than women, on
+            average? In this case, we are comparing two populations: males and females. But our main interest is not
+            obtaining an accurate estimate of the difference in average speed between the populations. Instead, it is to
+            check if there is a difference at all (large or small). We have two possible scenarios, either the men and
+            women run at the same average speed, or they don't.</p>
         <figure">
             <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-                <img style="margin: auto" width="48%" alt="Women 800 m French Athletics Championships 2013 t161139" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Women_800_m_French_Athletics_Championships_2013_t161139.jpg/512px-Women_800_m_French_Athletics_Championships_2013_t161139.jpg">
-                <img style="margin: auto" width="48%" alt="Men 100 m French Athletics Championships 2013 t164144" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Men_100_m_French_Athletics_Championships_2013_t164144.jpg/512px-Men_100_m_French_Athletics_Championships_2013_t164144.jpg">
+                <img style="margin: auto" width="48%" alt="Women 800 m French Athletics Championships 2013 t161139"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Women_800_m_French_Athletics_Championships_2013_t161139.jpg/512px-Women_800_m_French_Athletics_Championships_2013_t161139.jpg">
+                <img style="margin: auto" width="48%" alt="Men 100 m French Athletics Championships 2013 t164144"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Men_100_m_French_Athletics_Championships_2013_t164144.jpg/512px-Men_100_m_French_Athletics_Championships_2013_t164144.jpg">
             </div>
             <div class="source-img" style="font-size: 12px;">
-                Source: <a href="https://commons.wikimedia.org/wiki/File:Women_800_m_French_Athletics_Championships_2013_t161139.jpg">© Marie-Lan Nguyen / Wikimedia Commons</a><br>
-                Source: <a href="https://commons.wikimedia.org/wiki/File:Men_100_m_French_Athletics_Championships_2013_t164144.jpg">© Marie-Lan Nguyen / Wikimedia Commons</a><br>
+                Source: <a
+                    href="https://commons.wikimedia.org/wiki/File:Women_800_m_French_Athletics_Championships_2013_t161139.jpg">©
+                    Marie-Lan Nguyen / Wikimedia Commons</a><br>
+                Source: <a
+                    href="https://commons.wikimedia.org/wiki/File:Men_100_m_French_Athletics_Championships_2013_t164144.jpg">©
+                    Marie-Lan Nguyen / Wikimedia Commons</a><br>
             </div>
             <!--<figcaption>Figure 1</figcaption>-->
-        </figure>
+            </figure>
 
-        <!--<p>It is important noting that, although hypothesis testing is not about estimating the parameters of interest, it closely related to that, as we will see later the close relation between hypothesis tests and confidence interval.</p>-->
-        <h2>Statistical Hypotheses</h2>
-        <p>Generally, in hypothesis testing, we have two possible scenarios (no more, no less). Note that the scenarios refer to the population, and each scenario is called a hypothesis.</p>
+            <!--<p>It is important noting that, although hypothesis testing is not about estimating the parameters of interest, it closely related to that, as we will see later the close relation between hypothesis tests and confidence interval.</p>-->
+            <h2>Statistical Hypotheses</h2>
+            <p>Generally, in hypothesis testing, we have two possible scenarios (no more, no less). Note that the
+                scenarios refer to the population, and each scenario is called a hypothesis.</p>
 
-        <div class="box-def">
-            <p>Statistical Hypothesis</p>
-            <p>A statistical hypothesis is a statement about the population distribution.</p>
-        </div>
-        <p>Note that Definition 1.1 does not specify what kind of statement we are making about the population distribution. It can be a statement about the functional form of the distribution, such as the population distribution is symmetric; or the population is normally distributed. But it can be more specific, a statement about a population parameter, such as the population mean is higher than 10; the population variance is equal to 1; the mean between two populations is equal.
-           Here we will focus on the second case, and our hypothesis will be about population parameters. 
-        </p>
-        <p>
-            Since we always have exactly two scenarios in classical statistical hypothesis testing, we have exactly two hypotheses. They are commonly referred as the <strong>Null Hypothesis</strong> (denoted by \(H_0\)) and the <strong>Alternative Hypotheis</strong> (denoted by \(H_A\) or \(H_1\)). The <em>null hypothesis</em> refers to the status quo; it is the hypothesis of no change. The <em>alternative hypothesis</em> is usually the hypothesis that something has changed; something interesting happened. In practice, you can think of the <em>null hypothesis</em> as the hypothesis that we will reject if and only if there is "strong enough evidence" against it.  If we still have "reasonable doubt" that \(H_0\) could be true, we will not reject it. For this reason, we say that the <em>null hypothesis</em> is the status quo. The <em>alternative</em> hypothesis, on the other hand, is the complement of the null hypothesis, and it is true if and only if \(H_0\) is false.   Again, there is no other possible scenario besides the null and alternative hypotheses.
-        </p>
+            <div class="box-def">
+                <p>Statistical Hypothesis</p>
+                <p>A statistical hypothesis is a statement about the population distribution.</p>
+            </div>
+            <p>Note that Definition 1.1 does not specify what kind of statement we are making about the population
+                distribution. It can be a statement about the functional form of the distribution, such as the
+                population distribution is symmetric; or the population is normally distributed. But it can be more
+                specific, a statement about a population parameter, such as the population mean is higher than 10; the
+                population variance is equal to 1; the mean between two populations is equal.
+                Here we will focus on the second case, and our hypothesis will be about population parameters.
+            </p>
+            <p>
+                Since we always have exactly two scenarios in classical statistical hypothesis testing, we have exactly
+                two hypotheses. They are commonly referred as the <strong>Null Hypothesis</strong> (denoted by \(H_0\))
+                and the <strong>Alternative Hypotheis</strong> (denoted by \(H_A\) or \(H_1\)). The <em>null
+                    hypothesis</em> refers to the status quo; it is the hypothesis of no change. The <em>alternative
+                    hypothesis</em> is usually the hypothesis that something has changed; something interesting
+                happened. In practice, you can think of the <em>null hypothesis</em> as the hypothesis that we will
+                reject if and only if there is "strong enough evidence" against it. If we still have "reasonable doubt"
+                that \(H_0\) could be true, we will not reject it. For this reason, we say that the <em>null
+                    hypothesis</em> is the status quo. The <em>alternative</em> hypothesis, on the other hand, is the
+                complement of the null hypothesis, and it is true if and only if \(H_0\) is false. Again, there is no
+                other possible scenario besides the null and alternative hypotheses.
+            </p>
 
-        <p><span class="example"></span> Unless we see "strong" evidence that a new untested drug works, we are going to assume it does not. In this  case:
-            $$\left\{
-           \begin{align}
-           H_0: & \quad\text{the new drug does not work}\\
-           H_1: & \quad\text{the new drug works}
-           \end{align}\right.$$</p>
+            <p><span class="example"></span> Unless we see "strong" evidence that a new untested drug works, we are
+                going to assume it does not. In this case:
+                $$\left\{
+                \begin{align}
+                H_0: & \quad\text{the new drug does not work}\\
+                H_1: & \quad\text{the new drug works}
+                \end{align}\right.$$</p>
 
-           
-        <div style="height: 300px;"></div>
+
+            <div style="height: 300px;"></div>
 
     </main>
 
 </body>
+
 </html>

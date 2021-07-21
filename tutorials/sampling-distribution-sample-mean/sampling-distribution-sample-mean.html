@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124600152-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-124600152-1');
+    </script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -625,7 +635,7 @@
         <div class="box-def box-exercise">
             <p></p>
             <p>
-                Based on the Example 2.2, answer true or false: 
+                Based on the Example 2.2, answer true or false:
             </p>
             <ol>
                 <li class="question-item">
@@ -641,12 +651,13 @@
             <div class="solution">
                 <dl>
                     <dt> Each time we take a random sample we will have a different sample distribution.</dt>
-                    <dd> True!! Note that the sample distribution is the distribution of the sample you obtained! Since we
-                        sample at random, the sample distribution will change every time. 
+                    <dd> True!! Note that the sample distribution is the distribution of the sample you obtained! Since
+                        we
+                        sample at random, the sample distribution will change every time.
                     </dd>
                     <dt> Each time we take a random sample we will have a different population distribution.</dt>
                     <dd> False!! Note that the sample is random, but the population is not. The population is fixed,
-                        with all the same individuals. Therefore, the population distribution is fixed. 
+                        with all the same individuals. Therefore, the population distribution is fixed.
                     </dd>
                 </dl>
             </div>
@@ -687,8 +698,10 @@
                     Next, we use the sample to learn about the parameter of the population. For example, if we are
                     interested in the average income of a given population, we calculate the average income in the
                     sample.
-                    The function/formula you are using is called <strong>estimator</strong> (e.g., sample mean, sample variance,
-                    sample quantile) and the value you obtain in a given sample is called <strong>estimate</strong> of the parameter.
+                    The function/formula you are using is called <strong>estimator</strong> (e.g., sample mean, sample
+                    variance,
+                    sample quantile) and the value you obtain in a given sample is called <strong>estimate</strong> of
+                    the parameter.
                 </p>
 
                 <div style="display: flex; flex-flow: row nowrap; align-items: center;">
@@ -3773,7 +3786,8 @@
                     <dt>True or False: Each time we take a random sample we will have a different sampling distribution.
                     </dt>
                     <dd>
-                        False!!! This can be confusing. But note that the sampling distribution is using the table of all possible samples. 
+                        False!!! This can be confusing. But note that the sampling distribution is using the table of
+                        all possible samples.
                         We are not concerned about the result in one sample only, but in all of them.
                     </dd>
                 </dl>
@@ -3782,12 +3796,22 @@
 
 
 
-        <p>As you can see, the sampling distribution tells us a lot about our statistic. We could, for example, calculate the probability that our statistic would be to a certain range around the parameter. But, how is this useful if we need to have access to all possible samples? In fact, if we had access to all possible samples, we would be better off just checking out the entire population. In our very small example above, we have 20 elements in the population but 1140 possible samples of size 3. Luckily for us, we do not need to have access to all possible samples to know the sampling distribution. We don't even need to know much about the population itself. This is so awesome that I will say it again: we are able to approximate the sampling distribution of a statistic even without having access to the population! All we need is a sample! The same sample that you use to calculate the statistic will also give you information on the uncertainty of your estimate.
+        <p>As you can see, the sampling distribution tells us a lot about our statistic. We could, for example,
+            calculate the probability that our statistic would be to a certain range around the parameter. But, how is
+            this useful if we need to have access to all possible samples? In fact, if we had access to all possible
+            samples, we would be better off just checking out the entire population. In our very small example above, we
+            have 20 elements in the population but 1140 possible samples of size 3. Luckily for us, we do not need to
+            have access to all possible samples to know the sampling distribution. We don't even need to know much about
+            the population itself. This is so awesome that I will say it again: we are able to approximate the sampling
+            distribution of a statistic even without having access to the population! All we need is a sample! The same
+            sample that you use to calculate the statistic will also give you information on the uncertainty of your
+            estimate.
         </p>
 
         <h2>Activity</h2>
-        
-        <p> A small city in northern Canada has 2,000 residents. Statistics Canada is interested in the residents' income. They don't know this, but we have access to the entire list of residents and their income. </p>
+
+        <p> A small city in northern Canada has 2,000 residents. Statistics Canada is interested in the residents'
+            income. They don't know this, but we have access to the entire list of residents and their income. </p>
 
         <table id="table-resident-income">
             <thead>
@@ -4080,8 +4104,8 @@
                     <td>Susanna Bertoni</td>
                     <td>2741.62</td>
                 </tr>
-                </tbody>
-                <tbody class="collapsible">
+            </tbody>
+            <tbody class="collapsible">
                 <tr>
                     <td>小川 淳</td>
                     <td>283.35</td>
@@ -8814,14 +8838,15 @@
                 </tr>
                 <tr>
                 </tr>
-                  
+
             </tbody>
         </table>
 
 
         <div class="box-def box-exercise">
             <p></p>
-            <p> Which of the following elements will affect the sampling distribution (keeping everything else constant)? Select all that apply:
+            <p> Which of the following elements will affect the sampling distribution (keeping everything else
+                constant)? Select all that apply:
             </p>
             <form style="padding-left: 3em;">
                 <br>
@@ -8838,24 +8863,31 @@
             <div class="solution">
                 <dl>
                     <dt> Population distribution</dt>
-                    <dd>True! The population distribution will certainly affect the sampling distribution. For example, if you 
-                        have more variability in the population, you will most probably have more variability in the estimates as well. </dd>
+                    <dd>True! The population distribution will certainly affect the sampling distribution. For example,
+                        if you
+                        have more variability in the population, you will most probably have more variability in the
+                        estimates as well. </dd>
 
                     <dt> Sample distribution</dt>
                     <dd>
-                        False! The sample distribution changes according to the sample obtained, and consequently the estimate. 
+                        False! The sample distribution changes according to the sample obtained, and consequently the
+                        estimate.
                         But the sampling distribution is not about one sample, it is about all possible samples.
                     </dd>
                     <dt> Sample size </dt>
                     <dd>
-                        As we increase the sample size, the estimator tends to vary less from sample to sample, which would make
-                        its sampling distribution narrower. 
+                        As we increase the sample size, the estimator tends to vary less from sample to sample, which
+                        would make
+                        its sampling distribution narrower.
                     </dd>
                     <dt> Estimator </dt>
                     <dd>
-                        The sampling distribution is the distribution of a given estimator. If you change the estimator, you are
-                        also changing the sampling distribution. For example, imagine you that you want to estimate the weight of the lightest 
-                        fish in the aquarium. So, instead of the sample mean, you would calculate the sample minimum. The values in the table shown in Example 
+                        The sampling distribution is the distribution of a given estimator. If you change the estimator,
+                        you are
+                        also changing the sampling distribution. For example, imagine you that you want to estimate the
+                        weight of the lightest
+                        fish in the aquarium. So, instead of the sample mean, you would calculate the sample minimum.
+                        The values in the table shown in Example
                         4.1 would be completely different, and consequently, so would be the sampling distribution.
                     </dd>
                 </dl>

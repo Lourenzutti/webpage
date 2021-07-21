@@ -2,6 +2,16 @@
 <html lang="en">
 
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124600152-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-124600152-1');
+    </script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,12 +57,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page="/tutorials/tutorial-index.html" data-stylesheet="/styles/tutorial-index.css"><i
-                                class="fas fa-book"></i>
+                        <a class="nav-link" href="" data-page="/tutorials/tutorial-index.html"
+                            data-stylesheet="/styles/tutorial-index.css"><i class="fas fa-book"></i>
                             Tutorials </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="" data-page='/teaching.html' data-stylesheet="/styles/teaching.css"><i class="fas fa-chalkboard-teacher"></i>
+                        <a class="nav-link" href="" data-page='/teaching.html' data-stylesheet="/styles/teaching.css"><i
+                                class="fas fa-chalkboard-teacher"></i>
                             Teaching</a>
                     </li>
                     <li class="nav-item">
@@ -79,13 +90,14 @@
                         Blog </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="" data-page="/tutorials/tutorial-index.html" data-stylesheet="/styles/tutorial-index.css"> <i
-                            class="fas fa-book"></i>
+                    <a class="menu_link" href="" data-page="/tutorials/tutorial-index.html"
+                        data-stylesheet="/styles/tutorial-index.css"> <i class="fas fa-book"></i>
                         Tutorials
                     </a>
                 </li>
                 <li>
-                    <a class="menu_link" href="" data-page="/teaching.html" data-stylesheet="/styles/teaching.css"><i class="fas fa-chalkboard-teacher"></i>
+                    <a class="menu_link" href="" data-page="/teaching.html" data-stylesheet="/styles/teaching.css"><i
+                            class="fas fa-chalkboard-teacher"></i>
                         Teaching</a>
                 </li>
                 <li>
@@ -132,12 +144,28 @@
     <main>
         <h1>Bootstrapping</h1>
 
-        <p> In our previous tutorial, <a href="http://127.0.0.1:5501/tutorials/sampling-distribution-sample-mean/sampling-distribution-sample-mean.html">Sampling Distribution</a>, we discussed the idea of taking a random sample to learn about a population parameter and quantifying how uncertain we are about the estimates we get using this process. We learn that we could use the sampling distribution of our estimator (i.e., the distribution of values taken by the estimator across all possible samples [with a fixed size] we could get) to analyze the uncertainty associated with our estimates. </p>
+        <p> In our previous tutorial, <a
+                href="http://127.0.0.1:5501/tutorials/sampling-distribution-sample-mean/sampling-distribution-sample-mean.html">Sampling
+                Distribution</a>, we discussed the idea of taking a random sample to learn about a population parameter
+            and quantifying how uncertain we are about the estimates we get using this process. We learn that we could
+            use the sampling distribution of our estimator (i.e., the distribution of values taken by the estimator
+            across all possible samples [with a fixed size] we could get) to analyze the uncertainty associated with our
+            estimates. </p>
 
-        <p>Before we dive into <em>how to use</em> the sampling distribution, we need to come up with a way to <em>obtain</em> the sampling distribution. Wait, didn't we learn that to obtain the sampling distribution, we just needed to look at the distribution of the estimator over all possible samples of a given size? Yes! The problem is, in reality, you don't have access to the population (that's why you're taking a sample, right?), so how would you get all possible samples of a given size? Let's revisit the example we discussed in the <a href="http://127.0.0.1:5501/tutorials/sampling-distribution-sample-mean/sampling-distribution-sample-mean.html">Sampling Distribution</a>. </p>
+        <p>Before we dive into <em>how to use</em> the sampling distribution, we need to come up with a way to
+            <em>obtain</em> the sampling distribution. Wait, didn't we learn that to obtain the sampling distribution,
+            we just needed to look at the distribution of the estimator over all possible samples of a given size? Yes!
+            The problem is, in reality, you don't have access to the population (that's why you're taking a sample,
+            right?), so how would you get all possible samples of a given size? Let's revisit the example we discussed
+            in the <a
+                href="http://127.0.0.1:5501/tutorials/sampling-distribution-sample-mean/sampling-distribution-sample-mean.html">Sampling
+                Distribution</a>. </p>
 
         <p>
-                    <span class="example"></span> An aquarium has 20 fish. Suppose you are in charge of feeding the fish, and for that, you need to know their weight to give them the proper amount of food. Previously, we were provided with a table with the weights of all 20 fish in the aquarium. But in practice, we don't have this information. 
+            <span class="example"></span> An aquarium has 20 fish. Suppose you are in charge of feeding the fish, and
+            for that, you need to know their weight to give them the proper amount of food. Previously, we were provided
+            with a table with the weights of all 20 fish in the aquarium. But in practice, we don't have this
+            information.
         </p>
 
         <table id='table-fish-weight'>
@@ -214,4 +242,5 @@
     </main>
 
 </body>
+
 </html>
