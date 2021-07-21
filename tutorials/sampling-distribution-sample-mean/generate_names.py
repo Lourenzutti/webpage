@@ -1,5 +1,4 @@
 from faker import Faker
-import pandas as pd
 import numpy as np
 import os
 
@@ -9,13 +8,24 @@ os.chdir(os.path.dirname(abspath))
 fake = Faker(['it_IT', 'en_US', 'ja_JP'])
 names = []
 income = []
-for _ in range(2000):
-    names.append(fake.name())
-    salary = np.random.uniform(0, 1000, 1)[0]
-    if np.random.uniform(0, 1, 1)[0]<0.8:
-        income.append(salary)
-    else:
-        income.append(np.random.normal(1000, 200, size=1)[0])
 
-data = pd.DataFrame({'name':names, 'income':income})
-data.to_csv("data.csv", index=False)
+with open("data.txt", "w+", encoding='utf-8') as f:
+    cont = 0
+    f.write("<tr>\n")
+    for _ in range(2000):
+        name = fake.name()
+        salary = np.random.uniform(0, 1000, 1)[0]
+        if np.random.uniform(0, 1, 1)[0] > 0.2:
+            salary = np.random.normal(3000, 300, size=1)[0]    
+
+    
+        
+        f.write(f"    <td>{name}</td>\n")
+        f.write(f"    <td>{salary:.2f}</td>\n")
+        cont += 1
+        if cont % 4 == 0:
+            f.write("</tr>\n")
+            f.write("<tr>\n")
+            cont = 0
+    f.write("</tr>\n")
+

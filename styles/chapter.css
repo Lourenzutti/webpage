@@ -2,7 +2,7 @@
       MAIN COLUMN
          text
 **********************/
-main{
+main {
     counter-reset: example, definition, section, exercise;
 }
 

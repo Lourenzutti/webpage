@@ -202,37 +202,38 @@ draw_sample_btn.addEventListener("click", (d) => {
 /* Controls the collapsible table */
 /**********************************/
 
-btn = document.querySelector(".row-button button")
-btn.onclick = (e) => {
-    tbodies = document.querySelectorAll(".collapsible");
-    table = tbodies[0].parentElement;
-    tbodies[0].style.display = "table-row-group"; // set the visibility of the first hidden part of the table.
-    e.target.parentElement.parentElement.parentElement.remove(); // removes the tbody that contains the first button
+btns = document.querySelectorAll(".row-button button")
+btns.forEach(btn => {
+    btn.onclick = (e) => {
+        table = btn.closest("table");
+        tbodies = table.querySelectorAll(".collapsible");
+        tbodies[0].style.display = "table-row-group"; // set the visibility of the first hidden part of the table.
+        e.target.parentElement.parentElement.parentElement.remove(); // removes the tbody that contains the first button
 
-    tbody_level2 = e.target.parentElement.parentElement.parentElement.cloneNode(true);
-    table.appendChild(tbody_level2); //attach the tbody with the level 2 button
-    btn_level2 = tbody_level2.querySelector("button");
-    btn_level2.textContent = "Show all"; // update the text of the level 2 button
+        tbody_level2 = e.target.parentElement.parentElement.parentElement.cloneNode(true);
+        table.appendChild(tbody_level2); //attach the tbody with the level 2 button
+        btn_level2 = tbody_level2.querySelector("button");
+        btn_level2.textContent = "Show all"; // update the text of the level 2 button
 
-    // assign a new event handler for the level 2 button
-    btn_level2.onclick = (e2) => {
-        tbodies[1].style.display = "table-row-group";
-        e2.target.parentElement.parentElement.parentElement.remove();
-        tbody_level3 = e2.target.parentElement.parentElement.parentElement.cloneNode(true);
-        table.appendChild(tbody_level3);
-        btn_level3 = tbody_level3.querySelector("button");
-        btn_level3.textContent = "Collapse";
+        // assign a new event handler for the level 2 button
+        btn_level2.onclick = (e2) => {
+            tbodies[1].style.display = "table-row-group";
+            e2.target.parentElement.parentElement.parentElement.remove();
+            tbody_level3 = e2.target.parentElement.parentElement.parentElement.cloneNode(true);
+            table.appendChild(tbody_level3);
+            btn_level3 = tbody_level3.querySelector("button");
+            btn_level3.textContent = "Collapse";
 
-        // assign a new event handler for the level 3 button
-        btn_level3.onclick = (e3) => {
-            tbodies[0].style.display = ""; // resets the display of the first part of the table.
-            tbodies[1].style.display = "";
-            table.appendChild(e.target.parentElement.parentElement.parentElement);
-            e3.target.parentElement.parentElement.parentElement.remove(); // removes button level 3
+            // assign a new event handler for the level 3 button
+            btn_level3.onclick = (e3) => {
+                tbodies[0].style.display = ""; // resets the display of the first part of the table.
+                tbodies[1].style.display = "";
+                table.appendChild(e.target.parentElement.parentElement.parentElement);
+                e3.target.parentElement.parentElement.parentElement.remove(); // removes button level 3
+            }
         }
     }
-}
-
+})
 
 /**********************************/
 /****  Creates the histogram 
