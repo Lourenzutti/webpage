@@ -173,27 +173,7 @@
             Clean Beach: <a href="https://www.pbs.org/newshour/science/can-too-much-salt-lead-to-bad-skin">Matthew T
                 Rader via Wikimedia Commons</a>
         </div>
-
-        <p><span class="example"></span> Some people infected by a disease receive a medical treatment and die. Other,
-            receive a
-            medical treatment and live. Does the treatment increase the chance of survival? Again, our focus here is not
-            to determine precisely the
-            increase in the chances of survival caused by the treatment. Instead, we just want to check if there's an
-            increase at all. In other words,
-            we are trying to determine <strong>whether</strong> the treatment helps, not <strong>how much</strong> it
-            helps. We have two possible scenarios, either the treatment helps or doesn't.</p>
-
-        <figure style="text-align: center;">
-            <img width="300" alt="Clinicians in Intensive Care Unit"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Clinicians_in_Intensive_Care_Unit.jpg/512px-Clinicians_in_Intensive_Care_Unit.jpg">
-            <div class="source-img" style="font-size: 12px;">
-                Source: <a
-                    href="https://commons.wikimedia.org/wiki/File:Clinicians_in_Intensive_Care_Unit.jpg">Calleamanecer
-                    via Wikimedia Commons</a><br>
-            </div>
-            <!--<figcaption>Figure 1</figcaption>-->
-        </figure>
-
+        <div class="end-part"></div>
         <p><span class="example"></span> Different people run at different speeds. Do men run faster than women, on
             average? In this case, we are comparing two populations: males and females. But our main interest is not
             obtaining an accurate estimate of the difference in average speed between the populations. Instead, it is to
@@ -216,6 +196,32 @@
             </div>
             <!--<figcaption>Figure 1</figcaption>-->
             </figure>
+            <div class="end-part"></div>
+            <p><span class="example"></span> Some people infected by a disease receive a medical treatment and die.
+                Other,
+                receive a
+                medical treatment and live. Does the treatment increase the chance of survival? Again, our focus here is
+                not
+                to determine precisely the
+                increase in the chances of survival caused by the treatment. Instead, we just want to check if there's
+                an
+                increase at all. In other words,
+                we are trying to determine <strong>whether</strong> the treatment helps, not <strong>how much</strong>
+                it
+                helps. We have two possible scenarios, either the treatment helps or doesn't.</p>
+
+            <figure style="text-align: center;">
+                <img width="300" alt="Clinicians in Intensive Care Unit"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Clinicians_in_Intensive_Care_Unit.jpg/512px-Clinicians_in_Intensive_Care_Unit.jpg">
+                <div class="source-img" style="font-size: 12px;">
+                    Source: <a
+                        href="https://commons.wikimedia.org/wiki/File:Clinicians_in_Intensive_Care_Unit.jpg">Calleamanecer
+                        via Wikimedia Commons</a><br>
+                </div>
+                <!--<figcaption>Figure 1</figcaption>-->
+            </figure>
+
+
 
             <!--<p>It is important noting that, although hypothesis testing is not about estimating the parameters of interest, it closely related to that, as we will see later the close relation between hypothesis tests and confidence interval.</p>-->
             <h2>Statistical Hypotheses</h2>
@@ -224,7 +230,7 @@
 
             <div class="box-def">
                 <p>Statistical Hypothesis</p>
-                <p>A statistical hypothesis is a statement about the population distribution.</p>
+                <p>A statistical hypothesis is a statement about the population distribution(s).</p>
             </div>
             <p>Note that Definition 1.1 does not specify what kind of statement we are making about the population
                 distribution. It can be a statement about the functional form of the distribution, such as the
@@ -247,13 +253,80 @@
                 other possible scenario besides the null and alternative hypotheses.
             </p>
 
-            <p><span class="example"></span> Unless we see "strong" evidence that a new untested drug works, we are
+            <p><span class="example"></span>
+                The city of Vancouver considers the beaches safe for swimming if the water has fewer tha 400 E. Coli
+                bacterias per 100mL of water. So, the City of Vancouver wants to test wheter the average number of E.
+                Coli per 100mL, \(\mu\), is less than 400.
+
+                $$\left\{
+                \begin{align}
+                H_0: & \quad \mu \geq 400\\
+                H_1: & \quad \mu \lt 400 \end{align}\right.$$
+            </p>
+
+            <div class="end-part"></div>
+
+            <p><span class="example"></span> Do men run faster than women, on average? In this case, we are
+                comparing
+                two populations: males and females. Unless there is "strong" evidence that men run faster than
+                women,
+                we are going to assume they do not. What we want to test in this case is if both populations
+                have the
+                same average. In other words,
+                $$\left\{
+                \begin{align}
+                H_0: & \quad \mu_{\text{man}} = \mu_{\text{women}}\\
+                H_1: & \quad \mu_{\text{man}} > \mu_{\text{women}}
+                \end{align}\right.$$ </p>
+            <div class="end-part"></div>
+
+            <p><span class="example"></span> Unless we see "strong" evidence that a new untested drug works, we
+                are
                 going to assume it does not. In this case:
                 $$\left\{
                 \begin{align}
                 H_0: & \quad\text{the new drug does not work}\\
                 H_1: & \quad\text{the new drug works}
-                \end{align}\right.$$</p>
+                \end{align}\right.$$
+                But wait a second, we said that a statistical hypothesis is a statement about a population
+                distribution.
+                What are the population(s) in this case? What are \(H_0\) and \(H_1\) referring to? In this
+                case,
+                we have two abstract populations: (1) the population of all sick patients who would potentially
+                receive
+                the drug; and (2) the population of all sick patients who would potentially not receive the
+                drug. Finally, how can we say that the drug works? That will depend on how we measure its
+                efficacy. One
+                could for example, see if the mortality rate of patients who received the drug, \(p_2\) is
+                significantly
+                (we'll discuss what this means soon) lower than the mortality rate of patients who did not
+                receive the
+                drug,
+                \(p_1\). Then, the hypotheses would be:
+                $$\left\{
+                \begin{align}
+                H_0: & \quad p_1 = p_2\\
+                H_1: & \quad p_1 > p_2
+                \end{align}\right.$$
+
+                Or, if the drug is to treat pain, one could check the pain of
+                patients before and after they take the drug. Then, we check if average pain after the patients
+                take the
+                drug, \(\mu_1\), lower than before they take the drug, \(\mu_2\). In this case, we would have:
+                $$\left\{
+                \begin{align}
+                H_0: & \quad \mu_1 = \mu_2\\
+                H_1: & \quad \mu_1 > \mu_2
+                \end{align}\right.$$
+                Note, however, that concluding if a drug is effective is not just a matter of comparing two
+                populations.
+                One needs to carefully design the experiment from which the data will be collected,
+                so that a causal conclusion that patients improved because of the drug, and not for any other
+                hidder
+                reason, can be made.
+            </p>
+            <div class="end-part"></div>
+
 
 
             <div style="height: 300px;"></div>
