@@ -22,6 +22,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <script src="https://kit.fontawesome.com/9ffc1b7c87.js" crossorigin="anonymous"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!--Load local scripts-->
@@ -241,8 +244,8 @@
             </p>
             <p>
                 Since we always have exactly two scenarios in classical statistical hypothesis testing, we have exactly
-                two hypotheses. They are commonly referred as the <strong>Null Hypothesis</strong> (denoted by \(H_0\))
-                and the <strong>Alternative Hypotheis</strong> (denoted by \(H_A\) or \(H_1\)). The <em>null
+                two hypotheses. They are commonly referred to as the <strong>Null Hypothesis</strong> (denoted by \(H_0\))
+                and the <strong>Alternative Hypothesis</strong> (denoted by \(H_A\) or \(H_1\)). The <em>null
                     hypothesis</em> refers to the status quo; it is the hypothesis of no change. The <em>alternative
                     hypothesis</em> is usually the hypothesis that something has changed; something interesting
                 happened. In practice, you can think of the <em>null hypothesis</em> as the hypothesis that we will
@@ -254,14 +257,14 @@
             </p>
 
             <p><span class="example"></span>
-                The city of Vancouver considers the beaches safe for swimming if the water has fewer tha 400 E. Coli
-                bacterias per 100mL of water. So, the City of Vancouver wants to test wheter the average number of E.
+                The city of Vancouver considers the beaches safe for swimming if the water has fewer than 400 E. Coli
+                bacterias per 100mL of water. So, the City of Vancouver wants to test whether the average number of E.
                 Coli per 100mL, \(\mu\), is less than 400.
                 $$\left\{
                 \begin{align}
                 H_0: & \quad \mu \geq 400\\
                 H_1: & \quad \mu \lt 400 \end{align}\right.$$
-                Note that, by setting the hypothesis this way, the city's default behavior is to release a warning about
+                Note that, by setting the hypothesis this way, the city's default behaviour is to release a warning about
                 the safety of the water, unless there is "strong" evidence that the water is safe to swimming.
                 Alternatively, the
                 city of Vancouver could take the instance that all beaches are safe for swimming, unless there is
@@ -292,15 +295,14 @@
             <div class="end-part"></div>
 
             <p><span class="example"></span> Unless we see "strong" evidence that a new untested drug works, we
-                are
-                going to assume it does not. In this case:
+                will assume it does not. In this case:
                 $$\left\{
                 \begin{align}
                 H_0: & \quad\text{the new drug does not work}\\
                 H_1: & \quad\text{the new drug works}
                 \end{align}\right.$$
-                But wait a second, we said that a statistical hypothesis is a statement about a population
-                distribution.
+                But wait for a second, we said that a statistical hypothesis is a statement about population
+                distribution(s).
                 What are the population(s) in this case? What are \(H_0\) and \(H_1\) referring to? In this
                 case,
                 we have two abstract populations: (1) the population of all sick patients who would potentially
@@ -310,7 +312,7 @@
                 efficacy. One
                 could for example, see if the mortality rate of patients who received the drug, \(p_2\) is
                 significantly
-                (we'll discuss what this means soon) lower than the mortality rate of patients who did not
+                lower  (we'll discuss what this means soon) than the mortality rate of patients who did not
                 receive the
                 drug,
                 \(p_1\). Then, the hypotheses would be:
@@ -331,12 +333,39 @@
                 \end{align}\right.$$
                 Note, however, that concluding if a drug is effective is not just a matter of comparing two
                 populations.
-                One needs to carefully design the experiment from which the data will be collected,
+                One needs to carefully design the experiment from which the data will be collected
                 so that a causal conclusion that patients improved because of the drug, and not for any other
                 hidden reason, can be made.
             </p>
             <div class="end-part"></div>
 
+            <h3>Hypotheses and the parametric space</h3>
+
+            <p>As we have seen earlier, the two hypotheses in a hypothesis test must cover all possible scenarios without having anything in common. This means that one and only one of the hypotheses is true. 
+                Now, suppose we are interested in the median of a population. What are the possible values for this parameter? In general, the median can be any number, positive, negative, or zero. In some cases, however, we can restrict the possible values of the median because we have extra information about the problem. For example, the variable of interest is the red blood cell count in 1 microliter of blood; we already know that the median cannot be negative. Similar reasoning applies to other parameters as well. For example, one might be interested in the population's standard deviation, which is known to be nonnegative. However, one might have some extra information on the problem and can restrict the possible values even more. They could know that the standard deviation is higher than a 10, for example. This notion of what possible values a parameter can take is important to model our uncertainty. </p>
+
+            <div class="box-def">
+                <p>Parametric Space</p>
+                <p>The parametric space of a parameter \(\theta\) is the set of all possible values that \(\theta\) can take. </p>
+            </div>
+            <p style="text-indent: 0;">Note that \(\theta\) is just a symbol commonly used to refer to an arbitrary parameter (which could be mean, or median, or a quantile, or the std. deviation, or anything really). When we are testing a parameter of a population distribution, the hypotheses split the parametric space into two subsets that share no values in common and together contain all values in the parametric space.</p>
+
+            <p><span class="example"></span>
+                In Example 1.1, the city of Vancouver wanted to conduct the following hypothesis test:
+                $$\left\{
+                    \begin{align}
+                    H_0: & \quad \mu \geq 400\\
+                    H_1: & \quad \mu \lt 400 \end{align}\right.$$
+                
+                    This means that, for the city of Vancouver, the average count of E. Coli bacteria in 100mL of water can be anything less than 400, could be  400, or anything above 400. Therefore, these hypotheses together form a parametric space that contains any number. In other words, the city of Vancouver is not restricting the parametric space based on any other information.  Naturally, in this case, \(\mu\) cannot be negative since it is the average number of E. Coli in 100mL of water. So, we could say that the parametric space here is any nonnegative number (we could technically represent this by making \(H_1: \ \  0\leq\mu\leq 400\), but doing so is quite unusual). 
+            </p>
+            <p>A much more common way to set up the hypotheses in introduction to statistics books is:
+                $$\left\{
+                    \begin{align}
+                    H_0: & \quad \mu = 400\\
+                    H_1: & \quad \mu \lt 400 \end{align}\right.$$
+            In this case, the combined hypotheses form a parametric space that contains any value between 0 (inclusive) and 400 (inclusive). This setup is used even if we are not sure that the mean \(\mu\) could not be higher than 400. The reason for using equality instead of \(\geq\) is that it simplifies the problem and, in most practical cases, does not affect the analysis. I'll make another comment on this later on.</p>
+            <div class="end-part"></div>
 
 
             <div style="height: 300px;"></div>
