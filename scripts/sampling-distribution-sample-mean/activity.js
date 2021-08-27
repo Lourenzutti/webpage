@@ -66,7 +66,7 @@ yAxis = g => g
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y).ticks(height / 70))
     .call(g => g.select(".tick:last-of-type text").clone()
-        .attr("x", -175 )
+        .attr("x", -145 )
         .attr("y", -45)
         .attr("font-weight", "bold")
         .attr('transform', 'rotate(270)')
