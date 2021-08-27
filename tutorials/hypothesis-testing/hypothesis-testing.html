@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/chapter.css">
 
-    <title>Rodolfo Lourenzutti</title>
+    <title>RL: Hypothesis Testing</title>
 </head>
 
 <body>
@@ -160,44 +160,49 @@
             \(400\), the city considers the beach proper for swimming. Otherwise, the city of Vancouver releases a
             warning to let people know that they should not swim on the beach. In this case, the actual precise number
             of E. coli per \(100\)mL is of less interest. Instead, the focus is to determine whether the water is safe,
-            i.e., if the number of E. coli per \(100\)mL is less than \(400\).</p>
-
-        <p>We have two possible scenarios in this case: (1) the water is <strong>unsafe</strong> for swimming; or (2)
+            i.e., if the number of E. coli per \(100\)mL is less than \(400\). We have two possible scenarios in this case: (1) the water is <strong>unsafe</strong> for swimming; or (2)
             the water is <strong>safe</strong> for swimming. </p>
-        <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-            <img style="margin: auto" width="49%" alt="A walk on a dirty beach"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/A_walk_on_a_dirty_beach.JPG/512px-A_walk_on_a_dirty_beach.JPG">
-            <img style="margin: auto" width="44%" alt="A beautiful beach in Cancun, Mexico"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/A_beautiful_beach_in_Cancun%2C_Mexico.jpg/512px-A_beautiful_beach_in_Cancun%2C_Mexico.jpg">
-        </div>
-        <div class="source-img" style="font-size: 12px;">
-            Dirty Beach: <a href="https://commons.wikimedia.org/wiki/File:A_walk_on_a_dirty_beach.JPG">Zozimus Fernandes
-                via Wikimedia Commons</a><br>
-            Clean Beach: <a href="https://www.pbs.org/newshour/science/can-too-much-salt-lead-to-bad-skin">Matthew T
-                Rader via Wikimedia Commons</a>
-        </div>
+        
+        <figure>
+            <div style="display: flex; flex-flow: row nowrap; flex-basis: 48%; align-items: center;">
+                <img style="margin-left: auto; margin-right: 1%;" width="29%" alt="A walk on a dirty beach"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/A_walk_on_a_dirty_beach.JPG/512px-A_walk_on_a_dirty_beach.JPG">
+                <img style="margin-right: auto;" width="26%" alt="A beautiful beach in Cancun, Mexico"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/A_beautiful_beach_in_Cancun%2C_Mexico.jpg/512px-A_beautiful_beach_in_Cancun%2C_Mexico.jpg">
+            </div>
+            <div class="source-img" style="font-size: 10px; margin-bottom: 0; margin-left: auto; margin-right: auto; width: 56.1%;">
+                <figcaption style="font-size: 16px; width: 78.1%; margin-bottom: 1%; margin-top: 1%;"> Is the beach safe for swimming?</figcaption>
+                Source: <a href="https://commons.wikimedia.org/wiki/File:A_walk_on_a_dirty_beach.JPG">Zozimus Fernandes
+                    via Wikimedia Commons</a><br>
+                Source: <a href="https://commons.wikimedia.org/wiki/File:A_beautiful_beach_in_Cancun,_Mexico.jpg">Matthew T
+                    Rader via Wikimedia Commons</a>
+            </div>
+            
+        </figure>
+
         <div class="end-part"></div>
         <p><span class="example"></span> Different people run at different speeds. Do men run faster than women, on
             average? In this case, we are comparing two populations: males and females. But our main interest is not
             obtaining an accurate estimate of the difference in average speed between the populations. Instead, it is to
             check if there is a difference at all (large or small). We have two possible scenarios, either the men and
             women run at the same average speed, or they don't.</p>
-        <figure">
-            <div style="display: flex; flex-flow: row nowrap; align-items: center;">
-                <img style="margin: auto" width="48%" alt="Women 800 m French Athletics Championships 2013 t161139"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Women_800_m_French_Athletics_Championships_2013_t161139.jpg/512px-Women_800_m_French_Athletics_Championships_2013_t161139.jpg">
-                <img style="margin: auto" width="48%" alt="Men 100 m French Athletics Championships 2013 t164144"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Men_100_m_French_Athletics_Championships_2013_t164144.jpg/512px-Men_100_m_French_Athletics_Championships_2013_t164144.jpg">
-            </div>
-            <div class="source-img" style="font-size: 12px;">
-                Source: <a
-                    href="https://commons.wikimedia.org/wiki/File:Women_800_m_French_Athletics_Championships_2013_t161139.jpg">©
-                    Marie-Lan Nguyen / Wikimedia Commons</a><br>
-                Source: <a
-                    href="https://commons.wikimedia.org/wiki/File:Men_100_m_French_Athletics_Championships_2013_t164144.jpg">©
-                    Marie-Lan Nguyen / Wikimedia Commons</a><br>
-            </div>
-            <!--<figcaption>Figure 1</figcaption>-->
+        <figure>
+                <div style="display: flex; flex-flow: row nowrap; align-items: center;">
+                    <img style="margin-left: auto; margin-right: 1%;" width="28%" alt="Women 800 m French Athletics Championships 2013 t161139"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Women_800_m_French_Athletics_Championships_2013_t161139.jpg/512px-Women_800_m_French_Athletics_Championships_2013_t161139.jpg">
+                    <img style="margin-right: auto;" width="28%" alt="Men 100 m French Athletics Championships 2013 t164144"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Men_100_m_French_Athletics_Championships_2013_t164144.jpg/512px-Men_100_m_French_Athletics_Championships_2013_t164144.jpg">
+                </div>
+                <div class="source-img" style="font-size: 10px; margin-bottom: 0; margin-left: auto; margin-right: auto; width: 57%;">
+                    <figcaption style="font-size: 16px; width: 69.1%; margin-bottom: 1%; margin-top: 1%;"> Do men run faster than women?</figcaption>
+                    Source: <a
+                        href="https://commons.wikimedia.org/wiki/File:Women_800_m_French_Athletics_Championships_2013_t161139.jpg">©
+                        Marie-Lan Nguyen / Wikimedia Commons</a><br>
+                    Source: <a
+                        href="https://commons.wikimedia.org/wiki/File:Men_100_m_French_Athletics_Championships_2013_t164144.jpg">©
+                        Marie-Lan Nguyen / Wikimedia Commons</a><br>
+                <!--<figcaption>Figure 1</figcaption>-->
+                </div>
             </figure>
             <div class="end-part"></div>
             <p><span class="example"></span> Some people infected by a disease receive a medical treatment and die.
@@ -211,7 +216,8 @@
                 increase at all. In other words,
                 we are trying to determine <strong>whether</strong> the treatment helps, not <strong>how much</strong>
                 it
-                helps. We have two possible scenarios, either the treatment helps or doesn't.</p>
+                helps (of course, how much it helps is also an interesting question on its own). We have two possible scenarios, 
+                either the treatment helps or doesn't.</p>
 
             <figure style="text-align: center;">
                 <img width="300" alt="Clinicians in Intensive Care Unit"
@@ -223,23 +229,28 @@
                 </div>
                 <!--<figcaption>Figure 1</figcaption>-->
             </figure>
+            <div class="end-part"></div>
 
-
-
+            <p>Unfortunately, to know which of these statements are true, we would need to measure the variable of interest 
+                in the entire population; however, as we know now, this is not always possible. 
+                Therefore, we need a method to help us make a decision based on all information we have: a sample from the population.</p>
             <!--<p>It is important noting that, although hypothesis testing is not about estimating the parameters of interest, it closely related to that, as we will see later the close relation between hypothesis tests and confidence interval.</p>-->
+
+
+
             <h2>Statistical Hypotheses</h2>
-            <p>Generally, in hypothesis testing, we have two possible scenarios (no more, no less). Note that the
+            <p>Generally, in hypothesis testing, we have two possible scenarios (no more, no less). The
                 scenarios refer to the population, and each scenario is called a hypothesis.</p>
 
             <div class="box-def">
                 <p>Statistical Hypothesis</p>
-                <p>A statistical hypothesis is a statement about the population distribution(s).</p>
+                <p>A statistical hypothesis is a statement about one or more population distribution(s).</p>
             </div>
             <p>Note that Definition 1.1 does not specify what kind of statement we are making about the population
-                distribution. It can be a statement about the functional form of the distribution, such as the
-                population distribution is symmetric; or the population is normally distributed. But it can be more
-                specific, a statement about a population parameter, such as the population mean is higher than 10; the
-                population variance is equal to 1; the mean between two populations is equal.
+                distribution. It can be a statement about the shape of the distribution, for example,
+            <em>the population distribution is symmetric; or the population is normally distributed</em>. But it can be more
+                specific, a statement about a population parameter, e.g., <em>the population mean is higher than 10; the
+                population variance is equal to 1; the mean between two populations is equal</em>.
                 Here we will focus on the second case, and our hypothesis will be about population parameters.
             </p>
             <p>

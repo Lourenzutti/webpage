@@ -1,56 +1,111 @@
-/*****************************************
- ***** Load the data into the table. *****
- ****************************************/
+/* Javascript the sampling distribution activity.
+/* Date: 20201-08-26
+/* Author: Rodolfo Lourenzutti*/
 
-/*let village_pop = new Array();
-d3.csv("/tutorials/sampling-distribution-sample-mean/data.csv", data => {
-    data.income = (+data.income).toFixed(2);
-    village_pop.push(data);
-}).then(() => {
-    const table = document.querySelector("#table-resident-income");
-    const table_head = document.querySelector("#table-resident-income > thead");
-    table_head.querySelectorAll("th").forEach(cell => {
-        
-        cell.style.paddingLeft = '15px';
-        cell.style.paddingRight = '15px';
-        
-        if (cell.textContent == 'Name') cell.style.textAlign = 'left';
-        else {
-            cell.style.textAlign = 'right';
-            cell.style.borderRight = '2px solid white';
-        }
-     
-    })
-    
-    tbody = document.createElement("tbody");
-    table.appendChild(tbody);
-    let tr = document.createElement("tr");
-    for (let i = 1; i <= village_pop.length; i++){
-        if ( i % 3 === 0){
-            tr = document.createElement("tr");
-            tbody.appendChild(tr);
+get_data_from_table = (table_name) =>{ 
+	table = document.getElementById(table_name);
+	let data = Array(table.querySelectorAll("tr").length);
+	entries_pop = table.querySelectorAll("td")
+	cont = 0
+	entries_pop.forEach(
+		(entry) => {
+			value = parseFloat(entry.textContent);
+			if (!isNaN(value)) {
+				data[cont++] = parseFloat(entry.textContent);
+				entry.value = value;
+			}
+		}
+	);
+	return data;
+}
 
-            if ( i === 27){
-                tbody = document.createElement("tbody");
-                tr = document.createElement("tr");
-                tr.setAttribute("class", "row-button");
-                td = document.createElement("td");
-                td.setAttribute("colspan", "8");
-                btn = document.createElement("button");
-                btn.textContent = "Show More"
+/****************************************
+*** Creates the Population Distribution
+*** for the Activity
+*****************************************/
 
-                table.appendChild(tbody.appendChild(tr.appendChild(td.appendChild(btn))))
-                tbody = document.createElement("tbody");
-            }
-        }
-        td_name = document.createElement("td");
-        td_name.textContent = village_pop[i-1].name;
-        td_name.style.textAlign="left";
-        td_income = document.createElement("td");
-        td_income.textContent = village_pop[i-1].income;
-        td_income.style.textAlign="right";
-        tr.appendChild(td_name);
-        tr.appendChild(td_income);        
-    }
-});
-*/
+income = get_data_from_table( "table-resident-income");
+
+
+let activity_pop_dist = d3.select("#activity-pop-dist")
+	.attr("width", width)
+	.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+    .attr("transform",
+        "translate(" + margin.left + "," + margin.top + ")");
+
+/*** creates the bin with thresholds */
+bins = d3.bin()
+    .thresholds(50)(income);
+
+/*** creates the x and y-axes scales */
+x = d3.scaleLinear()
+    .domain([bins[0].x0, bins[bins.length - 1].x1])
+    .range([margin.left, width - margin.right]);
+
+y = d3.scaleLinear()
+    .domain([0, d3.max(bins, d => d.length) + 10]).nice()
+    .range([height - margin.bottom, margin.top]);
+
+/*** creates the Axes */	
+xAxis = g => g
+    .attr("transform", `translate(0,${height - margin.bottom})`)
+    .call(d3.axisBottom(x).ticks(width / 100).tickSizeOuter(0))
+    .call(g => g.append("text")
+        .attr("x", width / 2)
+        .attr("y", -4)
+        .attr("fill", "currentColor")
+        .attr("font-weight", "bold")
+        .attr("text-anchor", "bottom")
+        .attr('font-size', '100px')
+        .attr("class", "axis")
+        .attr("dy", "3.5em")
+        .text("Income"));
+
+yAxis = g => g
+    .attr("transform", `translate(${margin.left},0)`)
+    .call(d3.axisLeft(y).ticks(height / 70))
+    .call(g => g.select(".tick:last-of-type text").clone()
+        .attr("x", -175 )
+        .attr("y", -45)
+        .attr("font-weight", "bold")
+        .attr('transform', 'rotate(270)')
+        .attr("text-anchor", "middle")
+        .text("Frequency"));
+
+/*** appending the bars to the element */		
+activity_pop_dist.append("g")
+    .attr("fill", "steelblue")
+    .selectAll("rect")
+    .data(bins)
+    .join("rect")
+    .attr("x", d => x(d.x0) + 1)
+    .attr("width", d => Math.max(0, x(d.x1) - x(d.x0) - 1))
+    .attr("y", d => y(d.length))
+    .attr("height", d => y(0) - y(d.length))
+    .attr("class", 'bin');
+
+/*** appending the axes to the element */		
+activity_pop_dist.append("g").call(xAxis);
+activity_pop_dist.append("g").call(yAxis);
+activity_pop_dist.append("text")
+.attr("x", width / 2)
+.attr("y", 50)
+.attr("text-anchor", "middle")
+.text("Population Distribution of Income")
+.attr("dy", "-15px")
+.attr("class", "plot-title");
+
+activity_pop_dist.selectAll("text").attr("font-size","14px");
+
+
+
+
+
+
+
+
+
+	
+	
+	
