@@ -3,7 +3,7 @@
          text
 **********************/
 main {
-    counter-reset: example, definition, section, exercise;
+    counter-reset: example, definition, section, exercise, figure;
 }
 
 /* Format the text in the main column for book chapter */
@@ -46,11 +46,25 @@ main h2 {
     width: 100%;
 
     counter-increment: section;
-    counter-reset: example definition exercise;
+    counter-reset: example definition exercise figure;
 }
 
 main h2::before {
     content: counter(section)". ";
+}
+
+figcaption {
+    counter-increment: figure;
+    color: #6c757d;
+    font-size: 16px;
+    letter-spacing: 1.2px;
+}
+
+figcaption::before {
+    content: "Figure "counter(section)"."counter(figure)":";
+    font-weight: bold;
+    font-size: 17px;
+    color: #6c757d;
 }
 
 .end-part {
@@ -272,7 +286,8 @@ tbody td:last-child{
 
 .plot {
     width: 100%;
-    margin: 0;
+    margin: 0px;
+    margin-top: 50px;
     padding: 0;
     margin-bottom: 3em;
 }
@@ -282,7 +297,7 @@ tbody td:last-child{
 }
 
 .plot-title {
-    font-size: 23px;
+    font-size: 1.7em;
     font-weight: bold;
 }
 

@@ -27,15 +27,15 @@
     <script defer src="../../scripts/controller.js"></script>
     <script defer src="../../scripts/random.js"></script>
     <script defer src="../../scripts/sampling-distribution-sample-mean/sampling-dist.js"></script>
-    <script defer src="../../scripts/sampling-distribution-sample-mean/activity.js"></script>
+    
 
     <!--Load styles-->
     <link rel="stylesheet" href="../../styles/main.css">
     <link rel="stylesheet" href="../../styles/chapter.css">
-    <title>Rodolfo Lourenzutti</title>
+    <title>RL: Sampling Distribution</title>
 </head>
 
-<body>
+<body onload="testing()">
 
     <header>
         <!--Navbar to replace left-side menu on small screens-->
@@ -452,10 +452,10 @@
         </table>
 
         <figure class="plot">
-            <svg id="population-histogram-example">
+            <svg id="pop-dist-stat-100-grades">
 
             </svg>
-            <figcaption>Figure 1: Population distribution of students' grades in STAT 100 last year.
+            <figcaption>Population distribution of students' grades in STAT 100 last year.
             </figcaption>
         </figure>
 
@@ -627,7 +627,7 @@
             <svg id="sample-dist">
 
             </svg>
-            <figcaption>Figure X: Sample distribution of STAT 100 grades of 15 students. </figcaption>
+            <figcaption> Sample distribution of STAT 100 grades of 15 students. </figcaption>
         </figure>
 
 
@@ -3726,10 +3726,10 @@
             Let's take a look at the histogram of possible sample averages of weight.
         </p>
         <figure class="plot">
-            <svg id="example-3-1-sampl-dist">
+            <svg id="sampling-dist-fish">
 
             </svg>
-            <figcaption>Figure 1: Sampling distribution of the sample average of weight (dkg) for samples of size 3 fish
+            <figcaption> Sampling distribution of the sample average of weight (dkg) for samples of size 3 fish
                 from the aquarium.
             </figcaption>
         </figure>
@@ -3749,9 +3749,7 @@
                 </li>
                 <button id='check-item-1'>Check Item 1</button>
                 <li class="question-item">
-                    <p>Unselect the bins you selected in item 1, and this time select all bins in the histogram in
-                        Figure 1
-                        that are far away from the true mean, say higher than 46, or lower than 40.</p>
+                    <p>Unselect the bins you selected in item 1, and this time select all bins that contains bad sample means (i.e., that are far away from the true mean), say higher than 50, or lower than 36.</p>
                 </li>
                 <button id='check-item-2'>Check Item 2</button>
                 <li class="question-item">
@@ -3810,8 +3808,8 @@
 
         <h2>Activity (Under construction)</h2>
 
-        <p> A small city in northern Canada has 2,000 residents. Statistics Canada is interested in the residents'
-            income. They don't know this, but we have access to the entire list of residents and their income. </p>
+        <p> A hypothetical small city in northern Canada, named <em>Not So Cold</em>, has 2,000 residents. Statistics Canada is interested in the residents' monthly
+            income. They don't know this, but we have access to the entire list of residents and their income.</p>
 
         <table id="table-resident-income">
             <thead>
@@ -8842,6 +8840,13 @@
             </tbody>
         </table>
 
+        <figure class="plot" style="margin-top: 2em;">
+            <svg id="pop-dist-activity">
+
+            </svg>
+            <figcaption> Distribution of income of all residents of the city (population distribution). 
+            </figcaption>
+        </figure>
 
         <div class="box-def box-exercise">
             <p></p>
@@ -8904,5 +8909,11 @@
 
 
 </body>
+<script>
+    testing = () => {
+        income = get_data_from_table( "table-resident-income", collapsible=true);
+        makeHistogram("pop-dist-activity", income, nbins = 30, title="Population Distribution of Income", xLabel="Income");
+    }
 
+</script>
 </html>
