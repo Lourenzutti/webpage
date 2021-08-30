@@ -284,7 +284,8 @@ tbody td:last-child{
 
 .plot {
     width: 100%;
-    margin: 0;
+    margin: 0px;
+    margin-top: 50px;
     padding: 0;
     margin-bottom: 3em;
 }
@@ -294,7 +295,7 @@ tbody td:last-child{
 }
 
 .plot-title {
-    font-size: 23px;
+    font-size: 1.7em;
     font-weight: bold;
 }
 

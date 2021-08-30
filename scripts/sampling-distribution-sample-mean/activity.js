@@ -26,10 +26,9 @@ get_data_from_table = (table_name) =>{
 
 income = get_data_from_table( "table-resident-income");
 
-
-let activity_pop_dist = d3.select("#activity-pop-dist")
+let activity_pop_dist = d3.select("#pop-dist-activity")
 	.attr("width", width)
-	.attr("height", height + margin.top + margin.bottom)
+	.attr("height", height + margin.top + margin.bottom + 30)
 	.append("g")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
@@ -60,18 +59,22 @@ xAxis = g => g
         .attr('font-size', '100px')
         .attr("class", "axis")
         .attr("dy", "3.5em")
-        .text("Income"));
+        .text("Income")
+		.attr("class","axes-label"));
+		
+	
 
 yAxis = g => g
     .attr("transform", `translate(${margin.left},0)`)
     .call(d3.axisLeft(y).ticks(height / 70))
     .call(g => g.select(".tick:last-of-type text").clone()
         .attr("x", -145 )
-        .attr("y", -45)
+        .attr("y", -50)
         .attr("font-weight", "bold")
         .attr('transform', 'rotate(270)')
         .attr("text-anchor", "middle")
-        .text("Frequency"));
+        .text("Frequency")
+		.attr("class","axes-label"));
 
 /*** appending the bars to the element */		
 activity_pop_dist.append("g")
@@ -88,6 +91,8 @@ activity_pop_dist.append("g")
 /*** appending the axes to the element */		
 activity_pop_dist.append("g").call(xAxis);
 activity_pop_dist.append("g").call(yAxis);
+
+
 activity_pop_dist.append("text")
 .attr("x", width / 2)
 .attr("y", 50)
@@ -97,7 +102,7 @@ activity_pop_dist.append("text")
 .attr("class", "plot-title");
 
 activity_pop_dist.selectAll("text").attr("font-size","14px");
-
+d3.selectAll(".axes-label").attr("font-size","16px");
 
 
 
