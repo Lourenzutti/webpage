@@ -41,14 +41,34 @@ main{
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
 table {
     border-collapse: separate;
     border-spacing: 10px 0;
-  }
+}
   
-  td {
+td {
     padding: 3px 10px;
-  }
+}
+
+figure {
+    margin-top: 30px;
+    border: 10px solid #000;
+    width: max-content;
+}
+
+figure img {
+    display: block;   
+}
+
+figcaption {
+    padding: 10px;
+    position: absolute;
+    bottom: 5;
+    left: 0;
+    right: 0;
+}
+
 
 @media (min-width: 700px){
     .navbar{
