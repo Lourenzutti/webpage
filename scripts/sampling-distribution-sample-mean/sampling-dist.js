@@ -47,7 +47,7 @@ makeXAxis = (bins, xLabel, height = 400) => {
         .attr("fill", "currentColor")
         .attr("font-weight", "bold")
         .attr("text-anchor", "bottom")
-        .attr('font-size', '14px')
+        .attr('font-size', '16px')
         .attr("class", "axis")
         .attr("dy", "2.5em")
         .text(xLabel)
@@ -69,6 +69,7 @@ makeYAxis = (bins, height = 400) => {
         .attr("x", -(height - margin.bottom)/3)
         .attr("y", -45)
         .attr("font-weight", "bold")
+        .attr('font-size', '16px')
         .attr('transform', 'rotate(270)')
         .attr("text-anchor", "middle")
         .text("Frequency")
@@ -435,9 +436,16 @@ check_button.onclick =
 
 
 
+/************************************************
+ ******************* ACTIVITY *******************
+ ************************************************/
 
+/********************************************************
+*** Creates the Population Distribution for the Activity
+*********************************************************/
 
-
+income = get_data_from_table( "table-resident-income", collapsible=true);
+makeHistogram("pop-dist-activity", income, nbins = 30, title="Population Distribution of Income", xLabel="Income");	
 
 
 

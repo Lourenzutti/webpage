@@ -27,7 +27,7 @@
     <script defer src="../../scripts/controller.js"></script>
     <script defer src="../../scripts/random.js"></script>
     <script defer src="../../scripts/sampling-distribution-sample-mean/sampling-dist.js"></script>
-    <script defer src="../../scripts/sampling-distribution-sample-mean/activity.js"></script>
+    
 
     <!--Load styles-->
     <link rel="stylesheet" href="../../styles/main.css">
@@ -35,7 +35,7 @@
     <title>RL: Sampling Distribution</title>
 </head>
 
-<body>
+<body onload="testing()">
 
     <header>
         <!--Navbar to replace left-side menu on small screens-->
@@ -8909,5 +8909,11 @@
 
 
 </body>
+<script>
+    testing = () => {
+        income = get_data_from_table( "table-resident-income", collapsible=true);
+        makeHistogram("pop-dist-activity", income, nbins = 30, title="Population Distribution of Income", xLabel="Income");
+    }
 
+</script>
 </html>
