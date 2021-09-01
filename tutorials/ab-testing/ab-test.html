@@ -17,14 +17,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!--Load external scripts-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
     <script src="https://kit.fontawesome.com/9ffc1b7c87.js" crossorigin="anonymous"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script>
-
-    </script>
+    <script defer src="/scripts/prism.js"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <!--Load local scripts-->
@@ -32,10 +28,14 @@
     <script defer src="/scripts/random.js"></script>
 
     <!--Load styles-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="/styles/prism.css" />
     <link rel="stylesheet" href="/styles/main.css">
     <link rel="stylesheet" href="/styles/chapter.css">
 
-    <title>Lourenzutti: A/B Test</title>
+    <title>RL: A/B Testing</title>
 </head>
 
 <body>
@@ -191,17 +191,393 @@
             </li>
         </ol>
 
+        <h2>Motivational Problem</h2>
         <p>In 2008, Obama's campaign was looking to increase the total amount of donations to the campaign. To donate
             online, people needed to subscribe to the campaign e-mail by clicking on a red button saying "Sign Up".</p>
 
         <figure>
             <img src="/imgs/ab-testing/obama_homepage_original.png">
-            <figcaption>Figure 1: Original website of the campaign.
+            <figcaption> Original website of the campaign.
                 <p class="source-img">Source: <a
                         href="https://blog.optimizely.com/2010/11/29/how-obama-raised-60-million-by-running-a-simple-experiment/">Optimizely</a>
                 </p>
             </figcaption>
         </figure>
+
+        <p>After a while, they started wondering: Is this website's design effective? They decided to test it! The
+            campaign created three alternative button designs (with text: <em>SIGN UP NOW</em>, <em>LEARN MORE</em>,
+            <em>JOIN US NOW</em>) and five different media choices to replace the original photo: two alternative photos
+            and three videos. In total, they compared 24 website designs.
+            they measured the subscription rate of each design. As it turns out, the best design had over 40% higher
+            subscription rate than the original website being used. It was estimated that the additional subscription
+            generated an additional 60 million dollars worth of donations and 288,000 additional volunteers. You can
+            learn more about this application of A/B testing <a
+                href="https://www.optimizely.com/insights/blog/how-obama-raised-60-million-by-running-a-simple-experiment/">here</a>.
+        </p>
+
+        <p>But how do we compare websites?</p>
+
+        <h5>The response variable</h5>
+        <p>The first step is to understand the purpose of the website. This is a fundamental
+            step because it guides the creation of useful metrics of success. Defining the main
+            purpose of a website is not always a simple task. For example, in their case:</p>
+        <ul>
+            <li>
+                <p>Do they want the website to attract more subscribers?</p>
+            </li>
+            <li>
+                <p>Do they want a high proportion of visitors to become donors?</p>
+            </li>
+            <li>
+                <p>Do they want to increase the size of donation per visitor?</p>
+            </li>
+        </ul>
+        <p>What is a good metric to measure how effective the website is? Such metric will be
+            the <strong>response variable</strong> of the study. Although the campaign wanted
+            to increase the total amount of donations, this was not the website's purpose.
+            The purpose of the website was to attract subscribers. For this reason, they used
+            the rate of subscription, i.e., the number of people that subscribed divided by the
+            number of people that visited the website. If the website's purpose is not very well
+            defined, you might (and probably will) come up with metrics that are misleading on how
+            effective your website is. </p>
+
+        <h5>The covariates</h5>
+        <p>The second step is to identify the elements that could be optimized. In their case,
+            they considered the media and the button. But they could consider other factors too,
+            such as the background colour, for example. In essence, they are trying to find the
+            configuration of the covariates, media and button, that would yield the highest
+            subscriber rate.</p>
+
+        <h5>Randomization</h5>
+        <p>To avoid bias, each visitor saw a randomly chosen website design. This is a key step
+            to be able to conclude that the reason for the increase in the subscription was the
+            website's design, and not a hidden factor that is not even being considered,
+            <em>lurking variable</em>. The idea is that randomization will "average out" all these
+            hidden differences between the visitors, and the only difference between the groups would
+            be the website seen.
+        </p>
+
+
+        <h2>A/B Testing</h2>
+
+        <p> A/B testing is not only about website optimization. In general, we have two populations (or groups),
+            namely Group A and Group B (hence A/B), and we want to compare these two populations with respect
+            to a variable of interest (response variable). Let's see a few examples:</p>
+        <p><span class="example"></span>A new vaccine has been developed for cancer. The drug company wants to check the
+            efficacy of the vaccine. The company randomly split 50,000 volunteers into two groups, where 25,000 will
+            receive the vaccine (Group A) and 25,000 will receive the placebo (Group B). They measure if the individuals
+            develop cancer in the next ten years. </p>
+        <ul>
+            <li>
+                <p><u><em>Response variable</em></u> (\(Y\)): whether the individuals develop cancer;
+            </li>
+            </p>
+            <li>
+                <p><u><em>Covariate</em></u> (\(X\)): whether the individuals receives the vaccine or the placebo
+                    (two-levels);
+            </li>
+            </p>
+            <li>
+                <p><u><em>Parameters of interest</em></u>: \(p_1\) and \(p_2\), the proportions of individuals who
+                    develop cancer
+                    in Group A and Group B, respectively;</p>
+            </li>
+            <li>
+                <p><u><em>Research question</em></u>: is the vaccine effective? In other words, is \(p_1 < p_2\)?</p>
+            </li>
+        </ul>
+        <div class="end-part"></div>
+
+        <p><span class="example"></span>
+            A phone company wants to reduce the number of complaints against its customer services. They are considering
+            removing
+            the navigation menu from the support service and using support staff instead. Naturally, this will be an
+            expensive move,
+            so they first want to test it to see if it would be effective. They trained a small team and randomly
+            directed the clients
+            to the navigation menu or human support. Then, they monitor whether the clients will open a complaint at the
+            Canadian
+            Radio-television and Telecommunications Commission (CRTC).</p>
+        <ul>
+            <li>
+                <p><u><em>Response variable</em></u> (\(Y\)): whether the individual opens a complaint;</p>
+            </li>
+            <li>
+                <p><u><em>Covariate</em></u> (\(X\)): whether the individual is directed to the navigation menu or the
+                    support staff (two-levels);</p>
+            </li>
+            <li>
+                <p><u><em>Parameters of interest</em></u>: \(p_1\) and \(p_2\), the proportion of clients that open a
+                    complaint at CRTC in Group A and Group B, respectively;</p>
+            </li>
+            <li>
+                <p><u><em>Research question</em></u>: is the support staff better? In other words, is \(p_1 < p_2\)?</p>
+            </li>
+        </ul>
+        <div class="end-part"></div>
+
+        <p><span class="example"></span> An e-commerce company wants to compare two website designs with respect to
+            sales
+            in dollars. For the following \(N\) clients, the design each client will see will be selected at random.</p>
+        <ul>
+            <li>
+                <p><u><em>Response variable</u></em> (\(Y\)): the amount of dollars spent;</p>
+            </li>
+            <li>
+                <p><u><em>Covariate (\(X\))</u></em>: two website designs (two-levels);</p>
+            </li>
+            <li>
+                <p><u><em>Parameters of interest</u></em>: \(\mu_1\) and \(\mu_2\), the average amount of dollars spent
+                    by the clients in each website design;</p>
+            </li>
+            <li>
+                <p><u><em>Research question</u></em>: Is one of the designs better? </p>
+            </li>
+        </ul>
+        <div class="end-part"></div>
+
+        <p>In general, the structure of A/B Testing consists of: (1) a response variable, \(Y\); (2) a covariate, \(X\),
+            that splits the population into two groups; (3) randomization, individuals are randomly assigned to the
+            groups; and (4) statistical comparison of the groups' parameter of interest (remember that all we have is a
+            sample, so we need to account for the sampling variability. </p>
+
+        <figure>
+            <img src="/imgs/ab-testing/ab-diagram.png" width="75%">
+            <figcaption> A/B Testing Workflow</figcaption>
+        </figure>
+
+        <h4>How is Obama's Campaign Problem Different?</h4>
+
+        <p>Note that in case of the Obama's campaign website, we have:</p>
+        <ol>
+            <li>
+                <p>Response variable: the subscription rate; &#x2705;;</p>
+            </li>
+            <li>
+                <p>Randomization; &#x2705;;</p>
+            </li>
+            <li>
+                <p>One covariate that splits the population into two groups; <span style="color: red;">&#x2718;</span>
+                </p>
+            </li>
+        </ol>
+        <p> We had <strong>two</strong> covariates, \(X_1\) and \(X_2\), which are the button design and the media used,
+            respectively. Besides, \(X_1\) had four levels (i.e., possible values): the four design options or the
+            button. This would split the population into four groups, not into two. \(X_2\), the media variable, had six
+            levels, three photos and three videos. Combining \(X_1\) and \(X_2\) results in a total of 24 groups.</p>
+
+        <p>This problem is slightly more complex than having only two groups. If we performed pairwise comparisons, we
+            would need 276 tests to compare all 24 groups. As we learned previously, this would considerably inflate the
+            probability of error. For now, we will restrict our focus to only two groups.</p>
+
+        <h3>Comparing the two groups</h3>
+        <p>Once the appropriate response variable and covariate have been specified, we start collecting the data. The
+            data collected will be only a sample of the population; therefore, we need to take into account the sampling
+            variability. We are already familiar with the methodology to conduct this statistical analysis, namely
+            two-samples
+            confidence intervals and hypothesis tests. Let's refresh our memory!</p>
+
+        <p>When estimating or testing hypotheses, the parameter of interest affects which statistic we are going to
+            use. For example, when testing the mean, we want to use the sample mean \(\bar{X}\), when testing difference
+            in proportion, we want to use the difference in sample proportions, \(\hat{p}_1 - \hat{p}_2\), and so
+            on.</p>
+
+        <p>Naturally, the way these statistics behave are different, i.e., the sampling distributions (and null models)
+            of these statistics are different. We have explored two main approaches to approximate the
+            sampling distribution (for confidence intervals) and the null model (for hypothesis testing): (1) the
+            Central Limit Theorem (CLT); and (2) Bootstrapping.</p>
+
+        <h4>Central Limit Theorem</h4>
+        <p> When estimating or testing hypotheses, the parameter of interest affects which statistic we are going to
+            use. For example, when testing the mean, we want to use \(\bar{X}\), whereas when testing the pro
+
+            The Central Limit Theorem provides an approximation for the distribution of certain test statistics for
+            large sample size.
+
+        </p>
+
+        <h5>Comparing two means</h5>
+        <p>Suppose you want to test the difference between two <em>independent</em> populations' means. The scenarios to
+            be considered:</p>
+        <ul>
+            <li>
+                <p>\(H_0: \mu_A - \mu_B = d_0\) vs \(H_1: \mu_A - \mu_B \neq d_0\)</p>
+            </li>
+            <li>
+                <p>\(H_0: \mu_A - \mu_B = d_0\) vs \(H_1: \mu_A - \mu_B > d_0\)</p>
+            </li>
+            <li>
+                <p>\(H_0: \mu_A - \mu_B = d_0\) vs \(H_1: \mu_A - \mu_B < d_0\)</p>
+            </li>
+        </ul>
+        <p>To conduct this hypothesis test, we take two independent samples, one from each population. By independent
+            samples, we meant that the individuals are selected independently from each population.</p>
+
+        <p>Suppose Group A has \(n_A\) elements drawn at random from Population A, and Group B has \(n_B\) elements
+            drawn at random from Population B. Let's use \(x\) to refer to Group A and \(y\) to refer to Group B. For
+            large samples sizes, the test statistic given by </p>
+        $$
+        T = \frac{\bar{x}-\bar{y} - d_0}{\sqrt{\frac{s_A^2}{n_A} - \frac{s_B^2}{n_B}} }
+        $$
+        follows a \(t\)-distribution with approximately \(\nu\) degrees of freedom under \(H_0\), where
+        $$
+        \nu = \frac{
+        \left(\frac{s_A^2}{n_A}+\frac{s_B^2}{n_B}\right)^2
+        }
+        {
+        \frac{s_A^4}{n_A^2(n_A-1)}+\frac{s_2^4}{n_B^2(n_B-1)}
+        }.
+        $$
+
+        <p style="text-indent: 0;">In other words, the <em>null model</em> of the test statistic above is \(t_\nu\). Of
+            course, we are never going to calculate this weird formula by hand! Our computers
+            can do this for us.</p>
+
+        <p><span class="example"></span>
+            Suppose Obama's campaign wanted to test which of two websites, <em>Website A</em> or
+            <em>Website B</em>, results in a larger amount of donations. The next 60 users who visit the campaign's
+            website will access one of the websites chosen at random until 30 users have seen one of the designs. We
+            have collected (actually simulated!) this data for you and stored it in the
+            <code>sample_money_donated</code> object.
+        </p>
+
+        <pre>
+<code class="language-r">library(tidyverse)
+set.seed(1)
+
+# Simulating a sample of 30 individuals for group A and Group B
+sample_money_donated <- 
+    tibble(group = c("Website A", "Website B"), 
+            amount = list(
+                if_else(runif(30) < 0.5, 0, rnorm(30, 80, 10) ), 
+                if_else(runif(30) < 0.6, 0, rnorm(30, 100, 20) ))
+            ) %>% 
+    unnest(cols = amount) %>%
+    sample_n(60)
+
+sample_money_donated</code></pre>
+        <pre class="output">    <code>## # A tibble: 60 x 2
+    ##    group     amount
+    ##    <chr>      <dbl>
+    ##  1 Website B    0  
+    ##  2 Website B    0  
+    ##  3 Website B    0  
+    ##  4 Website A    0  
+    ##  5 Website A   87.8
+    ##  6 Website B    0  
+    ##  7 Website A   66.2
+    ##  8 Website A    0  
+    ##  9 Website B   88.6
+    ## 10 Website A    0  
+    ## # ... with 50 more rows 
+</code></pre>
+        <p>Next, to test \(H_0: \mu_A - \mu_B = d_0\) vs \(H_1: \mu_A - \mu_B \neq d_0\), we can use the
+            <code><a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/t.test" target="_blank">t.test</a></code>
+            function in R.
+        </p>
+        <pre> <code class="language-r">t.test(amount ~ group, # The formula: "website affects amount".
+        mu = 0, # the value of d0
+        alternative = "two.sided", # "less" for &lt; and "greater" for &gt;
+        data = sample_money_donated)</code>
+        </pre>
+        <pre class="output">    <code>##  Welch Two Sample t-test
+    ## 
+    ## data:  amount by group
+    ## t = -0.80171, df = 55.245, p-value = 0.4262
+    ## alternative hypothesis: true difference in means is not equal to 0
+    ## 95 percent confidence interval:
+    ##  -33.35773  14.29329
+    ## sample estimates:
+    ## mean in group Website A mean in group Website B 
+    ##                37.28221                46.81443</code></pre>
+
+        <h5>Comparing two proportions</h5>
+
+        <p>Obama's campaign wanted the website to increase the number of subscribers and, for this reason, they used the
+            rate of subscription. In this case, the variable of interest, <em>"whether a visitor subscribes"</em>, is
+            not numerical, is dichotomic: "yes" or "no". Consequently, we would want to compare the proportions of
+            visitors who subscribes using <em>Website A</em> and <em>Website B</em>.</p>
+
+        <p>To test for the equality of proportions between two groups, i.e., \(H_0: p_A - p_B = 0\) vs \(H_1: p_A - p_B
+            \neq 0\),
+            we can use the following test statistics:</p>
+        $$
+        Z = \frac{\hat{p}_A-\hat{p}_B}{\sqrt{\hat{p}(1-\hat{p})\left(\frac{1}{n_A}+\frac{1}{n_B}\right)}},
+        $$
+        <p style="text-indent: 0;">where \(\hat{p}=\frac{n_A\hat{p}_A+n_B\hat{p}_B}{n_A+n_B}\) is the overall
+            proportion. For large sample sizes, the null
+            model of the \(Z\) statistic is the Standard Normal distribution, \(N(0,1)\). Again, we will not do this
+            manually, as we can
+            easily calculate using the computer. </p>
+
+        <p><span class="example"></span>
+            Suppose Obama's campaign wanted to test which of two websites, <em>Website A</em> or
+            <em>Website B</em>, results in a higher rate of subscribers. The next 60 users who visit the campaign's
+            website will access one of the websites chosen at random until 30 users have seen one of the designs. We
+            have collected (actually simulated!) this data for you and stored it in the
+            <code>sample_subscriber</code> object.
+        </p>
+        <pre>
+<code class="language-r">library(tidyverse)
+set.seed(1)
+
+# Simulating a sample of 30 individuals for group A and Group B
+sample_subscriber <- 
+    tibble(website = factor(c("A", "B")), 
+            subscribed = list(
+                sample(factor(c("yes", "no")), 30, replace = TRUE, p=c(0.42, 0.58)), 
+                sample(factor(c("yes", "no")), 30, replace = TRUE, p=c(0.37, 0.58)))
+            ) %>% 
+    unnest(cols = subscribed) %>%
+    sample_n(60)
+
+sample_subscriber</code></pre>
+        <pre class="output">    <code>## # A tibble: 60 x 2
+    ##    website subscribed
+    ##    &lt;fct&gt;   &lt;fct&gt;     
+    ##  1 B       no        
+    ##  2 B       yes       
+    ##  3 A       yes       
+    ##  4 A       no        
+    ##  5 B       no        
+    ##  6 A       no        
+    ##  7 A       no        
+    ##  8 B       no        
+    ##  9 A       yes       
+    ## 10 A       no        
+    ## # ... with 50 more rows</code></pre>
+
+        <p>Once our data is already stored in a data frame, we can use the
+            <code><a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/prop.test" target="_blank">prop.test</a></code>
+            in R to run our test.
+        </p>
+        <pre> <code class="language-r">prop.test(
+    sample_subscriber %>% 
+    group_by(website) %>% 
+    summarise(n_successes = sum(subscribed == "yes"), 
+              n_failures = sum(subscribed == "no")) %>% 
+    select(-website) %>% 
+    as.matrix())</code></pre>
+            <pre class="output">    <code>##  2-sample test for equality of proportions with continuity correction
+    ## 
+    ## X-squared = 1.4459e-30, df = 1, p-value = 1
+    ## alternative hypothesis: two.sided
+    ## 95 percent confidence interval:
+    ##  -0.2493486  0.3160153
+    ## sample estimates:
+    ##    prop 1    prop 2 
+    ## 0.4333333 0.4000000</code></pre>
+
+
+
+
+
+
+
+        <div style="height: 400px;">
+
+        </div>
+
     </main>
 
 </body>

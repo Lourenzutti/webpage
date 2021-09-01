@@ -3,7 +3,7 @@
          text
 **********************/
 main {
-    counter-reset: example, definition, section, exercise, figure;
+    counter-reset: example, definition, section, subsection, exercise, figure;
 }
 
 /* Format the text in the main column for book chapter */
@@ -15,20 +15,54 @@ main p, dt, dd{
 }
 
 /* Change the format paragraph for lists in text */
-main > ol > li > p {
+main ol > li > p {
     text-indent: 0em;
     line-height: 1.2;
     padding-left: 1em;
 }
 
+main ul > li > p {
+    text-indent: 0em;
+    line-height: 1.2;
+    padding-left: 1em;
+}
+
+figure {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;  
+    margin-top: 2em;  
+}
+
 /* To provide the source of the image */
 .source-img {
     font-size: 12px;
+    margin: auto;
     margin-bottom: 3em;
+    text-align: center;
 }
+
+figcaption {
+    counter-increment: figure;
+    color: #6c757d;
+    font-size: 16px;
+    letter-spacing: 1.2px;
+    margin: auto;
+    width: max-content;
+    margin-bottom: 2em;
+}
+
+figcaption::before {
+    content: "Figure "counter(section)"."counter(figure)":";
+    font-weight: bold;
+    font-size: 17px;
+    color: #6c757d;
+}
+
 img {
     margin-bottom: 10px;
 }
+
 /* Section header */
 main h2 {
     font-size: 2.5em;
@@ -53,18 +87,27 @@ main h2::before {
     content: counter(section)". ";
 }
 
-figcaption {
-    counter-increment: figure;
-    color: #6c757d;
-    font-size: 16px;
-    letter-spacing: 1.2px;
+main h3 {
+    font-size: 2em;
+    font-family: inherit;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 5px 20px 15px 30px;
+    letter-spacing: normal;
+    color: black;
+    background-color: rgba(20, 20, 30, 0.2);
+    border-radius: .5em;
+    text-decoration-style: dotted;
+    text-decoration: underline;
+    width: 100%;
+    counter-increment: subsection;
 }
-
-figcaption::before {
-    content: "Figure "counter(section)"."counter(figure)":";
-    font-weight: bold;
-    font-size: 17px;
-    color: #6c757d;
+main h3::before {
+    content: counter(section)"."counter(subsection) ". ";
+}
+.language-r {
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .end-part {
@@ -75,6 +118,7 @@ figcaption::before {
 .end-part::before{
     content: "\25A1";
 }
+
 
 main > button{
     border-radius: 10px;
@@ -157,7 +201,7 @@ tbody td:last-child{
 }
 
 .example::before{
-    content: "Example " counter(section) "." counter(example) ":";
+    content: "Example " counter(section) "." counter(example) ": ";
 }
 
 /* Define the box to be used by definitions, theorem, cautions, etc... */
@@ -316,3 +360,20 @@ caption {
     border-width: 0 0 3px 0;
     margin-bottom: 1em;
 }
+
+pre.output {
+    display: block;
+    padding: 9.5px;
+    margin: 0 0 10px;
+    font-size: 13px;
+    line-height: 1.42857143;
+    color: #333;
+    word-break: break-all;
+    word-wrap: break-word;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 0 auto 1em auto;
+    width: 75%;
+}
+
