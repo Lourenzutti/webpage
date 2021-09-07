@@ -385,7 +385,7 @@
         <p>Naturally, the way these statistics behave are different, i.e., the sampling distributions (and null models)
             of these statistics are different. We have explored two main approaches to approximate the
             sampling distribution (for confidence intervals) and the null model (for hypothesis testing): (1) the
-            Central Limit Theorem (CLT); and (2) Bootstrapping.</p>
+            Central Limit Theorem (CLT); and (2) Simulation Based Approaches.</p>
 
         <h4>Central Limit Theorem</h4>
         <p> When estimating or testing hypotheses, the parameter of interest affects which statistic we are going to
@@ -490,6 +490,7 @@ sample_money_donated</code></pre>
     ## sample estimates:
     ## mean in group Website A mean in group Website B 
     ##                37.28221                46.81443</code></pre>
+        <div class="end-part"></div>
 
         <h5>Comparing two proportions</h5>
 
@@ -514,7 +515,7 @@ sample_money_donated</code></pre>
             Suppose Obama's campaign wanted to test which of two websites, <em>Website A</em> or
             <em>Website B</em>, results in a higher rate of subscribers. The next 60 users who visit the campaign's
             website will access one of the websites chosen at random until 30 users have seen one of the designs. We
-            have collected (actually simulated!) this data for you and stored it in the
+            have collected this data for you and stored it in the
             <code>sample_subscriber</code> object.
         </p>
         <pre>
@@ -547,9 +548,9 @@ sample_subscriber</code></pre>
     ## 10 A       no        
     ## # ... with 50 more rows</code></pre>
 
-        <p>Once our data is already stored in a data frame, we can use the
+        <p>Once the data is collected, we can run
             <code><a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/prop.test" target="_blank">prop.test</a></code>
-            in R to run our test.
+            in R to test the hypothesis.
         </p>
         <pre> <code class="language-r">prop.test(
     sample_subscriber %>% 
@@ -567,11 +568,42 @@ sample_subscriber</code></pre>
     ## sample estimates:
     ##    prop 1    prop 2 
     ## 0.4333333 0.4000000</code></pre>
+        <div class="end-part"></div>
+       <h4>Simulation Based Approach</h4>
+       <p>Alternatively to the CLT, we could use computer simulations to compare the groups. The same idea we discussed previously:</p>
+        
+        <ol>
+            <li><p>Collect the samples of Group A and Group B;</p></li>
+            <li><p>Calculate the observed test statistic; </p></li>
+            <li><p>Put the sample of both groups together;</p></li>
+            <li><p>Select \(n_1\) elements at random, <strong>without</strong> replacement, from the two samples combined.</p></li>
+            <li><p>The selected elements will be your "new" Group A, and the remaining will be your "new" Group B. </p></li>
+            <li><p>Calculate the appropriate test statistic (e.g., the difference of sample proportions or of sample means).</p></li>
+            <li><p>Perform Steps 4, 5 and 6, multiple times to obtain a sample from the <em>Null Distribution </em>. </p></li>
+            <li><p>Compare the observed test statistic with the simulated null model.</p></li>
+        </ol>
+        
+        <p>Note that by randomizing the groups in the sample (Steps 3, 4, and 5), we are trying to remove the difference between the groups, except for those differences due to sampling variability. But why are we doing that again? Because we want to simulate a sample from the Null Model, which is the model under the assumption that there is no difference between the groups. </p>
 
-
-
-
-
+        <p><span class="example"></span>
+            Let's return to Obama's campaign problem in the example above. We want to test which website, Website A or Website B, has a higher subscription rate. The data is stored in <code>sample_subscriber</code>.
+        </p>
+<pre>
+<code class="language-r">sample_subscriber</code></pre>
+    <pre class="output">    <code>## # A tibble: 60 x 2
+    ##    website subscribed
+    ##    &lt;fct&gt;   &lt;fct&gt;     
+    ##  1 B       no        
+    ##  2 B       yes       
+    ##  3 A       yes       
+    ##  4 A       no        
+    ##  5 B       no        
+    ##  6 A       no        
+    ##  7 A       no        
+    ##  8 B       no        
+    ##  9 A       yes       
+    ## 10 A       no        
+    ## # ... with 50 more rows</code></pre>
 
 
         <div style="height: 400px;">
