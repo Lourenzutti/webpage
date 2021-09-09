@@ -692,7 +692,8 @@ obs_test_statistic</code></pre>
             company keep spending resources and time to continue the experiment as planned? Continuing with the
             experiment could be unnecessarily costly.</p>
 
-        <p><span class="example"></span>Suppose Pfizer, a pharmaceutical company, is conducting a clinical trial to test
+        <p style="margin-bottom: 0;"><span class="example"></span>Suppose Pfizer, a pharmaceutical company, is
+            conducting a clinical trial to test
             the effectiveness of a new treatment. They planned to have 1,000 participants in total, 500 of which will
             receive the new drug, and the remaining 500 will receive the placebo. However, at the current point in time,
             they have data of 600 participants, where 300 received the drug and 300 received the placebo. Among the 300
@@ -710,8 +711,161 @@ obs_test_statistic</code></pre>
         <p>A reasonable answer could be to monitor the data online. In other words, for every new observation in each
             group we have, we take a peek at the data. </p>
 
-        <h4>Principled Peeking</h4>
+        <p><span class="example"></span>Suppose Obama's campaign wanted to test two website designs, and they are
+            interested in the amount of money donated per visitor.
 
+            So, they decided to conduct an A/B Test and start monitoring as soon as they had ten visitors for each
+            design. Then, they would peek at the data again once both designs had received another visitor, and so on.
+            If they detect a difference, they will immediately stop the experiment and make the best website version
+            available to all visitors. They will allow a maximum number of visitors of 1,000 per design.</p>
+
+        <figure>
+            <img src="/imgs/ab-testing/obama-experiment-1.png" width="50%">
+            <figcaption> A/B Test with two versions of Obama's campaign website.
+                <p class="source-img">Source: Obama's pictures<a
+                        href="https://blog.optimizely.com/2010/11/29/how-obama-raised-60-million-by-running-a-simple-experiment/">Optimizely</a>
+                </p>
+            </figcaption>
+            <figure>
+                <img src="/imgs/ab-testing/obama-online-pvalues.png" width="60%">
+                <figcaption> Multiple checks of p-value for different sample sizes
+                    <p class="source-img">Source: Obama's pictures <a
+                            href="https://blog.optimizely.com/2010/11/29/how-obama-raised-60-million-by-running-a-simple-experiment/">Optimizely</a>
+                    </p>
+                </figcaption>
+            </figure>
+        </figure>
+
+        <div class="end-part"></div>
+        <p>In the example above, Obama's campaign wants to use a strategy that does not specify the sample size. So far,
+            we have been discussing inference scenarios where the sample size is determined <strong>prior to the
+                study</strong>. But in this case, the methodology will not change because the sample size will be fixed
+            at each <em>peek</em>. The problem is that we are experimenting multiple times with different sample sizes.
+        </p>
+
+        <div class="box-def box-exercise">
+            <p></p>
+            <p>
+                When conducting hypothesis testing, what are the effects that sample size has on:
+            </p>
+            <ol>
+                <li class="question-item">
+                    <p>Probability of Type I Error</p>
+                    <textarea class="answer" style="height:50px;"></textarea><br>
+                </li>
+                <li class="question-item">
+                    <p>Probability of Type II Error</p>
+                    <textarea class="answer" style="height:50px;"></textarea><br>
+                </li>
+                <li class="question-item">
+                    <p>Power of the test</p>
+                    <textarea class="answer" style="height:50px;"></textarea>
+                </li>
+            </ol>
+            <button class="btn-show-answers">Show answers</button>
+            <div class="solution">
+                <dl>
+                    <dt>Probability of Type I Error</dt>
+                    <dd>None. Remember that the probability of Type I Error is the significance level, which is
+                        specified by us before the test is conducted.</dd>
+
+                    <dt>Probability of Type II Error</dt>
+                    <dd>The Probability of Type II Error decreases as the sample size increases. The reason is that
+                        both the null model and the sampling distribution of the test statistic will become narrower,
+                        hence reducing their overlap.
+                    </dd>
+
+                    <dt>Power of the test</dt>
+                    <dd> The power of the test is just one minus the probability of Type II Error. Since the probability
+                        of Type II Error decreases as the sample size increases, the power of the test increases as the
+                        sample size increases.
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+
+        <p>Ok, so Obama's campaign seems to have a good plan. The probability of Type I Error at each peek will be the
+            same; the power of the test will be smaller, but if it is already big enough to detect a difference, kudos!
+            No downside here, right? Wrong!While the probability of Type I Error is the same at each peek, they only
+            need to reject the hypothesis once in multiple tests.
+        </p>
+
+        <div class="box-def box-exercise">
+            <p></p>
+            <p style="text-indent: 0;">
+                When conducting multiple hypothesis testing, what happens to the family-wise errors?
+            </p>
+            <textarea class="answer" style="height:50px; width: 90%;"></textarea><br>
+            <button class="btn-show-answers">Show answers</button>
+            <div class="solution">
+                Since you need to make the right decision multiple times, and each time there is a chance that you make
+                the wrong decision,
+                when you consider whether <strong>all</strong> the decisions you made are right, there is a much lower
+                chance of that happening compared to each hypothesis testing individually.
+            </div>
+        </div>
+
+        <p><span class="example"></span> Let's continue our previous example of Obama's campaign. The first thing we
+            should do is to test if the plan is good. But how can we do that if we do not know the truth (i.e., if
+            there's actually a difference between the two websites): Here's our we are going to do it:
+        <ol>
+            <li>
+                <p>Let's run the experiment 100 times.</p>
+                <figure>
+                    <img src="/imgs/ab-testing/obama-experiment-100.png" width="75%">
+                    <figcaption> One hundred A/B Tests with two versions of Obama's campaign website.
+                        <p class="source-img">Source: Obama's pictures <a
+                                href="https://blog.optimizely.com/2010/11/29/how-obama-raised-60-million-by-running-a-simple-experiment/">Optimizely</a>
+                        </p>
+                    </figcaption>
+                </figure>
+
+
+            </li>
+            <li>
+                <p>But this time, we are going to use the same website for both groups. This way, we know the truth --
+                    there's
+                    no difference!!</p>
+                <figure>
+                    <img src="/imgs/ab-testing/obama-aa-experiment-100.png" width="75%">
+                    <figcaption> One hundred A/B Test with the same version of Obama's campaign website.
+                        <p class="source-img">Source: Obama's pictures <a
+                                href="https://blog.optimizely.com/2010/11/29/how-obama-raised-60-million-by-running-a-simple-experiment/">Optimizely</a>
+                        </p>
+                    </figcaption>
+                </figure>
+                <figure>
+                    <img src="/imgs/ab-testing/obama-online-monitoring-pvalue-100.png" width="60%">
+                    <figcaption> Multiple checks of p-value for different sample sizes in each of the 100 experiments.
+                        <p class="source-img">Source: Obama's pictures <a
+                                href="https://blog.optimizely.com/2010/11/29/how-obama-raised-60-million-by-running-a-simple-experiment/">Optimizely</a>
+                        </p>
+                    </figcaption>
+                </figure>
+            </li>
+            <li>
+                <p>Let's see in how many of the 100 experiments the null hypothesis is rejected at least once. That will
+                    estimate how bad the chance of our <em>family-wise</em> Type I Error will be.</p>
+            </li>
+        </ol>
+        </p>
+        <p>In this case, using a significance level of 5%, approximately 22% of the 100 A/B tests would have wrongly
+            rejected \(H_0\) and concluded that the same version of the website is different from itself. This is way
+            above
+            our specified significance level of 5%. Terrible, isn't it? Obama's campaign is in a bit of a
+            pickle now. It seems they have to wait for 2000 people to visit the website before they can examine whether
+            there's a difference. Do they, though? </p>
+        <p>We have learned about p-value adjustments to control for Type I Error. Remember Bonferroni's correction?
+            So we could propose a compromise to
+            them:<br>
+            &emsp;&emsp;<em>- "Hey, don't peek at the data for every two people that visit your website.
+                Instead, pick a reasonable number of tests, and I'll adjust the p-value so we can control the
+                probability of Type I Error."</em></p>
+
+        <p style="text-indent: 0;">They can decide when to conduct the test, say for example, n = 50, n = 100, n = 250,
+            n = 500, and n = 1000. Doing this in the Obama's problem would reduce the number of rejection to 7
+            experiment, much closer to the 5% specified. This approach is called <em>principled peeking</em>.</p>
 
 
 
